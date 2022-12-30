@@ -73,6 +73,20 @@
   }
 } */
 
+@font-face {
+  font-family: "IBMPlexSansThai";
+  src: url("../assets/fonts/IBMPlexSansThai-Regular.ttf");
+}
+
+@font-face {
+  font-family: "IBMPlexSansThaiBold";
+  src: url("../assets/fonts/IBMPlexSansThai-Bold.ttf");
+}
+
+/* p {
+  font-family: IBMPlexSansThai;
+} */
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -105,3 +119,24 @@ a {
     color-scheme: dark;
   }
 } */
+
+/* custom */
+.color-yellow {
+  color: #ffeb78;
+}
+
+.color-blue {
+  color: #22C0E8;
+}
+
+.color-white {
+  color: #ffffff;
+}
+
+.font-plexsans {
+  font-family: IBMPlexSansThai;
+}
+
+.font-plexsans-bold {
+  font-family: IBMPlexSansThaiBold;
+}

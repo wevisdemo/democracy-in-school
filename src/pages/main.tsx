@@ -1,4 +1,5 @@
 import Navbar from 'components/navbar'
+import Decision from 'components/templates/decision'
 import Intro from 'components/templates/intro'
 import Welcome from 'components/templates/welcome'
 import styled from 'styled-components'
@@ -16,6 +17,7 @@ export default function Main() {
       <Navbar></Navbar>
       <Welcome></Welcome>
       <Intro></Intro>
+      <Decision></Decision>
     </MainComponent>
   )
 }

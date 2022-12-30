@@ -32,10 +32,12 @@ const Welcome = () => {
       <ShareComponent>
         <WvSharer url="https://wevis.info" />
       </ShareComponent>
-      {/* <LottieComponent> */}
-      <Lottie animationData={DesktopCover} loop={true} style={{ width: '100%', height: '100%' }}></Lottie>
-      {/* </LottieComponent> */}
-      {/* <CoverImage src="/cover/cover_desktop.png" alt="cover_desktop" layout="fill" objectFit="contain"></CoverImage> */}
+      <Lottie
+        animationData={DesktopCover}
+        autoplay={true}
+        loop={true}
+        style={{ width: '100%', height: '100%' }}
+      ></Lottie>
     </CoverDiv>
   )
 }

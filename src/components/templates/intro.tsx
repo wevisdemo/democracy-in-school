@@ -34,6 +34,7 @@ const Intro = () => {
       <SectionDiv>
         <Lottie
           animationData={DesktopBubble}
+          autoplay={true}
           loop={true}
           style={{ width: '100%', height: '100%', position: 'absolute' }}
         ></Lottie>
