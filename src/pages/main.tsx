@@ -1,4 +1,5 @@
 import Navbar from 'components/navbar'
+import Quiz from 'components/quiz/quiz'
 import Decision from 'components/templates/decision'
 import Intro from 'components/templates/intro'
 import Welcome from 'components/templates/welcome'
@@ -18,6 +19,7 @@ export default function Main() {
       <Welcome></Welcome>
       <Intro></Intro>
       <Decision></Decision>
+      <Quiz></Quiz>
     </MainComponent>
   )
 }

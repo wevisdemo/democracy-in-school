@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import WelcomeSelector from 'components/shared/welcomeSelector'
 
 const WelcomeComponent = styled.div`
   .cover {
@@ -34,11 +35,28 @@ const Wrapper = styled.div`
 `
 
 const IntroComponent = styled.div`
+  position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .img-left {
+    width: 284px !important;
+    height: 778px !important;
+    position: absolute;
+    top: 0px !important;
+    left: 0px !important;
+  }
+
+  .img-right {
+    width: 284px !important;
+    height: 778px !important;
+    position: absolute;
+    top: 0px !important;
+    right: 0px !important;
+  }
 `
 
 const IntroTextWrap = styled.div`
@@ -73,6 +91,13 @@ const Footer = styled.div`
   height: 100%;
   margin-top: 184px;
 
+  .question-mark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .text-wrap {
     max-width: 488px;
     position: absolute;
@@ -90,15 +115,10 @@ const Footer = styled.div`
 const WelcomeStory = () => {
   return (
     <Wrapper>
-      <WelcomeComponent>
-        <div className="cover">
-          <Image src="/part_1/gif_story.gif" alt="gif-story" fill></Image>
-          <h4 className="wv-font-kondolar wv-h4 cover-message color-yellow">Know Your Rights</h4>
-          <div className="breakline cover-message" />
-          <h6 className="wv-font-kondolar wv-h6 cover-message color-white">เกิดมาทั้งที เรามีสิทธิเสรีภาพ แค่ไหน?</h6>
-        </div>
-      </WelcomeComponent>
+      <WelcomeSelector type="story" />
       <IntroComponent>
+        <img src="/part_2/illus_01.01.png" alt="illus_01" className="img-left" />
+        <img src="/part_2/illus_01.02.png" alt="illus_02" className="img-right" />
         <IntroTextWrap>
           <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human right)</h6>
           <p className="wv-b2 font-plexsans">
@@ -112,6 +132,13 @@ const WelcomeStory = () => {
         </IntroTextWrap>
         <Footer>
           <ImageCustom src="/part_1/ellips.svg" alt="ellips" fill></ImageCustom>
+          <Image
+            src="/part_2/question-mark.svg"
+            alt="question-mark"
+            width={180}
+            height={272}
+            className="question-mark"
+          />
           <div className="text-wrap">
             <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
             <p className="wv-b2 font-plexsans">
