@@ -2,14 +2,11 @@ import styled from 'styled-components'
 import Image from 'next/image'
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-image: url(/part_3/topic/cover.svg);
+  background-size: cover;
 `
 
 const TextWrap = styled.div`
-  margin-top: 56px;
   max-width: 524px;
   text-align: center;
 
@@ -105,14 +102,14 @@ const Topic = ({ topic }: { topic: ITopic }) => {
   return (
     <TopicComponent>
       <Image src={topic.image_src} alt={`topic-${topic.title}`} width={184} height={184} />
-      <p className="wv-h7 font-plexsans description">{topic.title}</p>
+      <p className="wv-h7 font-plexsans-bold description">{topic.title}</p>
     </TopicComponent>
   )
 }
 
 const QuizSelector = () => {
   return (
-    <Wrapper>
+    <Wrapper className="full-page">
       <TextWrap>
         <h6 className="wv-font-kondolar wv-h6">เลือกหัวข้อที่สนใจเพื่อทดสอบความเข้าใจ</h6>
         <p className="font-plexsans wv-b5">
