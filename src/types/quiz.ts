@@ -15,18 +15,22 @@ export interface IQuiz {
 export interface IQuizEvent {
   title: string
   sub_title: string
-  contents: {
-    image_url: string
-    text: string
-  }[]
-
+  contents: IQuizEventContent[]
   question: string
 }
 
 export interface IQuizReminder {
   topic: string
-  paragraph: {
+  cover_url: string
+  paragraphs: {
     text: string
     color: string
   }[]
+  question: string
+  shared_topic: string
+}
+
+export interface IQuizEventContent {
+  image_url: string
+  text: string
 }
