@@ -1,3 +1,4 @@
+import Ending from 'components/ending/ending'
 import Navbar from 'components/navbar'
 import Quiz from 'components/quiz/quiz'
 import Decision from 'components/templates/decision'
@@ -20,6 +21,7 @@ export default function Main() {
       <Intro></Intro>
       <Decision></Decision>
       <Quiz></Quiz>
+      <Ending></Ending>
     </MainComponent>
   )
 }
