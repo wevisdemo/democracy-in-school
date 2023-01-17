@@ -7,43 +7,81 @@ interface PropsType {
   index: number
 }
 
-const QuizEventContent = ({ content, index }: PropsType) => {
-  const ContentContainer = styled.div`
-    position: relative;
+const ContentContainer = styled.div<{ index: number }>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%%;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+
+  .text {
+    max-width: 352px;
+    @media (max-width: 1024px) {
+      order: 2;
+      max-width: unset;
+      margin-top: 16px;
+    }
+  }
+
+  .curve-arrow {
+    width: 30%;
+    max-width: 212px;
+    position: absolute;
+    // left: ${(props) => (props.index % 2 == 0 ? '500px' : '200px')};
+    left: ${(props) => (props.index % 2 == 0 ? '55%' : 'unset')};
+    right: ${(props) => (props.index % 2 == 0 ? 'unset' : '55%')};
+    top: 30%;
+    transform: ${(props) =>
+      props.index % 2 == 0 ? 'rotate(5deg) translate(-50%, -50%)' : 'scaleX(-1) rotate(5deg) translate(-50%, -50%)'};
+
+    @media (max-width: 1024px) {
+      min-width: 116px;
+      left: ${(props) => (props.index % 2 == 0 ? '30%' : 'unset')};
+      right: ${(props) => (props.index % 2 == 0 ? 'unset' : '30%')};
+      transform: ${(props) =>
+        props.index % 2 == 0
+          ? 'scaleX(-1) rotate(330deg) translate(-50%, -50%)'
+          : ' rotate(330deg) translate(-50%, -50%)'};
+    }
+  }
+
+  .img-wrapper {
+    width: 90%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%%;
+    order: ${(props) => (props.index % 2 == 0 ? 1 : 2)};
+    justify-content: ${(props) => (props.index % 2 == 0 ? 'flex-start' : 'flex-end')};
 
-    .text {
-      max-width: 352px;
+    @media (max-width: 1024px) {
+      order: 1;
     }
 
-    .arrow {
-      position: absolute;
-      left: 55%;
-      top: 30%;
-      transform: rotate(5deg) translate(-50%, -50%);
-    }
+    .content-img {
+      width: 100%;
+      max-width: 508px;
+      max-height: 508px;
+      // order: ${(props) => (props.index % 2 == 0 ? 1 : 2)};
 
-    .arrow-right {
-      position: absolute;
-      left: 22%;
-      top: 30%;
-      transform: scaleX(-1) rotate(5deg) translate(-50%, -50%);
+      @media (max-width: 1024px) {
+        width: 50%;
+        min-width: 152px;
+        min-height: 152px;
+        order: 1;
+      }
     }
-  `
+  }
+`
 
+const QuizEventContent = ({ content, index }: PropsType) => {
   return (
-    <ContentContainer>
-      <Image
-        src={content.image_url}
-        alt={content.image_url}
-        width={508}
-        height={508}
-        style={{ order: index % 2 == 0 ? 1 : 2 }}
-      />
-      <img src="/curve-arrow.svg" alt="curve-arrow" className={`${index % 2 == 0 ? 'arrow' : 'arrow-right'}`} />
+    <ContentContainer index={index}>
+      <div className="img-wrapper">
+        <img className="content-img" src={content.image_url} alt={content.image_url} />
+      </div>
+      <img src="/curve-arrow.svg" alt="curve-arrow" className="curve-arrow" />
       <p className="wv-b2 font-plexsans color-yellow text" style={{ order: index % 2 == 0 ? 2 : 1 }}>
         {content.text}
       </p>

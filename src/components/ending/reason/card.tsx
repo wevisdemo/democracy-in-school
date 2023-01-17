@@ -19,7 +19,7 @@ const ReasonCardContainer = styled.div`
 
   .paragraph {
     font-size: 18px;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       font-size: 13px;
     }
   }

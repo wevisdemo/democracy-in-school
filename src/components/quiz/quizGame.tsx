@@ -12,51 +12,66 @@ const TextWrap = styled.div`
   }
 `
 
-const Choice = ({ choice }: { choice: IChoiceQuiz }) => {
-  const ChoiceContainer = styled.div`
-    width: 184px;
-    height: 424px;
-    position: relative;
-    :hover {
-      cursor: pointer;
-      outline: 5px solid #000000;
-    }
+const ChoiceContainer = styled.div<{ choice: IChoiceQuiz }>`
+  width: 184px;
+  height: 424px;
+  position: relative;
 
-    .background {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: ${choice.background_color};
-    }
-  `
+  @media (max-width: 1024px) {
+    width: 92px;
+    height: 212px;
+  }
 
-  const TextWrapper = styled.div`
-    padding: 8px 16px;
+  :hover {
+    cursor: pointer;
+    outline: 5px solid #000000;
+  }
+
+  .background {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
+    background-color: ${(props) => props.choice.background_color};
+  }
+`
 
-    h6 {
-      position: relative;
-      z-index: 20;
+const TextWrapper = styled.div`
+  padding: 8px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
+
+  h6 {
+    position: relative;
+    z-index: 20;
+  }
+
+  p {
+    position: relative;
+    z-index: 20;
+    padding: 8px 0px;
+    font-size: 18px;
+
+    @media (max-width: 1024px) {
+      font-size: 13px;
     }
+  }
+`
 
-    p {
-      position: relative;
-      z-index: 20;
-      padding: 8px 0px;
-    }
-  `
-
+const Choice = ({ choice }: { choice: IChoiceQuiz }) => {
   return (
-    <ChoiceContainer>
+    <ChoiceContainer choice={choice}>
       <div className="background"></div>
       <Image src={choice.image_src} alt={`choice-${choice.label}`} fill />
       <TextWrapper>
         <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black ">{choice.label}</h6>
-        <p className="font-plexsans-bold wv-b4 color-white text-stroke-black ">{choice.text}</p>
+        <p className="font-plexsans-bold color-white text-stroke-black ">{choice.text}</p>
       </TextWrapper>
     </ChoiceContainer>
   )
@@ -67,6 +82,11 @@ const ChoiceWrapperContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
 `
 
 interface PropsType {

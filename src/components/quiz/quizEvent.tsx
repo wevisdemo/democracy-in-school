@@ -1,7 +1,9 @@
+import ContinueChip from 'components/shared/continueChip'
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
 import { IQuizEvent, IQuizEventContent } from 'types/quiz'
 import QuizEventContent from './quizEventContent'
+import QuizEventQuestion from './quizEventQuestion'
 import QuizQuestionTextArea from './quizQuestion'
 import QuizQuestion from './quizQuestion'
 
@@ -12,6 +14,8 @@ interface PropsType {
 const QuizEventContainer = styled.div`
   background-image: url('/background/bg_black.01.png');
   background-repeat: repeat;
+  padding-bottom: 40px;
+  padding: 10px;
 `
 
 const Header = styled.div`
@@ -28,12 +32,26 @@ const ContentWrapper = styled.div`
   width: 80%;
   max-width: 976px;
   margin: 88px auto;
+
+  @media (max-width: 1024px) {
+    margin: 40px auto;
+  }
 `
 
 const QuestionContainer = styled.div`
+  position: relative;
   max-width: 652px;
   text-align: center;
   border-radius: 5px;
+
+  .question-highlight {
+    position: absolute;
+    width: 100%;
+    height: 554px;
+    background: radial-gradient(50% 50% at 50% 50%, #ffffff 82.29%, rgba(255, 255, 255, 0) 100%);
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+  }
 
   textarea {
     padding: 12px;
@@ -47,7 +65,7 @@ const QuestionContainer = styled.div`
     padding: 0px 10px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     textarea {
       padding: 8px;
       font-size: 13px;
@@ -77,12 +95,8 @@ const QuizEvent = ({ event }: PropsType) => {
           <QuizEventContent content={content} index={index} />
         ))}
       </ContentWrapper>
-      <QuestionContainer>
-        <h3 className="wv-h3 color-yellow wv-font-kondolar">คำถาม?</h3>
-        <p className="wv-b1 color-white wv-font-kondolar">{event.question}</p>
-        <QuizQuestionTextArea text={text} onChangeText={onChangeText}></QuizQuestionTextArea>
-        <button className="wv-b3 font-plexsans-bold ">ส่งคำตอบ</button>
-      </QuestionContainer>
+      <QuizEventQuestion question={event.question} />
+      <ContinueChip light />
     </QuizEventContainer>
   )
 }

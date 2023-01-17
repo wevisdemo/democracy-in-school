@@ -15,7 +15,7 @@ const TextAreaContainer = styled.textarea`
   border-radius: 4px;
   resize: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 278px;
     height: 124px;
     padding: 8px;
@@ -31,7 +31,7 @@ const QuizQuestionContainer = styled.div`
   margin: auto;
   margin-top: 10px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 278px;
     height: 124px;
   }

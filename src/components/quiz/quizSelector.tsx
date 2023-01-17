@@ -4,6 +4,10 @@ import Image from 'next/image'
 const Wrapper = styled.div`
   background-image: url(/part_3/topic/cover.svg);
   background-size: cover;
+
+  @media (max-width: 1024px) {
+    padding: 28px;
+  }
 `
 
 const TextWrap = styled.div`
@@ -73,18 +77,48 @@ const TopicWapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
 `
 
 const TopicComponent = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
+  // width: 184px;
+
+  @media (max-width: 1024px) {
+    width: 76px;
+  }
 
   .description {
     margin-top: 4px;
     max-width: 224px;
     text-align: center;
+    font-size: 28px;
+
+    @media (max-width: 1024px) {
+      font-size: 11px;
+    }
+  }
+
+  .topic-image {
+    background-color: white;
+    width: 184px;
+    height: 184px;
+
+    @media (max-width: 1024px) {
+      width: 76px;
+      height: 76px;
+    }
   }
 `
 
@@ -101,8 +135,8 @@ const TopicList = ({ topicList }: { topicList: ITopic[] }) => {
 const Topic = ({ topic }: { topic: ITopic }) => {
   return (
     <TopicComponent>
-      <Image src={topic.image_src} alt={`topic-${topic.title}`} width={184} height={184} />
-      <p className="wv-h7 font-plexsans-bold description">{topic.title}</p>
+      <img className="topic-image" src={topic.image_src} alt={`topic-${topic.title}`} width={184} height={184} />
+      <p className="font-plexsans-bold description">{topic.title}</p>
     </TopicComponent>
   )
 }

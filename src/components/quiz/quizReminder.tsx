@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { IQuizReminder } from 'types/quiz'
 import WvSharer from '@wevisdemo/ui/react/sharer'
 import Link from 'next/link'
+import ContinueChip from 'components/shared/continueChip'
 
 const Container = styled.div`
   width: 100%;
@@ -77,6 +78,11 @@ const Footer = styled.div`
 
   .back-to-story {
     margin-top: 24px;
+    color: white;
+  }
+
+  .next-move {
+    margin-top: 28px;
   }
 `
 
@@ -103,7 +109,7 @@ interface PropsType {
 
 const QuizReminder = ({ reminder, quizAmount }: PropsType) => {
   return (
-    <Container>
+    <Container className="color-white">
       <ContentContainer>
         <div className="bg-image" style={{ backgroundImage: `url(${reminder.cover_url})`, width: '100%' }}></div>
         <TextContentContainer>
@@ -143,6 +149,8 @@ const QuizReminder = ({ reminder, quizAmount }: PropsType) => {
         <Link href="/" className="font-plex-sans wv-h7 back-to-story">
           เข้าใจเรื่องสิทธิ
         </Link>
+        <p className="next-move">(เลื่อนเพื่อไปต่อ)</p>
+        <ContinueChip light />
       </Footer>
     </Container>
   )

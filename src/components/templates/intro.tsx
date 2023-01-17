@@ -1,16 +1,29 @@
 import styled from 'styled-components'
 import Lottie from 'lottie-react'
 import DesktopBubble from 'assets/lotties/desktop_bubble.json'
+import ContinueChip from 'components/shared/continueChip'
 
 const SectionDiv = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
   display: flex;
+
+  .lottie {
+    opacity: 0.2;
+  }
+
+  .chip {
+    position: absolute;
+    left: 50%;
+    bottom: 200px;
+    transform: translate(-50%, 0);
+  }
 `
 
 const SecondSectionDiv = styled(SectionDiv)`
-  background-color: #22c0e8;
+  background: url('/part_1/gif_01.gif');
+  background-size: cover;
 `
 
 const FirstSection = styled.p`
@@ -33,6 +46,7 @@ const Intro = () => {
     <>
       <SectionDiv>
         <Lottie
+          className="lottie"
           animationData={DesktopBubble}
           autoplay={true}
           loop={true}
@@ -42,6 +56,9 @@ const Intro = () => {
           เราอาจเห็นหลายประเด็นในสังคมที่มีคนมีความเห็นต่างกัน และบางประเด็นไม่ได้จบลงด้วยการเคารพความคิดเห็นต่อกัน
           ในวิถีประชาธิปไตยแบบที่เรารับรู้มา
         </FirstSection>
+        <div className="chip">
+          <ContinueChip />
+        </div>
       </SectionDiv>
       <SecondSectionDiv>
         <SecondSectionText>

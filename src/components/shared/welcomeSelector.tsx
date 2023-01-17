@@ -1,21 +1,21 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import ContinueChip from 'components/shared/continueChip'
 
 interface PropsType {
   type: 'quiz' | 'story'
 }
 
 const WelcomeComponent = styled.div`
-  .cover {
-    position: relative;
-    height: 100vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-  }
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
 
   .cover-message {
     position: relative;
@@ -29,6 +29,11 @@ const WelcomeComponent = styled.div`
     height: 0px;
     border-top: 1px solid #ffffff;
     margin: 10px 0;
+  }
+
+  .chip {
+    position: absolute;
+    bottom: 100px;
   }
 `
 
@@ -63,11 +68,12 @@ const WelcomeSelector = ({ type }: PropsType) => {
   const typo = typographyDict[type]
   return (
     <WelcomeComponent>
-      <div className="cover">
-        <Image src={typo.image_src} alt={typo.image_alt} fill></Image>
-        <h4 className="wv-font-kondolar wv-h4 cover-message color-yellow">{typo.title}</h4>
-        <div className="breakline cover-message" />
-        <h6 className="wv-font-kondolar wv-h6 cover-message color-white">{typo.description}</h6>
+      <Image src={typo.image_src} alt={typo.image_alt} fill></Image>
+      <h4 className="wv-font-kondolar wv-h4 cover-message color-yellow">{typo.title}</h4>
+      <div className="breakline cover-message" />
+      <h6 className="wv-font-kondolar wv-h6 cover-message color-white">{typo.description}</h6>
+      <div className="chip">
+        <ContinueChip light />
       </div>
     </WelcomeComponent>
   )

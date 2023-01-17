@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import WelcomeSelector from 'components/shared/welcomeSelector'
+import PointingButton from 'components/shared/pointerButton'
 
 const WelcomeComponent = styled.div`
   .cover {
@@ -56,6 +57,10 @@ const IntroComponent = styled.div`
     position: absolute;
     top: 0px !important;
     right: 0px !important;
+  }
+
+  .pointing-btn {
+    margin-top: 28px;
   }
 `
 
@@ -113,6 +118,8 @@ const Footer = styled.div`
 `
 
 const WelcomeStory = () => {
+  const onClickButton = () => {}
+
   return (
     <Wrapper>
       <WelcomeSelector type="story" />
@@ -125,9 +132,8 @@ const WelcomeStory = () => {
             ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
           </p>
           <p className="wv-h7 font-plexsans-bold">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
-          <div className="video-button wv-b4 font-plexsans">
-            <span>วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน</span>
-            <Image src="/pointing-hand.svg" alt="pointing-hand" width={20} height={28} style={{ marginTop: '8px' }} />
+          <div className="pointing-btn">
+            <PointingButton onClick={onClickButton} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
           </div>
         </IntroTextWrap>
         <Footer>
