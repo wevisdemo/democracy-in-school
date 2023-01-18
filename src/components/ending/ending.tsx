@@ -5,13 +5,13 @@ import Image from 'next/image'
 import EndingBoard from './board'
 import EndingShare from './share'
 
-const Container = styled.div`
+const EndingContainer = styled.div`
   background-image: url('/background/bg_yellow.01.png');
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 70px;
+  text-align: center;
 
   .arrow-wrapper {
     position: relative;
@@ -26,18 +26,46 @@ const Container = styled.div`
     animation: mymove 3s !important;
     animation-iteration-count: infinite !important;
   }
+
+  .board-wrap {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .board {
+      max-width: fit-content;
+      width: 100%;
+      position: absolute;
+
+      @media (max-width: 420px) {
+        width: unset;
+      }
+    }
+  }
 `
 
 const Ending = () => {
   return (
-    <Container>
+    <EndingContainer>
       <Reason reasons={endingData.reasons}></Reason>
       <div className="arrow-wrapper">
         <Image className="arrow" src="/part_4/arrow.svg" alt="arrow" fill></Image>
       </div>
-      <EndingBoard></EndingBoard>
-      <EndingShare></EndingShare>
-    </Container>
+      <div className="board-wrap">
+        <img
+          className="board"
+          src="/part_4/board_mobile.png"
+          srcSet="/part_4/board_mobile.png 420w, /part_4/board_desktop.png"
+          sizes="(max-width: 420px) 420px, 1280px"
+          alt="board"
+        />
+        <EndingBoard></EndingBoard>
+        <EndingShare></EndingShare>
+      </div>
+    </EndingContainer>
   )
 }
 

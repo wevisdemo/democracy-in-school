@@ -13,6 +13,10 @@ const ReasonCardContainer = styled.div`
   text-align: center;
   font-family: IBMPlexSansThai;
 
+  @media (max-width: 600px) {
+    width: 216px;
+  }
+
   *:not(:first-child) {
     margin-top: 15px;
   }
@@ -29,6 +33,14 @@ const ReasonCardContainer = styled.div`
     height: 152px !important;
     position: relative !important;
   }
+
+  .topic {
+    font-size: 24px;
+
+    @media (max-width: 600px) {
+      font-size: 17px;
+    }
+  }
 `
 
 interface PropsType {
@@ -40,7 +52,7 @@ const ReasonCard = ({ index, reason }: PropsType) => {
   return (
     <ReasonCardContainer>
       <Image className="thumbnail" src={reason.image_src} alt={`reason-${index}`} fill sizes="200px"></Image>
-      <p className="wv-b2 font-plexsans-bold color-blue">{reason.topic}</p>
+      <p className="font-plexsans-bold color-blue topic">{reason.topic}</p>
       {reason.paragraphs.map((item, index) => {
         return (
           <p className="paragraph" key={`reason-paragraph-${index}`}>

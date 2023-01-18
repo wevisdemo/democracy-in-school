@@ -5,6 +5,7 @@ const EndingBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   .board {
     max-width: fit-content;
@@ -18,8 +19,18 @@ const EndingBoardContainer = styled.div`
     margin-top: 15%;
     text-align: center;
 
+    @media (max-width: 420px) {
+      max-width: 244px;
+      width: 100%;
+      margin-top: 140px;
+    }
+
     p {
       margin-top: 10px;
+
+      @media (max-width: 420px) {
+        font-size: 17px;
+      }
     }
   }
 `
@@ -27,7 +38,7 @@ const EndingBoardContainer = styled.div`
 const EndingBoard = () => {
   return (
     <EndingBoardContainer>
-      <img className="board" src="/part_4/board_desktop.png" alt="board" />
+      {/* <img className="board" src="/part_4/board_desktop.png" srcSet="/part_4/board_mobile.png 420w" alt="board" /> */}
       <div className="text-wrapper">
         <h6 className="wv-h6 wv-font-kondolar color-white">
           ใช้สิทธิเสรีภาพอย่างมีความรับผิดชอบ รู้สิทธิตนเอง เคารพสิทธิคนอื่น เริ่มได้จากการเคารพสิทธิเสรีภาพ

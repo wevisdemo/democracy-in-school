@@ -1,15 +1,17 @@
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IDropdownOption } from 'types/shared'
-import { transform } from 'typescript'
 
 const DropdownContainer = styled.div`
-  position: relative
-  display: flex;
-  flex-direction: column;
-  width: 324px;
-  background: #FFEB78;
-
+  position: relative;
+  width: 100%;
+  max-width: 324px;
+  background: #ffeb78;
+  text-align: left;
+  margin: auto;
+  @media (max-width: 420px) {
+    max-width: 280px;
+  }
 
   .label {
     padding: 4px 20px;
@@ -20,23 +22,32 @@ const DropdownContainer = styled.div`
     cursor: pointer;
   }
 
-  .option-wrapper{
-    width: 324px;
+  .option-wrapper {
+    width: 100%;
+    max-width: 324px;
     position: absolute;
     padding: 0px 20px;
     border-left: 3px solid #000000;
     border-bottom: 3px solid #000000;
     border-right: 3px solid #000000;
     border-radius: 2px;
-    background: #FFEB78;
+    background: #ffeb78;
+    overflow: scroll;
+    height: 100px;
+
+    @media (max-width: 420px) {
+      overflow: scroll;
+      height: 200px;
+      max-width: 280px;
+    }
 
     .option {
       padding: 4px 0px;
       cursor: pointer;
     }
-    *:not(:first-child) {
-      border-top: 1px solid #0000004D;
 
+    *:not(:first-child) {
+      border-top: 1px solid #0000004d;
     }
   }
 `

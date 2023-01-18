@@ -9,14 +9,20 @@ const Container = styled.div`
   position: relative;
   background-image: url('/background/bg_black.01.png');
   background-repeat: repeat;
+
+  @media (max-width: 1024px) {
+    padding: 10px;
+  }
 `
 
 const ContentContainer = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   .bg-image {
+    top: 0;
     width: 100%;
     height: 100vh;
     background-position: center center;
@@ -30,7 +36,7 @@ const ContentContainer = styled.div`
 const TextContentContainer = styled.div`
   text-align: center;
   padding: 52px 80px;
-  margin: auto 10px;
+  margin: 10px auto;
   max-width: 1042px;
   background: #000000cc;
   border-radius: 2px;
@@ -42,6 +48,10 @@ const TextContentContainer = styled.div`
 
   .paragraph-item {
     margin-top: 30px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 10px;
   }
 `
 
@@ -73,6 +83,7 @@ const Footer = styled.div`
 
   li {
     text-align: left;
+    margin-left: 24px;
     max-width: 740px;
   }
 
@@ -96,6 +107,10 @@ const ShareContainer = styled.div`
   background: #00000080;
   max-width: 910px;
   padding: 32px 20px;
+
+  @media (max-width: 1024px) {
+    padding: 14px 10px;
+  }
 
   .share-topic {
     margin-bottom: 24px;

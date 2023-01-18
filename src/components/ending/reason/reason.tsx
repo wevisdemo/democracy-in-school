@@ -8,9 +8,23 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 
   h6 {
     margin-top: 24px;
+
+    @media (max-width: 600px) {
+      max-width: 210px;
+    }
+  }
+
+  .expand {
+    font-size: 13px;
+    display: none;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
   }
 
   .p-2 {
@@ -40,6 +54,7 @@ const CardWrapper = styled.div`
   @media (max-width: 1024px) {
     overflow: scroll;
     width: 100%;
+    gap: 10px;
   }
 `
 
@@ -50,7 +65,8 @@ interface PropsType {
 const Reason = ({ reasons }: PropsType) => {
   return (
     <Container>
-      <h6 className="wv-h6 wv-font-kondolar">ทำไมการเคารพสิทธิเสรีภาพถึงสำคัญ</h6>
+      <h6 className="wv-h6 wv-font-kondolar topic">ทำไมการเคารพสิทธิเสรีภาพถึงสำคัญ</h6>
+      <p className="expand font-plexsans">(เลื่อนเพื่ออ่านเพิ่มเติม)</p>
       <CardWrapper>
         {reasons.map((item, index) => {
           return <ReasonCard reason={item} index={index}></ReasonCard>

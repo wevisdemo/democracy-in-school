@@ -12,6 +12,7 @@ const EndingShareContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px 10px 120px 10px;
 
   .text-wrapper {
     width: 40%;
@@ -19,30 +20,73 @@ const EndingShareContainer = styled.div`
     margin-top: 108px;
     text-align: center;
 
+    @media (max-width: 420px) {
+      max-width: 288px;
+      width: 100%;
+      margin-top: 140px;
+    }
+
     .text-description {
       margin-top: 10px;
     }
   }
 
-  .dropdown-wrapper {
-    margin-top: 30px;
-  }
+  .order-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .wrap-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-  .share-og-image {
-    max-width: 828px;
-    margin-top: 20px;
+      @media (max-width: 420px) {
+        order: 2;
+      }
 
-    @media (max-width: 1024px) {
-      max-width: 300px;
+      .dropdown-wrapper {
+        margin-top: 30px;
+        width: 100%;
+      }
+
+      .share-og-image {
+        max-width: 828px;
+        margin-top: 20px;
+
+        @media (max-width: 1024px) {
+          max-width: 300px;
+        }
+      }
     }
-  }
+    .wrap-2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-  .share-social-wrapper {
-    margin-top: 48px;
-  }
+      @media (max-width: 420px) {
+        order: 1;
+      }
 
-  .hashtag {
-    margin-top: 40px;
+      .share-social-wrapper {
+        margin-top: 48px;
+
+        @media (max-width: 420px) {
+          margin-top: 28px;
+        }
+      }
+
+      .hashtag {
+        margin-top: 40px;
+
+        @media (max-width: 420px) {
+          width: 176px;
+          margin-top: 24px;
+        }
+      }
+    }
   }
 `
 
@@ -62,14 +106,20 @@ const EndingShare = () => {
           เราได้ร่วมแสดงความเห็นเพื่อสร้างสังคมประชาธิปไตย ด้วยการเคารพความเห็นต่างด้วยกัน
         </p>
       </div>
-      <div className="dropdown-wrapper">
-        <Dropdown options={mockOptions} />
+      <div className="order-wrapper">
+        <div className="wrap-1">
+          <div className="dropdown-wrapper">
+            <Dropdown options={mockOptions} />
+          </div>
+          <img className="share-og-image" src={currShare.og_image_src} alt="og-image" />
+        </div>
+        <div className="wrap-2">
+          <div className="share-social-wrapper font-plexsans">
+            <WvSharer url="https://wevis.info" />
+          </div>
+          <h5 className="wv-h5 wv-font-kondolar hashtag">#Democracy in school</h5>
+        </div>
       </div>
-      <img className="share-og-image" src={currShare.og_image_src} alt="og-image" />
-      <div className="share-social-wrapper font-plexsans">
-        <WvSharer url="https://wevis.info" />
-      </div>
-      <h5 className="wv-h5 wv-font-kondolar hashtag">#Democracy in school</h5>
     </EndingShareContainer>
   )
 }
