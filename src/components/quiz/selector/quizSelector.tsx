@@ -4,7 +4,7 @@ import QuizSelectorCard from './quizSelectorCard'
 import { IQuiz } from 'types/quiz'
 
 const QuizSelectorContainer = styled.div`
-  background-image: url(/background/bg_blue.02.png);
+  background-image: url(background/bg_blue.02.png);
   background-size: cover;
   background-position: center;
   padding: 52px 0;

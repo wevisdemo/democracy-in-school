@@ -30,8 +30,7 @@ interface Propstype {
 const ContinueChip = ({ light }: Propstype) => {
   return (
     <ContinueChipContianer className="arrow-wrapper">
-      <img className="arrow" src={light ? '/arrow-white.svg' : 'part_4/arrow.svg'} alt="arrow" />
-      {/* <img className={`arrow ${light ? 'light' : ''}`} src="part_4/arrow.svg" alt="arrow" fill></Image> */}
+      <img className="arrow" src={light ? 'arrow-white.svg' : 'part_4/arrow.svg'} alt="arrow" />
     </ContinueChipContianer>
   )
 }

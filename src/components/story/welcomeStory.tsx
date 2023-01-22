@@ -4,7 +4,7 @@ import WelcomeSelector from 'components/shared/welcomeSelector'
 import PointingButton from 'components/shared/pointerButton'
 
 const WelcomeStoryContainer = styled.div`
-  background-image: url(/background/bg_blue.01.png);
+  background-image: url(background/bg_blue.01.png);
   background-repeat: repeat;
 `
 
@@ -103,7 +103,7 @@ const Footer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 184px;
-  background: url(/background/bg_white.01.png);
+  background: url(background/bg_white.01.png);
 
   @media (max-width: 420px) {
     margin-top: 60px;
@@ -111,7 +111,7 @@ const Footer = styled.div`
 
   .footer-content {
     position: absolute;
-    background: url(/background/bg_white.01.png);
+    background: url(background/bg_white.01.png);
     z-index: 20;
     width: 100%;
     left: 50%;
@@ -168,10 +168,10 @@ const Footer = styled.div`
     width: 100%;
     padding-top: 35%;
     overflow: hidden;
-    background: url(/background/bg_blue.01.png);
+    background: url(background/bg_blue.01.png);
     .circle {
       position: absolute;
-      background: url(/background/bg_white.01.png);
+      background: url(background/bg_white.01.png);
       width: 105%;
       padding-top: 100%;
       border-radius: 100%;

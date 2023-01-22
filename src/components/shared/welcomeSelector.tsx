@@ -15,7 +15,7 @@ const WelcomeComponent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(/background/bg_blue.01.png);
+  background-image: url(background/bg_blue.01.png);
   background-size: cover;
 
   .cover-message {
