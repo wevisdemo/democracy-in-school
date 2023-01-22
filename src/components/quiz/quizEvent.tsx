@@ -92,7 +92,7 @@ const QuizEvent = ({ event }: PropsType) => {
       </Header>
       <ContentWrapper>
         {event.contents.map((content, index) => (
-          <QuizEventContent content={content} index={index} />
+          <QuizEventContent content={content} index={index} key={`quiz-event-content-${index}`} />
         ))}
       </ContentWrapper>
       <QuizEventQuestion question={event.question} />

@@ -13,6 +13,10 @@ const StroyPart3Container = styled.div`
   align-items: center;
   text-align: center;
 
+  @media (max-width: 1024px) {
+    padding: 48px 10px;
+  }
+
   .text-wrapper-1 {
     display: flex;
     flex-direction: column;
@@ -40,10 +44,15 @@ const StroyPart3Container = styled.div`
 
   .flex-arrow {
     margin-top: 80px;
+
+    @media (max-width: 1024px) {
+      margin-top: 32px;
+    }
   }
 `
 
 const PaperContainer = styled.div<{ index: number }>`
+  padding: 10px;
   margin: 40px auto;
   transform: rotate(${(props) => (props.index % 2 == 0 ? '1deg' : '-1deg')});
   @media (max-width: 1024px) {
@@ -78,7 +87,7 @@ const StoryPart3 = () => {
       <img className="flex-arrow" src="/flex-arrow.svg" alt="flex-arrow" />
       {story_list.map((item, index) => {
         return (
-          <PaperContainer index={index}>
+          <PaperContainer index={index} key={`paper-${index}`}>
             <Paper storyPaper={item}></Paper>
           </PaperContainer>
         )

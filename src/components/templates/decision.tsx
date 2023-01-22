@@ -7,6 +7,13 @@ const DecisionComponent = styled.div``
 const Header = styled.div`
   padding: 40px 0px;
   text-align: center;
+
+  @media (max-width: 420px) {
+    max-width: 214px;
+    padding: 20px 0px;
+    margin: auto;
+  }
+
   p {
     font-family: IBMPlexSansThai;
   }

@@ -15,6 +15,7 @@ const WelcomeComponent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url(/background/bg_blue.01.png);
   background-size: cover;
 
   .cover-message {
@@ -22,6 +23,10 @@ const WelcomeComponent = styled.div`
     z-index: 10;
     max-width: 372px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+
+    @media (max-width: 420px) {
+      max-width: 180px;
+    }
   }
 
   .breakline {
@@ -34,6 +39,13 @@ const WelcomeComponent = styled.div`
   .chip {
     position: absolute;
     bottom: 100px;
+  }
+
+  .image-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 
@@ -68,7 +80,7 @@ const WelcomeSelector = ({ type }: PropsType) => {
   const typo = typographyDict[type]
   return (
     <WelcomeComponent>
-      <Image src={typo.image_src} alt={typo.image_alt} fill></Image>
+      <img src={typo.image_src} alt={typo.image_alt} className="image-bg" />
       <h4 className="wv-font-kondolar wv-h4 cover-message color-yellow">{typo.title}</h4>
       <div className="breakline cover-message" />
       <h6 className="wv-font-kondolar wv-h6 cover-message color-white">{typo.description}</h6>

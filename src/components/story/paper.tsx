@@ -155,12 +155,12 @@ const Paper = ({ storyPaper }: PropsType) => {
         <div className="todo-wrapper">
           <div className="todo-right-wrapper">
             {storyPaper.right_list.map((item, index) => {
-              return <TodoItem type="right" text={item} />
+              return <TodoItem type="right" text={item} key={`todo-item-${index}`} />
             })}
           </div>
           <div className="todo-wrong-wrapper">
             {storyPaper.wrong_list.map((item, index) => {
-              return <TodoItem type="wrong" text={item} />
+              return <TodoItem type="wrong" text={item} key={`todo-item-${index}`} />
             })}
           </div>
         </div>

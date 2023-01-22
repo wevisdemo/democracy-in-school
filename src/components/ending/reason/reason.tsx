@@ -69,7 +69,7 @@ const Reason = ({ reasons }: PropsType) => {
       <p className="expand font-plexsans">(เลื่อนเพื่ออ่านเพิ่มเติม)</p>
       <CardWrapper>
         {reasons.map((item, index) => {
-          return <ReasonCard reason={item} index={index}></ReasonCard>
+          return <ReasonCard reason={item} index={index} key={`reason-card-${index}`}></ReasonCard>
         })}
       </CardWrapper>
       <p className="p-2 wv-b2 font-plexsans">สังคมประชาธิปไตยเริ่มต้นที่การเรียนรู้ ที่จะเคารพความแตกต่างในสังคม</p>

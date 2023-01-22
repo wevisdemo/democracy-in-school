@@ -2,13 +2,20 @@ import styled from 'styled-components'
 import { IChoiceQuiz, IQuiz } from 'types/quiz'
 import Image from 'next/image'
 
-const Container = styled.div``
+const Container = styled.div`
+  padding: 10px;
+`
 
 const TextWrap = styled.div`
   text-align: center;
   h6 {
     max-width: 880px;
     margin-bottom: 10px;
+
+    @media (max-width: 1024px) {
+      font-size: 17px;
+      margin-bottom: 0px;
+    }
   }
 `
 
@@ -44,7 +51,7 @@ const TextWrapper = styled.div`
   text-align: center;
 
   @media (max-width: 1024px) {
-    padding: 0;
+    padding: 2px;
   }
 
   h6 {
@@ -84,6 +91,7 @@ const ChoiceWrapperContainer = styled.div`
   gap: 20px;
 
   @media (max-width: 1024px) {
+    margin: 15px 0px;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }

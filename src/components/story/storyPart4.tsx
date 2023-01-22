@@ -8,6 +8,7 @@ const StroyPart4Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 
   .background {
     position: absolute;
@@ -45,6 +46,10 @@ const StroyPart4Container = styled.div`
   .ship {
     position: absolute;
     bottom: 160px;
+
+    @media (max-width: 1024px) {
+      bottom: 20px;
+    }
   }
 `
 

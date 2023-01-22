@@ -6,10 +6,14 @@ export interface IChoiceQuiz {
 }
 
 export interface IQuiz {
+  id: number
+  title: string
+  thumbnail_src: string
   question: string
   choices: IChoiceQuiz[]
   event: IQuizEvent
   reminder: IQuizReminder
+  is_selected: boolean
 }
 
 export interface IQuizEvent {

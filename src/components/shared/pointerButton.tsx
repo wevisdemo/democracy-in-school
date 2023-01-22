@@ -14,7 +14,11 @@ const PointingButtonContainer = styled.div<styleProps>`
 
   .text-box {
     padding: 4px 16px;
-    border: 1px solid #000;
+    border: 2px solid #000;
+
+    @media (max-width: 1024px) {
+      font-size: 13px;
+    }
   }
 
   .pointer {

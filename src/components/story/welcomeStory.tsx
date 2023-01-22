@@ -3,60 +3,49 @@ import Image from 'next/image'
 import WelcomeSelector from 'components/shared/welcomeSelector'
 import PointingButton from 'components/shared/pointerButton'
 
-const WelcomeComponent = styled.div`
-  .cover {
-    position: relative;
-    height: 100vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-  }
-
-  .cover-message {
-    position: relative;
-    z-index: 10;
-    max-width: 372px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
-  }
-
-  .breakline {
-    width: 164.17px;
-    height: 0px;
-    border-top: 1px solid #ffffff;
-    margin: 10px 0;
-  }
+const WelcomeStoryContainer = styled.div`
+  background-image: url(/background/bg_blue.01.png);
+  background-repeat: repeat;
 `
 
-const Wrapper = styled.div`
-  background-image: url(/bg-blue.svg);
-  background-size: cover;
-`
-
-const IntroComponent = styled.div`
+const IntroContainer = styled.div`
   position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  min-height: 100vh;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 56px;
+  }
 
   .img-left {
-    width: 284px !important;
-    height: 778px !important;
+    width: 284px;
     position: absolute;
-    top: 0px !important;
-    left: 0px !important;
+    top: 0px;
+    left: -5px;
+    z-index: 10;
+
+    @media (max-width: 1024px) {
+      width: 100px;
+      top: 300px;
+    }
   }
 
   .img-right {
-    width: 284px !important;
-    height: 778px !important;
+    width: 284px;
     position: absolute;
-    top: 0px !important;
-    right: 0px !important;
+    top: 0px;
+    right: -5px;
+    z-index: 10;
+
+    @media (max-width: 1024px) {
+      width: 100px;
+      top: 300px;
+    }
   }
 
   .pointing-btn {
@@ -72,6 +61,12 @@ const IntroTextWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 20;
+
+  @media (max-width: 420px) {
+    margin-top: 40px;
+    max-width: 240px;
+  }
 
   .sect-1 {
     margin-bottom: 20px;
@@ -84,10 +79,23 @@ const IntroTextWrap = styled.div`
     padding: 4px 16px;
     margin-top: 36px;
   }
+
+  .text-3 {
+    @media (max-width: 420px) {
+      margin-top: 10px;
+    }
+  }
 `
 
-const ImageCustom = styled(Image)`
-  position: relative !important;
+const Header = styled.div`
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 `
 
 const Footer = styled.div`
@@ -95,24 +103,81 @@ const Footer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 184px;
+  background: url(/background/bg_white.01.png);
 
-  .question-mark {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  @media (max-width: 420px) {
+    margin-top: 60px;
   }
 
-  .text-wrap {
-    max-width: 488px;
+  .footer-content {
     position: absolute;
+    background: url(/background/bg_white.01.png);
+    z-index: 20;
+    width: 100%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    @media (max-width: 420px) {
+      position: relative;
+      margin: auto;
+      position: relative;
+      transform: none;
+      left: unset;
+      top: unset;
+    }
 
-    h6 {
-      margin-bottom: 20px;
+    .question-mark {
+      width: 180px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+
+      @media (max-width: 420px) {
+        top: 20px;
+        width: 84px;
+      }
+    }
+
+    .text-wrap {
+      max-width: 488px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+
+      @media (max-width: 420px) {
+        margin: auto;
+        max-width: 260px;
+        position: relative;
+        transform: none;
+        left: unset;
+        top: unset;
+      }
+
+      h6 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .half-circle {
+    position: relative;
+    width: 100%;
+    padding-top: 35%;
+    overflow: hidden;
+    background: url(/background/bg_blue.01.png);
+    .circle {
+      position: absolute;
+      background: url(/background/bg_white.01.png);
+      width: 105%;
+      padding-top: 100%;
+      border-radius: 100%;
+      top: 0;
+      left: -2.5%;
+      z-index: 10;
     }
   }
 `
@@ -121,42 +186,39 @@ const WelcomeStory = () => {
   const onClickButton = () => {}
 
   return (
-    <Wrapper>
+    <WelcomeStoryContainer>
       <WelcomeSelector type="story" />
-      <IntroComponent>
-        <img src="/part_2/illus_01.01.png" alt="illus_01" className="img-left" />
-        <img src="/part_2/illus_01.02.png" alt="illus_02" className="img-right" />
-        <IntroTextWrap>
-          <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human right)</h6>
-          <p className="wv-b2 font-plexsans">
-            ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
-          </p>
-          <p className="wv-h7 font-plexsans-bold">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
-          <div className="pointing-btn">
-            <PointingButton onClick={onClickButton} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
-          </div>
-        </IntroTextWrap>
-        <Footer>
-          <ImageCustom src="/part_1/ellips.svg" alt="ellips" fill></ImageCustom>
-          <Image
-            src="/part_2/question-mark.svg"
-            alt="question-mark"
-            width={180}
-            height={272}
-            className="question-mark"
-          />
-          <div className="text-wrap">
-            <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
+      <IntroContainer>
+        <Header>
+          <img src="/part_2/illus_01.01.png" alt="illus_01" className="img-left" />
+          <img src="/part_2/illus_01.02.png" alt="illus_02" className="img-right" />
+          <IntroTextWrap>
+            <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human right)</h6>
             <p className="wv-b2 font-plexsans">
-              สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
+              ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
             </p>
+            <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
+            <div className="pointing-btn">
+              <PointingButton onClick={onClickButton} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
+            </div>
+          </IntroTextWrap>
+        </Header>
+        <Footer>
+          <div className="half-circle">
+            <div className="circle"></div>
+          </div>
+          <div className="footer-content">
+            <img src="/part_2/question-mark.svg" alt="question-mark" className="question-mark" />
+            <div className="text-wrap">
+              <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
+              <p className="wv-b2 font-plexsans">
+                สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
+              </p>
+            </div>
           </div>
         </Footer>
-        {/* <div style={{ width: '100%', height: '100%', position: 'relative' }}> */}
-        {/* <ImageCustom src="/part_1/ellips.svg" alt="ellips" fill></ImageCustom> */}
-        {/* </div> */}
-      </IntroComponent>
-    </Wrapper>
+      </IntroContainer>
+    </WelcomeStoryContainer>
   )
 }
 

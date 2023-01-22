@@ -5,12 +5,17 @@ import ContinueChip from 'components/shared/continueChip'
 
 const SectionDiv = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   position: relative;
   display: flex;
 
   .lottie {
     opacity: 0.2;
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    left: -50%;
   }
 
   .chip {
@@ -18,6 +23,10 @@ const SectionDiv = styled.div`
     left: 50%;
     bottom: 200px;
     transform: translate(-50%, 0);
+
+    @media (max-width: 420px) {
+      bottom: 40px;
+    }
   }
 `
 
@@ -32,26 +41,38 @@ const FirstSection = styled.p`
   text-align: center;
   z-index: 10;
   text-shadow: -2px 2px 2px #f0efea, 2px 2px 2px #f0efea, 2px -2px 2px #f0efea, 2px 2px 2px #f0efea;
+
+  @media (max-width: 420px) {
+    max-width: 240px;
+  }
 `
 
 const SecondSectionText = styled.div`
   margin: auto;
-
   max-width: 670px;
   text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justidy-content: center;
+
+  @media (max-width: 420px) {
+    max-width: 306px;
+  }
+
+  .text-1 {
+    @media (max-width: 420px) {
+      max-width: 176px;
+    }
+  }
 `
 
 const Intro = () => {
   return (
     <>
       <SectionDiv>
-        <Lottie
-          className="lottie"
-          animationData={DesktopBubble}
-          autoplay={true}
-          loop={true}
-          style={{ width: '100%', height: '100%', position: 'absolute' }}
-        ></Lottie>
+        <Lottie className="lottie" animationData={DesktopBubble} autoplay={true} loop={true}></Lottie>
         <FirstSection className="wv-h6 wv-font-kondolar">
           เราอาจเห็นหลายประเด็นในสังคมที่มีคนมีความเห็นต่างกัน และบางประเด็นไม่ได้จบลงด้วยการเคารพความคิดเห็นต่อกัน
           ในวิถีประชาธิปไตยแบบที่เรารับรู้มา
@@ -62,7 +83,7 @@ const Intro = () => {
       </SectionDiv>
       <SecondSectionDiv>
         <SecondSectionText>
-          <p className="wv-h6 wv-font-kondolar" style={{ color: 'white' }}>
+          <p className="wv-h6 wv-font-kondolar text-1" style={{ color: 'white' }}>
             หลายคนถึงกับเคยตั้งคำถามว่า
           </p>
           <h3 className="wv-h3 wv-font-kondolar" style={{ color: '#FFEB78', display: 'flex', flexDirection: 'column' }}>

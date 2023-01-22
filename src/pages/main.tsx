@@ -10,7 +10,8 @@ const MainComponent = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: url('/bg-default.svg');
+  background: url('/background/bg_white.01.png');
+  overflow: hidden;
 `
 
 export default function Main() {
