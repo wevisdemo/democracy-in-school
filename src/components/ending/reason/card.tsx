@@ -51,7 +51,7 @@ interface PropsType {
 const ReasonCard = ({ index, reason }: PropsType) => {
   return (
     <ReasonCardContainer>
-      <Image className="thumbnail" src={reason.image_src} alt={`reason-${index}`} fill sizes="200px"></Image>
+      <img className="thumbnail" src={reason.image_src} alt={`reason-${index}`} sizes="200px" />
       <p className="font-plexsans-bold color-blue topic">{reason.topic}</p>
       {reason.paragraphs.map((item, index) => {
         return (

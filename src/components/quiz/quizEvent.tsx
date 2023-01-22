@@ -12,7 +12,7 @@ interface PropsType {
 }
 
 const QuizEventContainer = styled.div`
-  background-image: url('/background/bg_black.01.png');
+  background-image: url('background/bg_black.01.png');
   background-repeat: repeat;
   padding-bottom: 40px;
   padding: 10px;

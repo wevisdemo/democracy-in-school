@@ -94,7 +94,7 @@ const Dropdown = ({ options }: PropsType) => {
         <span className="label-text">{currentOption.label}</span>
         <img
           className="label-dropdown"
-          src="/dropdown-arrow.svg"
+          src="dropdown-arrow.svg"
           alt="dropdown-arrow"
           style={{ transform: `${show ? 'rotate(180deg)' : ''}` }}
         />

@@ -5,7 +5,7 @@ const PaperContainer = styled.div`
   padding: 24px 100px;
   width: 100%;
   max-width: 1000px;
-  background: url('/part_2/paper.svg');
+  background: url('part_2/paper.svg');
   background-size: cover;
   display: flex;
   flex-direction: column;

@@ -65,13 +65,13 @@ const typographyDict: TypoGraphyMap = {
   quiz: {
     title: 'Quiz',
     description: 'ทดสอบเราเข้าใจและเคารพสิทธิเสรีภาพแบบไหน?',
-    image_src: '/part_1/gif_quiz.gif',
+    image_src: 'part_1/gif_quiz.gif',
     image_alt: 'gif_quiz'
   },
   story: {
     title: 'Know Your Rights',
     description: 'เกิดมาทั้งที เรามีสิทธิเสรีภาพ แค่ไหน?',
-    image_src: '/part_1/gif_story.gif',
+    image_src: 'part_1/gif_story.gif',
     image_alt: 'gif_story'
   }
 }

@@ -38,7 +38,7 @@ const EndingBoardContainer = styled.div`
 const EndingBoard = () => {
   return (
     <EndingBoardContainer>
-      {/* <img className="board" src="/part_4/board_desktop.png" srcSet="/part_4/board_mobile.png 420w" alt="board" /> */}
+      {/* <img className="board" src="part_4/board_desktop.png" srcSet="part_4/board_mobile.png 420w" alt="board" /> */}
       <div className="text-wrapper">
         <h6 className="wv-h6 wv-font-kondolar color-white">
           ใช้สิทธิเสรีภาพอย่างมีความรับผิดชอบ รู้สิทธิตนเอง เคารพสิทธิคนอื่น เริ่มได้จากการเคารพสิทธิเสรีภาพ

@@ -7,7 +7,7 @@ import ContinueChip from 'components/shared/continueChip'
 const Container = styled.div`
   width: 100%;
   position: relative;
-  background-image: url('/background/bg_black.01.png');
+  background-image: url('background/bg_black.01.png');
   background-repeat: repeat;
 
   @media (max-width: 1024px) {

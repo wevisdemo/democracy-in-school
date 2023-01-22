@@ -190,8 +190,8 @@ const WelcomeStory = () => {
       <WelcomeSelector type="story" />
       <IntroContainer>
         <Header>
-          <img src="/part_2/illus_01.01.png" alt="illus_01" className="img-left" />
-          <img src="/part_2/illus_01.02.png" alt="illus_02" className="img-right" />
+          <img src="part_2/illus_01.01.png" alt="illus_01" className="img-left" />
+          <img src="part_2/illus_01.02.png" alt="illus_02" className="img-right" />
           <IntroTextWrap>
             <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human right)</h6>
             <p className="wv-b2 font-plexsans">
@@ -208,7 +208,7 @@ const WelcomeStory = () => {
             <div className="circle"></div>
           </div>
           <div className="footer-content">
-            <img src="/part_2/question-mark.svg" alt="question-mark" className="question-mark" />
+            <img src="part_2/question-mark.svg" alt="question-mark" className="question-mark" />
             <div className="text-wrap">
               <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
               <p className="wv-b2 font-plexsans">

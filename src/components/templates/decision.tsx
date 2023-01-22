@@ -26,7 +26,7 @@ const Decision = () => {
     <DecisionComponent>
       <Header>
         <p className="wv-h7">ชวนมาเรียนรู้และทดสอบความเข้าใจไปพร้อมๆกัน</p>
-        <Image src="/pointing-hand.svg" alt="pointing-hand" width={32} height={48} style={{ marginTop: '8px' }} />
+        <img src="pointing-hand.svg" alt="pointing-hand" width={32} height={48} style={{ marginTop: '8px' }} />
       </Header>
       <Body>
         <Story></Story>

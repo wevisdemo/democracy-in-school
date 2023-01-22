@@ -15,7 +15,7 @@ const SectionDiv = styled.div`
     position: absolute;
     width: 300%;
     height: 100%;
-    left: -50%;
+    left: -100%;
   }
 
   .chip {
@@ -31,7 +31,7 @@ const SectionDiv = styled.div`
 `
 
 const SecondSectionDiv = styled(SectionDiv)`
-  background: url('/part_1/gif_01.gif');
+  background: url('part_1/gif_01.gif');
   background-size: cover;
 `
 

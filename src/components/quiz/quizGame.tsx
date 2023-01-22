@@ -34,6 +34,12 @@ const ChoiceContainer = styled.div<{ choice: IChoiceQuiz }>`
     outline: 5px solid #000000;
   }
 
+  .choice-img {
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+  }
+
   .background {
     position: absolute;
     width: 100%;
@@ -49,6 +55,7 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  z-index: 20;
 
   @media (max-width: 1024px) {
     padding: 2px;
@@ -75,7 +82,7 @@ const Choice = ({ choice }: { choice: IChoiceQuiz }) => {
   return (
     <ChoiceContainer choice={choice}>
       <div className="background"></div>
-      <Image src={choice.image_src} alt={`choice-${choice.label}`} fill />
+      <img className="choice-img" src={choice.image_src} alt={`choice-${choice.label}`} />
       <TextWrapper>
         <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black ">{choice.label}</h6>
         <p className="font-plexsans-bold color-white text-stroke-black ">{choice.text}</p>
