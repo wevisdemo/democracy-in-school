@@ -21,11 +21,11 @@ const WelcomeComponent = styled.div`
   .cover-message {
     position: relative;
     z-index: 10;
-    max-width: 372px;
+    width: 372px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 
     @media (max-width: 420px) {
-      max-width: 180px;
+      width: 180px;
     }
   }
 

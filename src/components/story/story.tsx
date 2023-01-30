@@ -3,13 +3,21 @@ import StoryPart3 from './storyPart3'
 import StoryPart4 from './storyPart4'
 import WelcomeStory from './welcomeStory'
 
-const Story = () => {
+interface PropsType {
+  expand: boolean
+}
+
+const Story = ({ expand }: PropsType) => {
   return (
     <>
-      <WelcomeStory></WelcomeStory>
-      <StoryPart2 />
-      <StoryPart3 />
-      <StoryPart4 />
+      <WelcomeStory expand={expand}></WelcomeStory>
+      {expand && (
+        <div>
+          <StoryPart2 />
+          <StoryPart3 />
+          <StoryPart4 />
+        </div>
+      )}
     </>
   )
 }

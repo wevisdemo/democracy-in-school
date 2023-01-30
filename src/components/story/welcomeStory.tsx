@@ -182,42 +182,50 @@ const Footer = styled.div`
   }
 `
 
-const WelcomeStory = () => {
+interface PropsType {
+  expand: boolean
+}
+
+const WelcomeStory = ({ expand }: PropsType) => {
   const onClickButton = () => {}
 
   return (
     <WelcomeStoryContainer>
       <WelcomeSelector type="story" />
-      <IntroContainer>
-        <Header>
-          <img src="part_2/illus_01.01.png" alt="illus_01" className="img-left" />
-          <img src="part_2/illus_01.02.png" alt="illus_02" className="img-right" />
-          <IntroTextWrap>
-            <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human right)</h6>
-            <p className="wv-b2 font-plexsans">
-              ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
-            </p>
-            <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
-            <div className="pointing-btn">
-              <PointingButton onClick={onClickButton} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
-            </div>
-          </IntroTextWrap>
-        </Header>
-        <Footer>
-          <div className="half-circle">
-            <div className="circle"></div>
-          </div>
-          <div className="footer-content">
-            <img src="part_2/question-mark.svg" alt="question-mark" className="question-mark" />
-            <div className="text-wrap">
-              <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
+      {expand && (
+        <IntroContainer>
+          <Header>
+            <img src="part_2/illus_01.01.png" alt="illus_01" className="img-left" />
+            <img src="part_2/illus_01.02.png" alt="illus_02" className="img-right" />
+            <IntroTextWrap>
+              <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">
+                สิทธิมนุษยชน (Human right)
+              </h6>
               <p className="wv-b2 font-plexsans">
-                สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
+                ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
               </p>
+              <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
+              <div className="pointing-btn">
+                <PointingButton onClick={onClickButton} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
+              </div>
+            </IntroTextWrap>
+          </Header>
+          <Footer>
+            <div className="half-circle">
+              <div className="circle"></div>
             </div>
-          </div>
-        </Footer>
-      </IntroContainer>
+            <div className="footer-content">
+              <img src="part_2/question-mark.svg" alt="question-mark" className="question-mark" />
+              <div className="text-wrap">
+                <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
+                <p className="wv-b2 font-plexsans">
+                  สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
+                </p>
+              </div>
+            </div>
+          </Footer>
+        </IntroContainer>
+      )}
     </WelcomeStoryContainer>
   )
 }

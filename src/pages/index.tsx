@@ -5,6 +5,9 @@ import Decision from 'components/templates/decision'
 import Intro from 'components/templates/intro'
 import Welcome from 'components/templates/welcome'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
+import Layout from 'components/layout'
+import { ReactElement } from 'react'
 
 const MainComponent = styled.div`
   width: 100vw;
@@ -14,15 +17,23 @@ const MainComponent = styled.div`
   overflow: hidden;
 `
 
-export default function Home() {
+function Home() {
+  const router = useRouter()
+
+  const onClickPage = () => {
+    console.log('cliuck')
+    router.push('/second')
+  }
   return (
-    <MainComponent>
+    <MainComponent onClick={onClickPage}>
       <Navbar></Navbar>
       <Welcome></Welcome>
-      <Intro></Intro>
+      {/* <Intro></Intro>
       <Decision></Decision>
       <Quiz></Quiz>
-      <Ending></Ending>
+      <Ending></Ending> */}
     </MainComponent>
   )
 }
+
+export default Home
