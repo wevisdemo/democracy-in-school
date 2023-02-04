@@ -7,7 +7,7 @@ import ContinueChip from 'components/shared/continueChip'
 const Container = styled.div`
   width: 100%;
   position: relative;
-  background-image: url('background/bg_black.01.png');
+  background-image: url('/background/bg_black.01.png');
   background-repeat: repeat;
 
   @media (max-width: 1024px) {
@@ -68,6 +68,7 @@ const Footer = styled.div`
     padding: 8px 18px;
     border: 1px solid white;
     background: transparent;
+    transition: background 1s, color 1s;
 
     :hover {
       cursor: pointer;

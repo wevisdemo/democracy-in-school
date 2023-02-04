@@ -2,24 +2,40 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IDropdownOption } from 'types/shared'
 
-const DropdownContainer = styled.div`
+interface IComponentProps {
+  light?: boolean
+  backgroundColor?: string
+}
+
+const DropdownContainer = styled.div<IComponentProps>`
   position: relative;
   width: 100%;
   max-width: 324px;
-  background: #ffeb78;
+  background: ${(props) => (props.backgroundColor ? props.backgroundColor : 'transparent')};
   text-align: left;
   margin: auto;
   @media (max-width: 420px) {
     max-width: 280px;
   }
 
+  .dropdown-arrow {
+    ${(props) =>
+      props.light &&
+      `filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(194deg) brightness(117%) contrast(100%);`}
+  }
+
   .label {
     padding: 4px 20px;
     display: flex;
     justify-content: space-between;
-    border: 3px solid #000000;
+    border: 3px solid;
+    border-color: ${(props) => (props.light ? '#FFF' : '#000')};
     border-radius: 2px;
     cursor: pointer;
+
+    .label-text {
+      color: ${(props) => (props.light ? '#ffffff66' : '#000')};
+    }
   }
 
   .option-wrapper {
@@ -27,17 +43,20 @@ const DropdownContainer = styled.div`
     max-width: 324px;
     position: absolute;
     padding: 0px 20px;
-    border-left: 3px solid #000000;
-    border-bottom: 3px solid #000000;
-    border-right: 3px solid #000000;
+    border-left: 3px solid;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+    color: ${(props) => (props.light ? '#FFF' : '#000')};
+    border-color: ${(props) => (props.light ? '#FFF' : '#000')};
     border-radius: 2px;
-    background: #ffeb78;
+    background: ${(props) => (props.backgroundColor ? props.backgroundColor : 'transparent')};
     overflow: scroll;
-    height: 100px;
+    max-height: 100px;
+    z-index: 200;
 
     @media (max-width: 420px) {
       overflow: scroll;
-      height: 200px;
+      max-height: 200px;
       max-width: 280px;
     }
 
@@ -47,24 +66,25 @@ const DropdownContainer = styled.div`
     }
 
     *:not(:first-child) {
-      border-top: 1px solid #0000004d;
+      border-top: 1px solid;
+      border-color: ${(props) => (props.light ? '#F0EFEA' : '#0000004d')};
     }
   }
 `
 
+// TODO: hover bg
+
 interface PropsType {
+  placeholder: string
   options: IDropdownOption[]
+  light?: boolean
+  backgroundColor?: string
 }
 
-const defaultOption: IDropdownOption = {
-  label: 'เลือกหัวข้อ',
-  value: ''
-}
-
-const Dropdown = ({ options }: PropsType) => {
+const Dropdown = ({ placeholder, options, light, backgroundColor }: PropsType) => {
   const ddRef = useRef<HTMLDivElement>(null)
   const [show, setShow] = useState<boolean>(false)
-  const [currentOption, setCurrentOption] = useState<IDropdownOption>(defaultOption)
+  const [currentOption, setCurrentOption] = useState<IDropdownOption>({ label: placeholder, value: '' })
 
   useEffect(() => {
     /**
@@ -89,11 +109,11 @@ const Dropdown = ({ options }: PropsType) => {
   }
 
   return (
-    <DropdownContainer className="wv-b3 font-plexsans" ref={ddRef}>
+    <DropdownContainer className="wv-b3 font-plexsans" ref={ddRef} light={light} backgroundColor={backgroundColor}>
       <div className="label" onClick={() => setShow(!show)}>
         <span className="label-text">{currentOption.label}</span>
         <img
-          className="label-dropdown"
+          className="dropdown-arrow"
           src="dropdown-arrow.svg"
           alt="dropdown-arrow"
           style={{ transform: `${show ? 'rotate(180deg)' : ''}` }}

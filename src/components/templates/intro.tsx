@@ -31,7 +31,7 @@ const SectionDiv = styled.div`
 `
 
 const SecondSectionDiv = styled(SectionDiv)`
-  background: url('part_1/gif_01.gif');
+  background: url('/part_1/gif_01.gif');
   background-size: cover;
 `
 

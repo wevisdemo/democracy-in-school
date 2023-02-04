@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import Story from 'components/story/story'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import Quiz from 'components/quiz/quiz'
 
 const DecisionComponent = styled.div``
@@ -25,9 +25,12 @@ const Body = styled.div`
   display: flex;
 `
 
-const Decision = () => {
-  const [expand, setExpand] = useState<string>('center')
+interface PropsType {
+  expand: string
+  setExpand: Dispatch<SetStateAction<string>>
+}
 
+const Decision = ({ expand, setExpand }: PropsType) => {
   return (
     <DecisionComponent>
       <Header>

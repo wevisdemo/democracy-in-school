@@ -6,7 +6,7 @@ const MainComponent = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: url('background/bg_white.01.png');
+  background: url('/background/bg_white.01.png');
   overflow: hidden;
 `
 

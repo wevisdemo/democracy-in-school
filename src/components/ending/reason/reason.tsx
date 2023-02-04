@@ -31,18 +31,6 @@ const Container = styled.div`
     margin-top: 20px;
     max-width: 364px;
   }
-
-  @keyframes mymove {
-    0% {
-      top: 0px;
-    }
-    50% {
-      top: 32px;
-    }
-    100% {
-      top: 0px;
-    }
-  }
 `
 
 const CardWrapper = styled.div`

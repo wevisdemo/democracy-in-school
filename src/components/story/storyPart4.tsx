@@ -14,7 +14,7 @@ const StroyPart4Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('part_2/bg_part2.gif');
+    background: url('/part_2/bg_part2.gif');
     background-size: cover;
     opacity: 0.4;
   }

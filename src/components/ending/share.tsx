@@ -109,7 +109,7 @@ const EndingShare = () => {
       <div className="order-wrapper">
         <div className="wrap-1">
           <div className="dropdown-wrapper">
-            <Dropdown options={mockOptions} />
+            <Dropdown placeholder="เลือกหัวข้อ" options={mockOptions} />
           </div>
           <img className="share-og-image" src={currShare.og_image_src} alt="og-image" />
         </div>

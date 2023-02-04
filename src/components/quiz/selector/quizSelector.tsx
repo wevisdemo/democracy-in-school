@@ -4,7 +4,7 @@ import QuizSelectorCard from './quizSelectorCard'
 import { IQuiz } from 'types/quiz'
 
 const QuizSelectorContainer = styled.div`
-  background-image: url(background/bg_blue.02.png);
+  background-image: url(/background/bg_blue.02.png);
   background-size: cover;
   background-position: center;
   padding: 52px 0;
@@ -38,6 +38,7 @@ const QuizWrapperContainer = styled.div`
   gap: 32px;
   align-items: flex-start;
   justify-content: center;
+  width: min-content;
 
   @media (max-width: 1024px) {
     margin-top: 20px;

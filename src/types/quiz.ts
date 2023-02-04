@@ -9,6 +9,7 @@ export interface IQuiz {
   id: number
   title: string
   thumbnail_src: string
+  pre_question?: string
   question: string
   choices: IChoiceQuiz[]
   event: IQuizEvent
@@ -30,7 +31,7 @@ export interface IQuizReminder {
     text: string
     color: string
   }[]
-  question: string
+  question: string[]
   shared_topic: string
 }
 

@@ -20,11 +20,11 @@ const EndingContainer = styled.div`
   }
 
   .arrow {
-    position: relative !important;
-    width: 27px !important;
-    height: 27px !important;
-    animation: mymove 3s !important;
-    animation-iteration-count: infinite !important;
+    position: relative;
+    width: 27px;
+    height: 27px;
+    animation: mymove 3s;
+    animation-iteration-count: infinite;
   }
 
   .board-wrap {

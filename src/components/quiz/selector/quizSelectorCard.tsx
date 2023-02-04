@@ -11,6 +11,21 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
     width: 76px;
   }
 
+  :hover {
+    cursor: pointer;
+
+    .topic-image-container {
+      background-color: #ffeb78;
+    }
+
+    .topic-image {
+      width: 240px;
+      height: 240px;
+      left: -26px;
+      top: -26px;
+    }
+  }
+
   .description {
     margin-top: 4px;
     max-width: 224px;
@@ -22,11 +37,29 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
     }
   }
 
-  .topic-image {
+  .topic-image-container {
+    position: relative;
     background-color: white;
     width: 184px;
     height: 184px;
+    overflow: hidden;
+    background-color: white;
+    transition: background 1s;
+
+    @media (max-width: 1024px) {
+      width: 76px;
+      height: 76px;
+    }
+  }
+
+  .topic-image {
+    position: absolute;
+    width: 184px;
+    height: 184px;
     opacity: ${(prop) => (prop.selected ? '0.3' : '1')};
+    transition: width 1s, height 1s, left 1s, top 1s;
+    left: 0px;
+    top: 0px;
 
     @media (max-width: 1024px) {
       width: 76px;
@@ -38,7 +71,9 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
 const QuizSelectorCard = ({ quiz }: { quiz: IQuiz }) => {
   return (
     <QuizSelectorCardContainer selected={quiz.is_selected}>
-      <img className="topic-image" src={quiz.thumbnail_src} alt={`topic-${quiz.id}`} width={184} height={184} />
+      <div className="topic-image-container">
+        <img className="topic-image" src={quiz.thumbnail_src} alt={`topic-${quiz.id}`} width={184} height={184} />
+      </div>
       <p className="font-plexsans-bold description">{quiz.title}</p>
     </QuizSelectorCardContainer>
   )

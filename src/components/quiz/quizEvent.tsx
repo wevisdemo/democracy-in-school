@@ -12,14 +12,14 @@ interface PropsType {
 }
 
 const QuizEventContainer = styled.div`
-  background-image: url('background/bg_black.01.png');
+  background-image: url('/background/bg_black.01.png');
   background-repeat: repeat;
   padding-bottom: 40px;
-  padding: 10px;
+  padding: 40px 10px;
 `
 
 const Header = styled.div`
-  margin-top: 56px;
+  margin-top: 16px;
   max-width: 676px;
   text-align: center;
 

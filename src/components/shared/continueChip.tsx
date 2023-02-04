@@ -6,12 +6,24 @@ const ContinueChipContianer = styled.div`
   height: 68px;
 
   .arrow {
-    position: relative !important;
-    width: 27px !important;
-    height: 27px !important;
-    animation: mymove 3s !important;
-    animation-iteration-count: infinite !important;
-    fill: #000 !important;
+    position: relative;
+    width: 27px;
+    height: 27px;
+    animation: mymove 3s;
+    animation-iteration-count: infinite;
+    fill: #000;
+  }
+
+  @keyframes mymove {
+    0% {
+      top: 0px;
+    }
+    50% {
+      top: 32px;
+    }
+    100% {
+      top: 0px;
+    }
   }
 
   .arrow path {
@@ -30,7 +42,7 @@ interface Propstype {
 const ContinueChip = ({ light }: Propstype) => {
   return (
     <ContinueChipContianer className="arrow-wrapper">
-      <img className="arrow" src={light ? 'arrow-white.svg' : 'part_4/arrow.svg'} alt="arrow" />
+      <img className="arrow" src={light ? '/arrow-white.svg' : '/part_4/arrow.svg'} alt="arrow" />
     </ContinueChipContianer>
   )
 }
