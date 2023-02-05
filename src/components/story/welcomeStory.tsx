@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import WelcomeSelector from 'components/shared/welcomeSelector'
 import PointingButton from 'components/shared/pointerButton'
+import { prefix } from 'utils'
 
 const WelcomeStoryContainer = styled.div`
-  background-image: url(background/bg_blue.01.png);
+  background-image: url(${prefix}/background/bg_blue.01.png);
   background-repeat: repeat;
 `
 
@@ -103,7 +104,7 @@ const Footer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 184px;
-  background: url(/background/bg_white.01.png);
+  background: url(${prefix}/background/bg_white.01.png);
 
   @media (max-width: 420px) {
     margin-top: 60px;
@@ -111,7 +112,7 @@ const Footer = styled.div`
 
   .footer-content {
     position: absolute;
-    background: url(/background/bg_white.01.png);
+    background: url(${prefix}/background/bg_white.01.png);
     z-index: 20;
     width: 100%;
     left: 50%;
@@ -168,10 +169,10 @@ const Footer = styled.div`
     width: 100%;
     padding-top: 35%;
     overflow: hidden;
-    background: url(/background/bg_blue.01.png);
+    background: url(${prefix}/background/bg_blue.01.png);
     .circle {
       position: absolute;
-      background: url(/background/bg_white.01.png);
+      background: url(${prefix}/background/bg_white.01.png);
       width: 105%;
       padding-top: 100%;
       border-radius: 100%;
@@ -195,8 +196,8 @@ const WelcomeStory = ({ expand }: PropsType) => {
       {expand && (
         <IntroContainer>
           <Header>
-            <img src="part_2/illus_01.01.png" alt="illus_01" className="img-left" />
-            <img src="part_2/illus_01.02.png" alt="illus_02" className="img-right" />
+            <img src={`${prefix}/part_2/illus_01.01.png`} alt="illus_01" className="img-left" />
+            <img src={`${prefix}/part_2/illus_01.02.png`} alt="illus_02" className="img-right" />
             <IntroTextWrap>
               <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">
                 สิทธิมนุษยชน (Human right)
@@ -215,7 +216,7 @@ const WelcomeStory = ({ expand }: PropsType) => {
               <div className="circle"></div>
             </div>
             <div className="footer-content">
-              <img src="part_2/question-mark.svg" alt="question-mark" className="question-mark" />
+              <img src={`${prefix}part_2/question-mark.svg`} alt="question-mark" className="question-mark" />
               <div className="text-wrap">
                 <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
                 <p className="wv-b2 font-plexsans">

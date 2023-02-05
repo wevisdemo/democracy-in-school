@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Lottie from 'lottie-react'
 import DesktopBubble from 'assets/lotties/desktop_bubble.json'
 import ContinueChip from 'components/shared/continueChip'
+import { prefix } from 'utils'
 
 const SectionDiv = styled.div`
   width: 100vw;
@@ -31,7 +32,7 @@ const SectionDiv = styled.div`
 `
 
 const SecondSectionDiv = styled(SectionDiv)`
-  background: url('/part_1/gif_01.gif');
+  background: url('${prefix}/part_1/gif_01.gif');
   background-size: cover;
 `
 

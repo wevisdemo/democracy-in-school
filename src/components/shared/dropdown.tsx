@@ -1,6 +1,7 @@
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { IDropdownOption } from 'types/shared'
+import { prefix } from 'utils'
 
 interface IComponentProps {
   light?: boolean
@@ -119,7 +120,7 @@ const Dropdown = ({ placeholder, options, light, backgroundColor, onSelect }: Pr
         <span className="label-text">{currentOption.label}</span>
         <img
           className="dropdown-arrow"
-          src="/dropdown-arrow.svg"
+          src={`${prefix}/dropdown-arrow.svg`}
           alt="dropdown-arrow"
           style={{ transform: `${show ? 'rotate(180deg)' : ''}` }}
         />

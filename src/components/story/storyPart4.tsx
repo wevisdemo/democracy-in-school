@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import WvSharer from '@wevisdemo/ui/react/sharer'
 import ContinueChip from 'components/shared/continueChip'
+import { prefix } from 'utils'
 
 const StroyPart4Container = styled.div`
   height: 100vh;
@@ -14,7 +15,7 @@ const StroyPart4Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('/part_2/bg_part2.gif');
+    background: url('${prefix}/part_2/bg_part2.gif');
     background-size: cover;
     opacity: 0.4;
   }

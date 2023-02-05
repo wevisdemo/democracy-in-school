@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { prefix } from 'utils'
 
 const VideoModalContainer = styled.div<{ show: boolean }>`
   top: 0px;
@@ -83,13 +84,13 @@ function VideoModal({ show, setShow }: PropsType) {
       <VideoModalContainer show={show}>
         <div className="wrapper" onClick={onCloseModal}></div>
         <div className="main font-plexsans">
-          <img className="cross-icon" src="/cross.svg" alt="cross" onClick={onCloseModal} />
+          <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
           <p className="title font-plexsans-bold wv-b2 color-yellow">วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน</p>
           <div className="content">
             <div className="video-wrapper">
               <p className="color-white wv-b4">วิดีโอจาก StartDee</p>
               <a href="https://www.youtube.com/watch?v=n2EyaWdfyng" target="_blank">
-                <img className="thumbnail" src="/part_1/thumbnail.01.png" alt="thumbnail.01" />
+                <img className="thumbnail" src={`${prefix}/part_1/thumbnail.01.png`} alt="thumbnail.01" />
               </a>
             </div>
             <div className="video-wrapper">
@@ -98,7 +99,7 @@ function VideoModal({ show, setShow }: PropsType) {
                 href="https://www.nhrc.or.th/Human-Rights-Knowledge/Multimedia/Human-rights-videos.aspx"
                 target="_blank"
               >
-                <img className="thumbnail" src="/part_1/thumbnail.02.png" alt="thumbnail.02" />
+                <img className="thumbnail" src={`${prefix}/part_1/thumbnail.02.png`} alt="thumbnail.02" />
               </a>
             </div>
           </div>

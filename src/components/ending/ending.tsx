@@ -5,9 +5,10 @@ import Image from 'next/image'
 import EndingBoard from './board'
 import EndingShare from './share'
 import ContinueChip from 'components/shared/continueChip'
+import { prefix } from 'utils'
 
 const EndingContainer = styled.div`
-  background-image: url('/background/bg_yellow.01.png');
+  background-image: url('${prefix}/background/bg_yellow.01.png');
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
@@ -50,8 +51,8 @@ const Ending = () => {
       <div className="board-wrap">
         <img
           className="board"
-          src="/part_4/board_mobile.png"
-          srcSet="/part_4/board_mobile.png 420w, /part_4/board_desktop.png"
+          src={`${prefix}/part_4/board_mobile.png`}
+          srcSet={`${prefix}/part_4/board_mobile.png 420w, /part_4/board_desktop.png`}
           sizes="(max-width: 420px) 420px, 1280px"
           alt="board"
         />

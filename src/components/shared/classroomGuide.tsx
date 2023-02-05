@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { prefix } from 'utils'
 
 const ClassroomGuideContainer = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ const ClassroomGuide = ({ onClick, light }: PropsType) => {
         <br />
         ในห้องเรียน
       </p>
-      <img className="icon" src="/part_3/icon_info.svg" alt="icon_info" onClick={onClick} />
+      <img className="icon" src={`${prefix}/part_3/icon_info.svg`} alt="icon_info" onClick={onClick} />
     </ClassroomGuideContainer>
   )
 }

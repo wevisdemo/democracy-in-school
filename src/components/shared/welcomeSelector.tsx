@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import ContinueChip from 'components/shared/continueChip'
+import { prefix } from 'utils'
 
 interface PropsType {
   type: 'quiz' | 'story'
@@ -15,7 +16,7 @@ const WelcomeComponent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(background/bg_blue.01.png);
+  background-image: url(${prefix}/background/bg_blue.01.png);
   background-size: cover;
 
   .cover-message {

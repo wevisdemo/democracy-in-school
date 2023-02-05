@@ -5,7 +5,7 @@ import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption } from 'utils'
+import { convertToDDOption, prefix } from 'utils'
 import QuizQuestionTextArea from 'components/quiz/quizQuestion'
 
 const TextfieldModalContainer = styled.div<{ show: boolean }>`
@@ -114,7 +114,7 @@ function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
       <TextfieldModalContainer show={show}>
         <div className="wrapper" onClick={onCloseModal}></div>
         <div className="main font-plexsans">
-          <img className="cross-icon" src="/cross.svg" alt="cross" onClick={onCloseModal} />
+          <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
           <div className="content">
             <QuizQuestionTextArea text={text} onChangeText={onChangeText} />
             <button disabled={!canSubmit} className="wv-b3 font-plexsans-bold submit-btn" onClick={handleSubmitAnswer}>

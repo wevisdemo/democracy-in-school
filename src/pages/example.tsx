@@ -6,11 +6,12 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { guideCard } from 'data/guide'
 import TextfieldModal from 'components/shared/modal/textfiled'
+import { prefix } from 'utils'
 
 const MainComponent = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: url('/background/bg_yellow.01.png');
+  background-image: url('${prefix}/background/bg_yellow.01.png');
 `
 
 function Example() {

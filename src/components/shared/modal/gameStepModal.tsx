@@ -5,7 +5,7 @@ import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
 import { Dispatch, MouseEventHandler, SetStateAction, useState } from 'react'
 import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption } from 'utils'
+import { convertToDDOption, prefix } from 'utils'
 import { IGuideCard } from 'types/guide'
 
 const GameStepModalContainer = styled.div<{ show: boolean }>`
@@ -127,7 +127,7 @@ function GameStepModal({ show, setShow, guideCard }: PropsType) {
       <GameStepModalContainer show={show}>
         <div className="wrapper" onClick={onCloseModal}></div>
         <div className="main font-plexsans">
-          <img className="cross-icon" src="/cross.svg" alt="cross" onClick={onCloseModal} />
+          <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
           <div className="content">
             <p className="title font-plexsans-bold color-blue">ขั้นตอนการเล่นในห้องเรียน</p>
             <h3 className="wv-h3 wv-font-kondolar wv-font-bold">Step {guideCard.id}</h3>

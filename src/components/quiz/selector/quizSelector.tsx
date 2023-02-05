@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import QuizSelectorCard from './quizSelectorCard'
 import { IQuiz } from 'types/quiz'
+import { prefix } from 'utils'
 
 const QuizSelectorContainer = styled.div`
-  background-image: url(/background/bg_blue.02.png);
+  background-image: url(${prefix}/background/bg_blue.02.png);
   background-size: cover;
   background-position: center;
   padding: 52px 0;

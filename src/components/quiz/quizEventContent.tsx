@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { IQuizEvent, IQuizEventContent } from 'types/quiz'
 import Image from 'next/image'
+import { prefix } from 'utils'
 
 interface PropsType {
   content: IQuizEventContent
@@ -81,7 +82,7 @@ const QuizEventContent = ({ content, index }: PropsType) => {
       <div className="img-wrapper">
         <img className="content-img" src={content.image_url} alt={content.image_url} />
       </div>
-      <img src="/curve-arrow.svg" alt="curve-arrow" className="curve-arrow" />
+      <img src={`${prefix}/curve-arrow.svg`} alt="curve-arrow" className="curve-arrow" />
       <p
         className="wv-b2 font-plexsans color-white text"
         style={{ order: index % 2 == 0 ? 2 : 1 }}

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import { prefix } from 'utils'
 
 const ContinueChipContianer = styled.div`
   position: relative;
@@ -42,7 +43,7 @@ interface Propstype {
 const ContinueChip = ({ light }: Propstype) => {
   return (
     <ContinueChipContianer className="arrow-wrapper">
-      <img className="arrow" src={light ? '/arrow-white.svg' : '/part_4/arrow.svg'} alt="arrow" />
+      <img className="arrow" src={light ? `${prefix}/arrow-white.svg` : `${prefix}/part_4/arrow.svg`} alt="arrow" />
     </ContinueChipContianer>
   )
 }

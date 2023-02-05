@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import QuizChoiceCard from './quizChoiceCard'
 import ClassroomGuide from 'components/shared/classroomGuide'
 import { useRouter } from 'next/router'
+import { prefix } from 'utils'
 
 const Container = styled.div`
   padding: 10px;
@@ -114,7 +115,7 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal }: PropsType
         ))}
       </ChoiceWrapperContainer>
       <ContinueChip onClick={onClickContinue}>
-        <img className="arrow" src="/arrow-white.svg" alt="arrow" />
+        <img className="arrow" src={`${prefix}/arrow-white.svg`} alt="arrow" />
         <p className="text font-plexsans">
           บางเหตุการณ์ที่เกี่ยวกับ <span className="color-yellow">“{quiz.title}”</span>
         </p>

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Story from 'components/story/story'
 import { Dispatch, SetStateAction, useState } from 'react'
 import Quiz from 'components/quiz/quiz'
+import { prefix } from 'utils'
 
 const DecisionComponent = styled.div``
 
@@ -35,7 +36,13 @@ const Decision = ({ expand, setExpand }: PropsType) => {
     <DecisionComponent>
       <Header>
         <p className="wv-h7">ชวนมาเรียนรู้และทดสอบความเข้าใจไปพร้อมๆกัน</p>
-        <img src="pointing-hand.svg" alt="pointing-hand" width={32} height={48} style={{ marginTop: '8px' }} />
+        <img
+          src={`${prefix}/pointing-hand.svg`}
+          alt="pointing-hand"
+          width={32}
+          height={48}
+          style={{ marginTop: '8px' }}
+        />
       </Header>
       <Body>
         <div

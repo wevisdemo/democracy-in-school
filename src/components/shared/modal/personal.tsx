@@ -5,7 +5,7 @@ import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption } from 'utils'
+import { convertToDDOption, prefix } from 'utils'
 
 const PersonalModalContainer = styled.div`
   position: absolute;
@@ -251,7 +251,7 @@ function PersonalModal({ show, setShow }: PropsType) {
         <PersonalModalContainer>
           <div className="wrapper" onClick={onCloseModal}></div>
           <div className="main font-plexsans">
-            <img className="cross-icon" src="/cross.svg" alt="cross" onClick={onCloseModal} />
+            <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
             <div className="header">
               <p className="wv-h7 font-plexsans-bold color-yellow title">ก่อนไปส่วนสุดท้าย.. ขอถามเพิ่มอีกนิด</p>
               <p className="color-white subtitle">เพื่อเป็นข้อมูลในการศึกษาและวิเคราะห์ เกี่ยวกับสิทธิและเสรีภาพ</p>

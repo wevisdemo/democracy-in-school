@@ -5,11 +5,12 @@ import Link from 'next/link'
 import ContinueChip from 'components/shared/continueChip'
 import ClassroomGuide from 'components/shared/classroomGuide'
 import { useRouter } from 'next/router'
+import { prefix } from 'utils'
 
 const Container = styled.div`
   width: 100%;
   position: relative;
-  background-image: url('/background/bg_black.01.png');
+  background-image: url('${prefix}/background/bg_black.01.png');
   background-repeat: repeat;
 
   @media (max-width: 1024px) {

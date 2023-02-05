@@ -8,12 +8,13 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Layout from 'components/layout'
 import { ReactElement } from 'react'
+import { prefix } from 'utils'
 
 const MainComponent = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: url('/background/bg_white.01.png');
+  background: url('${prefix}/background/bg_white.01.png');
   overflow: hidden;
 `
 
@@ -28,10 +29,6 @@ function Home() {
     <MainComponent onClick={onClickPage}>
       <Navbar></Navbar>
       <Welcome></Welcome>
-      {/* <Intro></Intro>
-      <Decision></Decision>
-      <Quiz></Quiz>
-      <Ending></Ending> */}
     </MainComponent>
   )
 }

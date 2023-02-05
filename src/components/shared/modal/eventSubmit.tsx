@@ -5,7 +5,7 @@ import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption } from 'utils'
+import { convertToDDOption, prefix } from 'utils'
 
 const EventSubmitModalContainer = styled.div<{ show: boolean }>`
   top: 0px;
@@ -92,8 +92,8 @@ function EventSubmitModal({ show, setShow }: PropsType) {
       <EventSubmitModalContainer show={show}>
         <div className="wrapper" onClick={onCloseModal}></div>
         <div className="main font-plexsans">
-          <img className="cross-icon" src="/cross.svg" alt="cross" onClick={onCloseModal} />
-          <img src="/part_3/icon_check.svg" alt="icon_check" />
+          <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
+          <img src={`${prefix}/part_3/icon_check.svg`} alt="icon_check" />
           <h6 className="title wv-h6 wv-font-kondolar wv-font-bold">
             เราได้รับข้อมูล
             <br />

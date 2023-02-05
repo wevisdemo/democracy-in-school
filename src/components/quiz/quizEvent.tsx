@@ -3,6 +3,7 @@ import ContinueChip from 'components/shared/continueChip'
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
 import { IQuizEvent, IQuizEventContent } from 'types/quiz'
+import { prefix } from 'utils'
 import QuizEventContent from './quizEventContent'
 import QuizEventQuestion from './quizEventQuestion'
 import QuizQuestionTextArea from './quizQuestion'
@@ -15,7 +16,7 @@ interface PropsType {
 }
 
 const QuizEventContainer = styled.div`
-  background-image: url('/background/bg_black.01.png');
+  background-image: url('${prefix}/background/bg_black.01.png');
   background-repeat: repeat;
   padding-bottom: 40px;
   padding: 40px 10px;

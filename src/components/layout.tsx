@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
+import { prefix } from 'utils'
 
 const MainComponent = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: url('/background/bg_white.01.png');
+  background: url('${prefix}/background/bg_white.01.png');
   overflow: hidden;
 `
 

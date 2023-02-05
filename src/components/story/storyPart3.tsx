@@ -4,6 +4,7 @@ import Illus from 'assets/lotties/illus_iccpr.json'
 import PointingButton from 'components/shared/pointerButton'
 import { story_list } from 'data/story'
 import Paper from './paper'
+import { prefix } from 'utils'
 
 const StroyPart3Container = styled.div`
   padding: 132px 0;
@@ -84,7 +85,7 @@ const StoryPart3 = () => {
       <h6 className="wv-h6 wv-font-kondolar color-blue text-4">
         "นี่คือสิทธิเบื้องต้นที่เราทุกคนมีและได้รับ การคุ้มครองโดย ICCPR"
       </h6>
-      <img className="flex-arrow" src="flex-arrow.svg" alt="flex-arrow" />
+      <img className="flex-arrow" src={`${prefix}flex-arrow.svg`} alt="flex-arrow" />
       {story_list.map((item, index) => {
         return (
           <PaperContainer index={index} key={`paper-${index}`}>
