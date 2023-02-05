@@ -2,10 +2,11 @@
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 const isProd = process.env.NODE_ENV === 'production'
+console.log(isGithubActions, isProd)
 
 const nextConfig = {
-  basePath: isGithubActions | isProd ? process.env.NEXT_PUBLIC_BASE_URL : '',
-  assetPrefix: isGithubActions | isProd ? process.env.NEXT_PUBLIC_BASE_URL : '',
+  basePath: isGithubActions ? process.env.NEXT_PUBLIC_BASE_URL : '',
+  assetPrefix: isGithubActions ? process.env.NEXT_PUBLIC_BASE_URL : '',
   reactStrictMode: true,
   compiler: {
     styledComponents: true
