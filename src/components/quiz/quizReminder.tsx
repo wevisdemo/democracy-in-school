@@ -165,7 +165,13 @@ const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType
       <Footer>
         <h6 className="wv-h6 wv-font-kondolar color-white">คำถามชวนคิดต่อ</h6>
         <ul>
-          <li className="wv-b2 color-white">{reminder.question}</li>
+          {reminder.question.map((item, index) => {
+            return (
+              <li key={`item-list-${index}`} className="wv-b2 color-white">
+                {item}
+              </li>
+            )
+          })}
         </ul>
         <ShareContainer className="wv-b2">
           <div className="classroom-guide-container">

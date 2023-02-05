@@ -52,7 +52,7 @@ const Ending = () => {
         <img
           className="board"
           src={`${prefix}/part_4/board_mobile.png`}
-          srcSet={`${prefix}/part_4/board_mobile.png 420w, /part_4/board_desktop.png`}
+          srcSet={`${prefix}/part_4/board_mobile.png 420w, ${prefix}/part_4/board_desktop.png`}
           sizes="(max-width: 420px) 420px, 1280px"
           alt="board"
         />

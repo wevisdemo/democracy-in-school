@@ -39,6 +39,10 @@ const QuizEventQuestionContainer = styled.div<{ canSubmit: boolean }>`
       z-index: 20;
     }
 
+    .question {
+      white-space: pre-line;
+    }
+
     button {
       margin-top: 20px;
       padding: 0px 10px;
@@ -85,7 +89,7 @@ const QuizEventQuestion = ({ question, sendAnswer, onClickClassroomGuide }: Prop
       <div className="question-highlight"></div>
       <div className="text-wrapper">
         <h3 className="wv-h3 color-yellow wv-font-kondolar">คำถาม?</h3>
-        <p className="wv-b1 color-white wv-font-kondolar">{question}</p>
+        <p className="question wv-b1 color-white wv-font-kondolar">{question}</p>
         <QuizQuestionTextArea text={text} onChangeText={onChangeText}></QuizQuestionTextArea>
         <button disabled={!canSubmit} className="wv-b3 font-plexsans-bold" onClick={handleSubmitAnswer}>
           ส่งคำตอบ

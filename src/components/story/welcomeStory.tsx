@@ -216,7 +216,7 @@ const WelcomeStory = ({ expand }: PropsType) => {
               <div className="circle"></div>
             </div>
             <div className="footer-content">
-              <img src={`${prefix}part_2/question-mark.svg`} alt="question-mark" className="question-mark" />
+              <img src={`${prefix}/part_2/question-mark.svg`} alt="question-mark" className="question-mark" />
               <div className="text-wrap">
                 <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
                 <p className="wv-b2 font-plexsans">

@@ -126,7 +126,6 @@ const EndingShare = () => {
           <img className="share-og-image" src={currShare.og_image_src} alt="og-image" />
         </div>
         <div className="wrap-2">
-          <p>{shareUrl}</p>
           <div className="share-social-wrapper font-plexsans">
             <WvSharer />
           </div>

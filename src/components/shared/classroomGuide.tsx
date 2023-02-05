@@ -9,10 +9,18 @@ const ClassroomGuideContainer = styled.div`
   .text {
     font-size: 16px;
     text-align: center;
+    @media (max-width: 420px) {
+      display: none;
+    }
   }
 
   .icon {
     width: 40px;
+
+    @media (max-width: 420px) {
+      width: 20px;
+    }
+
     :hover {
       cursor: pointer;
     }

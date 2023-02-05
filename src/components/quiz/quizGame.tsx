@@ -114,12 +114,14 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal }: PropsType
           />
         ))}
       </ChoiceWrapperContainer>
-      <ContinueChip onClick={onClickContinue}>
-        <img className="arrow" src={`${prefix}/arrow-white.svg`} alt="arrow" />
-        <p className="text font-plexsans">
-          บางเหตุการณ์ที่เกี่ยวกับ <span className="color-yellow">“{quiz.title}”</span>
-        </p>
-      </ContinueChip>
+      {revealIndex !== -1 && (
+        <ContinueChip onClick={onClickContinue}>
+          <img className="arrow" src={`${prefix}/arrow-white.svg`} alt="arrow" />
+          <p className="text font-plexsans">
+            บางเหตุการณ์ที่เกี่ยวกับ <span className="color-yellow">“{quiz.title}”</span>
+          </p>
+        </ContinueChip>
+      )}
     </Container>
   )
 }
