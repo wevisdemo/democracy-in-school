@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
+
+const isGithubActions = process.env.GITHUB_ACTIONS || false
+const isProd = process.env.NODE_ENV === 'production'
+
 const nextConfig = {
-  basePath: process.env.NEXT_PUBLIC_BASE_URL,
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_URL,
+  basePath: isGithubActions | isProd ? process.env.NEXT_PUBLIC_BASE_URL : '',
+  assetPrefix: isGithubActions | isProd ? process.env.NEXT_PUBLIC_BASE_URL : '',
   reactStrictMode: true,
   compiler: {
     styledComponents: true
