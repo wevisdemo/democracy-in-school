@@ -3,6 +3,7 @@ import { IQuizReminder } from 'types/quiz'
 import WvSharer from '@wevisdemo/ui/react/sharer'
 import Link from 'next/link'
 import ContinueChip from 'components/shared/continueChip'
+import ClassroomGuide from 'components/shared/classroomGuide'
 
 const Container = styled.div`
   width: 100%;
@@ -99,6 +100,7 @@ const Footer = styled.div`
 `
 
 const ShareContainer = styled.div`
+  position: relative;
   margin: 40px auto;
   display: flex;
   flex-direction: column;
@@ -106,6 +108,7 @@ const ShareContainer = styled.div`
   justify-content: center;
   color: white;
   background: #00000080;
+  width: 100%;
   max-width: 910px;
   padding: 32px 20px;
 
@@ -116,60 +119,65 @@ const ShareContainer = styled.div`
   .share-topic {
     margin-bottom: 24px;
   }
+
+  .classroom-guide-container {
+    position: absolute;
+    top: -36px;
+    right: 0px;
+  }
 `
 
 interface PropsType {
   reminder: IQuizReminder
   quizAmount: number
+  onClickClassroomGuide: () => void
 }
 
-const QuizReminder = ({ reminder, quizAmount }: PropsType) => {
-  return (
-    <Container className="color-white">
-      <ContentContainer>
-        <div className="bg-image" style={{ backgroundImage: `url(${reminder.cover_url})`, width: '100%' }}></div>
-        <TextContentContainer>
-          <h6 className="wv-h6 wv-font-kondolar color-yellow">เหตุการณ์นี้…บอกอะไร?</h6>
-          <p className="wv-b2 font-plexsans-bold color-white topic">{reminder.topic}</p>
-          {reminder.paragraphs.map((item, index) => {
-            return (
-              <p
-                className="wv-b2 font-plexsans paragraph-item"
-                style={{ color: item.color }}
-                key={`paragraph-${index}`}
-              >
-                {item.text}
-              </p>
-            )
-          })}
-        </TextContentContainer>
-      </ContentContainer>
-      <Footer>
-        <h6 className="wv-h6 wv-font-kondolar color-white">คำถามชวนคิดต่อ</h6>
-        <ul>
-          <li className="wv-b2 color-white">{reminder.question}</li>
-        </ul>
-        <ShareContainer className="wv-b2">
-          <p>แชร์เพื่อชวนคุย</p>
-          <p className="share-topic">
-            เรื่อง <span className="color-yellow">“{reminder.shared_topic}”</span>
-          </p>
-          <WvSharer url="https://wevis.info" light />
-        </ShareContainer>
-        <div className="wv-h5 wv-font-kondolar wv-font-bold color-white back-to-quiz">
-          กลับไป Quiz{' '}
-          <span className="wv-b2" style={{ fontWeight: 'normal' }}>
-            (เหลือ {quizAmount || 0}/10 ข้อ)
-          </span>
+const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType) => (
+  <Container className="color-white">
+    <ContentContainer>
+      <div className="bg-image" style={{ backgroundImage: `url(${reminder.cover_url})`, width: '100%' }}></div>
+      <TextContentContainer>
+        <h6 className="wv-h6 wv-font-kondolar color-yellow">เหตุการณ์นี้…บอกอะไร?</h6>
+        <p className="wv-b2 font-plexsans-bold color-white topic">{reminder.topic}</p>
+        {reminder.paragraphs.map((item, index) => {
+          return (
+            <p className="wv-b2 font-plexsans paragraph-item" style={{ color: item.color }} key={`paragraph-${index}`}>
+              {item.text}
+            </p>
+          )
+        })}
+      </TextContentContainer>
+    </ContentContainer>
+    <Footer>
+      <h6 className="wv-h6 wv-font-kondolar color-white">คำถามชวนคิดต่อ</h6>
+      <ul>
+        <li className="wv-b2 color-white">{reminder.question}</li>
+      </ul>
+      <ShareContainer className="wv-b2">
+        <div className="classroom-guide-container">
+          <ClassroomGuide light onClick={onClickClassroomGuide} />
         </div>
-        <Link href="/" className="font-plex-sans wv-h7 back-to-story">
-          เข้าใจเรื่องสิทธิ
-        </Link>
-        <p className="next-move">(เลื่อนเพื่อไปต่อ)</p>
-        <ContinueChip light />
-      </Footer>
-    </Container>
-  )
-}
+        <p>แชร์เพื่อชวนคุย</p>
+        <p className="share-topic">
+          เรื่อง <span className="color-yellow">“{reminder.shared_topic}”</span>
+        </p>
+        <WvSharer url="https://wevis.info" light />
+      </ShareContainer>
+
+      <div className="wv-h5 wv-font-kondolar wv-font-bold color-white back-to-quiz">
+        กลับไป Quiz{' '}
+        <span className="wv-b2" style={{ fontWeight: 'normal' }}>
+          (เหลือ {quizAmount || 0}/10 ข้อ)
+        </span>
+      </div>
+      <Link href="/second" className="font-plex-sans wv-h7 back-to-story">
+        เข้าใจเรื่องสิทธิ
+      </Link>
+      <p className="next-move">(เลื่อนเพื่อไปต่อ)</p>
+      <ContinueChip light />
+    </Footer>
+  </Container>
+)
 
 export default QuizReminder

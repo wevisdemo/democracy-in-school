@@ -82,8 +82,12 @@ const QuizEventContent = ({ content, index }: PropsType) => {
         <img className="content-img" src={content.image_url} alt={content.image_url} />
       </div>
       <img src="/curve-arrow.svg" alt="curve-arrow" className="curve-arrow" />
-      <p className="wv-b2 font-plexsans color-yellow text" style={{ order: index % 2 == 0 ? 2 : 1 }}>
-        {content.text}
+      <p
+        className="wv-b2 font-plexsans color-white text"
+        style={{ order: index % 2 == 0 ? 2 : 1 }}
+        dangerouslySetInnerHTML={{ __html: content.text }}
+      >
+        {/* {content.text} */}
       </p>
     </ContentContainer>
   )

@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 const VideoModalContainer = styled.div<{ show: boolean }>`
   top: 0px;
   left: 0px;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   display: flex;

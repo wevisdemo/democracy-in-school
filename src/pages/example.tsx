@@ -1,7 +1,11 @@
+import EventSubmitModal from 'components/shared/modal/eventSubmit'
+import GameStepModal from 'components/shared/modal/gameStepModal'
 import PersonalModal from 'components/shared/modal/personal'
 import VideoModal from 'components/shared/modal/video'
 import { useState } from 'react'
 import styled from 'styled-components'
+import { guideCard } from 'data/guide'
+import TextfieldModal from 'components/shared/modal/textfiled'
 
 const MainComponent = styled.div`
   width: 100vw;
@@ -15,7 +19,7 @@ function Example() {
   return (
     <MainComponent>
       <button onClick={() => setShowModal(true)}>show</button>
-      <VideoModal show={showModal} setShow={setShowModal}></VideoModal>
+      <TextfieldModal show={showModal} setShow={setShowModal}></TextfieldModal>
     </MainComponent>
   )
 }

@@ -1,8 +1,9 @@
+import ClassroomGuide from 'components/shared/classroomGuide'
 import { ChangeEvent, useState } from 'react'
 import styled from 'styled-components'
 import QuizQuestionTextArea from './quizQuestion'
 
-const QuizEventQuestionContainer = styled.div`
+const QuizEventQuestionContainer = styled.div<{ canSubmit: boolean }>`
   display: flex;
   position: relative;
   max-width: 1124px;
@@ -19,10 +20,16 @@ const QuizEventQuestionContainer = styled.div`
     opacity: 0.4;
   }
 
+  .classroom-guide-container {
+    position: absolute;
+    right: 0px;
+    top: -50px;
+  }
+
   .text-wrapper {
     margin: 60px auto;
     position: relative;
-    max-width: 652px;
+    max-width: 900px;
 
     textarea {
       padding: 12px;
@@ -35,7 +42,7 @@ const QuizEventQuestionContainer = styled.div`
     button {
       margin-top: 20px;
       padding: 0px 10px;
-      cursor: pointer;
+      cursor: ${(props) => (props.canSubmit ? 'pointer' : 'unset')};
     }
 
     @media (max-width: 1024px) {
@@ -53,21 +60,39 @@ const QuizEventQuestionContainer = styled.div`
 
 interface PropsType {
   question: string
+  sendAnswer: (ans: string) => void
+  onClickClassroomGuide: () => void
 }
 
-const QuizEventQuestion = ({ question }: PropsType) => {
+const QuizEventQuestion = ({ question, sendAnswer, onClickClassroomGuide }: PropsType) => {
+  const [canSubmit, setCanSubmit] = useState<boolean>(false)
   const [text, setText] = useState<string>('')
   const onChangeText = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    if (e.target.value.length > 0) {
+      setCanSubmit(true)
+    } else {
+      setCanSubmit(false)
+    }
     setText(e.target.value)
   }
+  const handleSubmitAnswer = () => {
+    sendAnswer(text)
+    setText('')
+    setCanSubmit(false)
+  }
   return (
-    <QuizEventQuestionContainer>
+    <QuizEventQuestionContainer canSubmit={canSubmit}>
       <div className="question-highlight"></div>
       <div className="text-wrapper">
         <h3 className="wv-h3 color-yellow wv-font-kondolar">คำถาม?</h3>
         <p className="wv-b1 color-white wv-font-kondolar">{question}</p>
         <QuizQuestionTextArea text={text} onChangeText={onChangeText}></QuizQuestionTextArea>
-        <button className="wv-b3 font-plexsans-bold ">ส่งคำตอบ</button>
+        <button disabled={!canSubmit} className="wv-b3 font-plexsans-bold" onClick={handleSubmitAnswer}>
+          ส่งคำตอบ
+        </button>
+        <div className="classroom-guide-container">
+          <ClassroomGuide light onClick={onClickClassroomGuide} />
+        </div>
       </div>
     </QuizEventQuestionContainer>
   )

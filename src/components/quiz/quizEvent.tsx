@@ -1,3 +1,4 @@
+import ClassroomGuide from 'components/shared/classroomGuide'
 import ContinueChip from 'components/shared/continueChip'
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
@@ -9,6 +10,8 @@ import QuizQuestion from './quizQuestion'
 
 interface PropsType {
   event: IQuizEvent
+  sendAnswer: (ans: string) => void
+  onClickClassroomGuide: () => void
 }
 
 const QuizEventContainer = styled.div`
@@ -77,7 +80,7 @@ const QuestionContainer = styled.div`
   }
 `
 
-const QuizEvent = ({ event }: PropsType) => {
+const QuizEvent = ({ event, sendAnswer, onClickClassroomGuide }: PropsType) => {
   const [text, setText] = useState<string>('')
 
   const onChangeText = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -95,7 +98,11 @@ const QuizEvent = ({ event }: PropsType) => {
           <QuizEventContent content={content} index={index} key={`quiz-event-content-${index}`} />
         ))}
       </ContentWrapper>
-      <QuizEventQuestion question={event.question} />
+      <QuizEventQuestion
+        onClickClassroomGuide={onClickClassroomGuide}
+        question={event.question}
+        sendAnswer={sendAnswer}
+      />
       <ContinueChip light />
     </QuizEventContainer>
   )

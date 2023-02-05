@@ -13,6 +13,7 @@ const MainComponent = styled.div`
 interface PropsType {
   children: ReactNode
   onClick?: () => void
+  modalOpen?: boolean
 }
 
 export default function Layout({ children, onClick }: PropsType) {

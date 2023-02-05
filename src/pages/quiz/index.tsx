@@ -10,13 +10,12 @@ import WelcomeSelector from 'components/shared/welcomeSelector'
 function QuizWelcomePage() {
   const router = useRouter()
 
-  // const onClickPage = () => {
-  //   console.log('clickkk')
-  //   router.push('/third')
-  // }
+  const onClickPage = () => {
+    router.push('/quiz/list')
+  }
 
   return (
-    <Layout>
+    <Layout onClick={onClickPage}>
       <WelcomeSelector type="quiz" />
     </Layout>
   )

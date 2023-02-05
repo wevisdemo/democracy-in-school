@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import { IQuiz } from 'types/quiz'
 
@@ -69,8 +70,14 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
 `
 
 const QuizSelectorCard = ({ quiz }: { quiz: IQuiz }) => {
+  const router = useRouter()
+
+  const handleOnClick = () => {
+    router.push(`/quiz/${quiz.id}`)
+  }
+
   return (
-    <QuizSelectorCardContainer selected={quiz.is_selected}>
+    <QuizSelectorCardContainer onClick={handleOnClick} selected={quiz.is_selected}>
       <div className="topic-image-container">
         <img className="topic-image" src={quiz.thumbnail_src} alt={`topic-${quiz.id}`} width={184} height={184} />
       </div>
