@@ -73,12 +73,10 @@ interface PropsType {
 }
 
 function VideoModal({ show, setShow }: PropsType) {
-  const [toggleActive, setToggleActive] = useState<boolean>(false)
-
-  const onCloseModal = () => {
+  const onCloseModal = (e: any) => {
+    e.stopPropagation()
     setShow(false)
   }
-
   return (
     <>
       {/* {show && ( */}

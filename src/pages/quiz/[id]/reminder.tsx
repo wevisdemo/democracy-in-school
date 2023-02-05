@@ -25,11 +25,7 @@ function QuizReminderPage({ id }: PropsType) {
   return (
     <Layout>
       <GameStepModal show={openClassroomModel} setShow={setOpenClassroomModel} guideCard={gameStep}></GameStepModal>
-      <QuizReminder
-        quizAmount={8}
-        reminder={currentQuiz.reminder}
-        onClickClassroomGuide={onClickClassroomGuide}
-      ></QuizReminder>
+      <QuizReminder quizAmount={8} reminder={currentQuiz.reminder} onClickClassroomGuide={onClickClassroomGuide} />
     </Layout>
   )
 }

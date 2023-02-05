@@ -1,5 +1,7 @@
+import Ending from 'components/ending/ending'
 import Layout from 'components/layout'
 import QuizEvent from 'components/quiz/quizEvent'
+import QuizReminder from 'components/quiz/quizReminder'
 import EventSubmitModal from 'components/shared/modal/eventSubmit'
 import GameStepModal from 'components/shared/modal/gameStepModal'
 import { guideCard } from 'data/guide'
@@ -19,7 +21,9 @@ const QuizEventPageComponent = styled.div`
 
 function QuizEventPage({ id }: PropsType) {
   const [showModal, setShowModal] = useState<boolean>(false)
-  const [openClassroomModel, setOpenClassroomModel] = useState<boolean>(false)
+  const [openClassroomModel1, setOpenClassroomModel1] = useState<boolean>(false)
+  const [openClassroomModel2, setOpenClassroomModel2] = useState<boolean>(false)
+  const router = useRouter()
 
   const currentQuiz = quiz_list.find((q) => q.id.toString() === id) || quiz_list[0]
 
@@ -27,21 +31,28 @@ function QuizEventPage({ id }: PropsType) {
     console.log(ans)
     setShowModal(true)
   }
-  const onClickClassroomGuide = () => {
-    setOpenClassroomModel(true)
+  const onClickClassroomGuide1 = () => {
+    setOpenClassroomModel1(true)
+  }
+  const onClickClassroomGuide2 = () => {
+    setOpenClassroomModel2(true)
   }
 
-  const gameStep = guideCard[1]
+  const gameStep1 = guideCard[1]
+  const gameStep2 = guideCard[2]
 
   return (
     <Layout>
       <QuizEvent
-        onClickClassroomGuide={onClickClassroomGuide}
+        onClickClassroomGuide={onClickClassroomGuide1}
         event={currentQuiz.event}
         sendAnswer={handleSendAnswer}
-      ></QuizEvent>
+      />
+      <QuizReminder quizAmount={8} reminder={currentQuiz.reminder} onClickClassroomGuide={onClickClassroomGuide2} />
+      <Ending />
       <EventSubmitModal show={showModal} setShow={setShowModal}></EventSubmitModal>
-      <GameStepModal show={openClassroomModel} setShow={setOpenClassroomModel} guideCard={gameStep}></GameStepModal>
+      <GameStepModal show={openClassroomModel1} setShow={setOpenClassroomModel1} guideCard={gameStep1}></GameStepModal>
+      <GameStepModal show={openClassroomModel2} setShow={setOpenClassroomModel2} guideCard={gameStep2}></GameStepModal>
     </Layout>
   )
 }

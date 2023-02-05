@@ -82,14 +82,8 @@ interface PropsType {
 }
 
 function EventSubmitModal({ show, setShow }: PropsType) {
-  const [toggleActive, setToggleActive] = useState<boolean>(false)
-
-  const onCloseModal = () => {
-    setShow(false)
-  }
-
-  const submitData = () => {
-    // TODO: send data to parent
+  const onCloseModal = (e: any) => {
+    e.stopPropagation()
     setShow(false)
   }
 

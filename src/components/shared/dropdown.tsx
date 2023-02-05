@@ -34,6 +34,9 @@ const DropdownContainer = styled.div<IComponentProps>`
     cursor: pointer;
 
     .label-text {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       color: ${(props) => (props.light ? '#ffffff66' : '#000')};
     }
   }
@@ -77,11 +80,12 @@ const DropdownContainer = styled.div<IComponentProps>`
 interface PropsType {
   placeholder: string
   options: IDropdownOption[]
+  onSelect: (option: IDropdownOption) => void
   light?: boolean
   backgroundColor?: string
 }
 
-const Dropdown = ({ placeholder, options, light, backgroundColor }: PropsType) => {
+const Dropdown = ({ placeholder, options, light, backgroundColor, onSelect }: PropsType) => {
   const ddRef = useRef<HTMLDivElement>(null)
   const [show, setShow] = useState<boolean>(false)
   const [currentOption, setCurrentOption] = useState<IDropdownOption>({ label: placeholder, value: '' })
@@ -106,6 +110,7 @@ const Dropdown = ({ placeholder, options, light, backgroundColor }: PropsType) =
   const onChangeOption = (option: IDropdownOption) => {
     setCurrentOption(option)
     setShow(false)
+    onSelect(option)
   }
 
   return (
@@ -114,7 +119,7 @@ const Dropdown = ({ placeholder, options, light, backgroundColor }: PropsType) =
         <span className="label-text">{currentOption.label}</span>
         <img
           className="dropdown-arrow"
-          src="dropdown-arrow.svg"
+          src="/dropdown-arrow.svg"
           alt="dropdown-arrow"
           style={{ transform: `${show ? 'rotate(180deg)' : ''}` }}
         />

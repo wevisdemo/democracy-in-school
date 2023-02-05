@@ -87,8 +87,12 @@ const QuizEvent = ({ event, sendAnswer, onClickClassroomGuide }: PropsType) => {
     setText(e.target.value)
   }
 
+  const onClickPage = () => {
+    console.log('click aaaa')
+  }
+
   return (
-    <QuizEventContainer className="flex-center">
+    <QuizEventContainer className="flex-center" onClick={onClickPage}>
       <Header>
         <p className="wv-h7 font-plexsans-bold color-yellow title">{event.title}</p>
         <p className="wv-b2 font-plexsans color-white">{event.sub_title}</p>

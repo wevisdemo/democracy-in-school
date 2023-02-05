@@ -49,6 +49,7 @@ const EndingShareContainer = styled.div`
       .dropdown-wrapper {
         margin-top: 30px;
         width: 100%;
+        max-width: 324px;
       }
 
       .share-og-image {
@@ -91,11 +92,17 @@ const EndingShareContainer = styled.div`
 `
 
 const mockOptions: IDropdownOption[] = ending_data.shares.map((d) => {
-  return { label: d.topic, value: d.topic }
+  return { label: d.topic, value: d.id }
 })
 
 const EndingShare = () => {
   const [currShare, setCurrShare] = useState<IEndingShare>(ending_data.shares[0])
+  const [shareUrl, setShareUrl] = useState<string>('')
+  const onSelectOption = (option: IDropdownOption) => {
+    const selectedShare = ending_data.shares.find((s) => s.id === option.value) || ending_data.shares[0]
+    setCurrShare(selectedShare)
+    setShareUrl(`${process.env.NEXT_PUBLIC_BASE_URL}${selectedShare.share_url}`)
+  }
 
   return (
     <EndingShareContainer>
@@ -109,13 +116,18 @@ const EndingShare = () => {
       <div className="order-wrapper">
         <div className="wrap-1">
           <div className="dropdown-wrapper">
-            <Dropdown placeholder="เลือกหัวข้อ" options={mockOptions} />
+            <Dropdown
+              onSelect={onSelectOption}
+              placeholder="เลือกหัวข้อ"
+              options={mockOptions}
+              backgroundColor="#ffeb78"
+            />
           </div>
           <img className="share-og-image" src={currShare.og_image_src} alt="og-image" />
         </div>
         <div className="wrap-2">
           <div className="share-social-wrapper font-plexsans">
-            <WvSharer url="https://wevis.info" />
+            <WvSharer url={shareUrl} />
           </div>
           <h5 className="wv-h5 wv-font-kondolar hashtag">#Democracy in school</h5>
         </div>

@@ -19,7 +19,7 @@ function Example() {
   return (
     <MainComponent>
       <button onClick={() => setShowModal(true)}>show</button>
-      <TextfieldModal show={showModal} setShow={setShowModal}></TextfieldModal>
+      <TextfieldModal submitOtherAnswer={() => {}} show={showModal} setShow={setShowModal}></TextfieldModal>
     </MainComponent>
   )
 }

@@ -3,7 +3,7 @@ import { IDropdownOption } from 'types/shared'
 import Dropdown from '../dropdown'
 import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, MouseEventHandler, SetStateAction, useState } from 'react'
 import { gender, age, province_school, province_general, education } from 'data/dropdown'
 import { convertToDDOption } from 'utils'
 import { IGuideCard } from 'types/guide'
@@ -112,9 +112,8 @@ interface PropsType {
 }
 
 function GameStepModal({ show, setShow, guideCard }: PropsType) {
-  const [toggleActive, setToggleActive] = useState<boolean>(false)
-
-  const onCloseModal = () => {
+  const onCloseModal = (e: any) => {
+    e.stopPropagation()
     setShow(false)
   }
 

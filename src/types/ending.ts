@@ -10,6 +10,8 @@ export interface IReason {
 }
 
 export interface IEndingShare {
+  id: number
   topic: string
   og_image_src: string
+  share_url: string
 }

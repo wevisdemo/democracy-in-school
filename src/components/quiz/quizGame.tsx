@@ -17,7 +17,7 @@ const Container = styled.div`
   }
 `
 
-const ContinueShip = styled.div`
+const ContinueChip = styled.div`
   position: absolute;
   bottom: 0px;
   background: #000000;
@@ -113,12 +113,12 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal }: PropsType
           />
         ))}
       </ChoiceWrapperContainer>
-      <ContinueShip onClick={onClickContinue}>
+      <ContinueChip onClick={onClickContinue}>
         <img className="arrow" src="/arrow-white.svg" alt="arrow" />
         <p className="text font-plexsans">
           บางเหตุการณ์ที่เกี่ยวกับ <span className="color-yellow">“{quiz.title}”</span>
         </p>
-      </ContinueShip>
+      </ContinueChip>
     </Container>
   )
 }

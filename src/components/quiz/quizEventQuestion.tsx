@@ -81,7 +81,7 @@ const QuizEventQuestion = ({ question, sendAnswer, onClickClassroomGuide }: Prop
     setCanSubmit(false)
   }
   return (
-    <QuizEventQuestionContainer canSubmit={canSubmit}>
+    <QuizEventQuestionContainer canSubmit={canSubmit} onClick={(e) => e.stopPropagation()}>
       <div className="question-highlight"></div>
       <div className="text-wrapper">
         <h3 className="wv-h3 color-yellow wv-font-kondolar">คำถาม?</h3>

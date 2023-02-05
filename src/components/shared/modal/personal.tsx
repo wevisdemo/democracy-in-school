@@ -145,6 +145,7 @@ const PersonalMain = () => (
       <p className="subtitle font-plexsans-bold color-white">เพศ</p>
       <div className="dropdown-wrapper">
         <Dropdown
+          onSelect={() => {}}
           backgroundColor="#000"
           placeholder="เลือกเพศ"
           options={gender.map((d) => convertToDDOption(d))}
@@ -155,13 +156,20 @@ const PersonalMain = () => (
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">อายุ</p>
       <div className="dropdown-wrapper">
-        <Dropdown backgroundColor="#000" placeholder="เลือกอายุ" options={age.map((d) => convertToDDOption(d))} light />
+        <Dropdown
+          onSelect={() => {}}
+          backgroundColor="#000"
+          placeholder="เลือกอายุ"
+          options={age.map((d) => convertToDDOption(d))}
+          light
+        />
       </div>
     </div>
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">จังหวัดที่คุณอาศัยอยู่</p>
       <div className="dropdown-wrapper">
         <Dropdown
+          onSelect={() => {}}
           backgroundColor="#000"
           placeholder="พิมพ์ชื่อจังหวัด..."
           options={province_general.map((d) => convertToDDOption(d))}
@@ -173,6 +181,7 @@ const PersonalMain = () => (
       <p className="subtitle font-plexsans-bold color-white">ระดับการศึกษา</p>
       <div className="dropdown-wrapper">
         <Dropdown
+          onSelect={() => {}}
           backgroundColor="#000"
           placeholder="เลือกระดับการศึกษา"
           options={education.map((d) => convertToDDOption(d))}
@@ -189,6 +198,7 @@ const SchoolMain = () => (
       <p className="subtitle font-plexsans-bold color-white">จังหวัดที่โรงเรียนอยู่อาศัย</p>
       <div className="dropdown-wrapper">
         <Dropdown
+          onSelect={() => {}}
           backgroundColor="#000"
           placeholder="พิมพ์ชื่อจังหวัด..."
           options={province_school.map((d) => convertToDDOption(d))}
@@ -200,6 +210,7 @@ const SchoolMain = () => (
       <p className="subtitle font-plexsans-bold color-white">ระดับการศึกษา</p>
       <div className="dropdown-wrapper">
         <Dropdown
+          onSelect={() => {}}
           backgroundColor="#000"
           placeholder="เลือกระดับการศึกษา"
           options={education.map((d) => convertToDDOption(d))}
@@ -224,7 +235,8 @@ interface PropsType {
 function PersonalModal({ show, setShow }: PropsType) {
   const [toggleActive, setToggleActive] = useState<boolean>(false)
 
-  const onCloseModal = () => {
+  const onCloseModal = (e: any) => {
+    e.stopPropagation()
     setShow(false)
   }
 
