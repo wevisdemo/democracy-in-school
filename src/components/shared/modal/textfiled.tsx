@@ -93,7 +93,8 @@ function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
     setText(e.target.value)
   }
 
-  const onCloseModal = () => {
+  const onCloseModal = (e: any) => {
+    e.stopPropagation()
     setShow(false)
   }
 
@@ -105,7 +106,7 @@ function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
     submitOtherAnswer(text)
     setText('')
     setCanSubmit(false)
-    onCloseModal()
+    setShow(false)
   }
 
   return (
