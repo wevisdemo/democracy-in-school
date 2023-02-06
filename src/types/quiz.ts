@@ -1,8 +1,16 @@
 export interface IChoiceQuiz {
+  id: number
   label: string
   image_src: string
   text: string
   background_color: string
+  optional_ans?: string
+}
+
+export interface IAnswer {
+  question_id: number
+  answer_id: number
+  optional_answer?: string
 }
 
 export interface IQuiz {

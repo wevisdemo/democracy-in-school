@@ -35,16 +35,16 @@ const PointingButtonContainer = styled.div<styleProps>`
 
 interface PropsType {
   text: string
-  onClick: Function
+  onClickButton: () => void
   fill?: string
 }
 
-const PointingButton = (props: PropsType) => {
+const PointingButton = ({ text, onClickButton, fill }: PropsType) => {
   return (
-    <PointingButtonContainer className="wv-b3 font-plexsans" fill={props.fill}>
-      <div className="text-box">{props.text}</div>
+    <PointingButtonContainer onClick={onClickButton} className="wv-b3 font-plexsans" fill={fill}>
+      <div className="text-box">{text}</div>
       <div className="pointer">
-        <PointingHand fill={props.fill} />
+        <PointingHand fill={fill} />
       </div>
     </PointingButtonContainer>
   )

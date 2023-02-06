@@ -5,6 +5,7 @@ import PointingButton from 'components/shared/pointerButton'
 import { story_list } from 'data/story'
 import Paper from './paper'
 import { prefix } from 'utils'
+import { useRouter } from 'next/router'
 
 const StroyPart3Container = styled.div`
   padding: 132px 0;
@@ -63,7 +64,10 @@ const PaperContainer = styled.div<{ index: number }>`
 `
 
 const StoryPart3 = () => {
-  const onClickButton = () => {}
+  const router = useRouter()
+  const onClickButton = () => {
+    window.open('https://deepsouthwatch.org/sites/default/files/archives/docs/iccpr_th.pdf', '_blank')
+  }
   return (
     <StroyPart3Container>
       <div className="text-wrapper-1">
@@ -80,7 +84,7 @@ const StoryPart3 = () => {
         </p>
       </div>
       <div className="pointing-button">
-        <PointingButton onClick={onClickButton} text="อ่านหลักการของ ICCPR" fill="white"></PointingButton>
+        <PointingButton onClickButton={onClickButton} text="อ่านหลักการของ ICCPR" fill="white"></PointingButton>
       </div>
       <h6 className="wv-h6 wv-font-kondolar color-blue text-4">
         "นี่คือสิทธิเบื้องต้นที่เราทุกคนมีและได้รับ การคุ้มครองโดย ICCPR"

@@ -7,8 +7,9 @@ import Welcome from 'components/templates/welcome'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Layout from 'components/layout'
-import { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 import { prefix } from 'utils'
+import VideoModal from 'components/shared/modal/video'
 
 const MainComponent = styled.div`
   width: 100vw;
@@ -20,15 +21,28 @@ const MainComponent = styled.div`
 
 function Home() {
   const router = useRouter()
-
+  const [expand, setExpand] = useState<string>('center')
+  const [openVideoModal, setOpenVideoModal] = useState<boolean>(false)
   const onClickPage = () => {
-    console.log('cliuck')
-    router.push('/second')
+    if (expand === 'left') {
+      router.push('/quiz')
+    } else if (expand === 'right') {
+      router.push('/quiz/list')
+    }
   }
+
+  const handleOpenVideoModal = () => {
+    console.log('click video')
+    setOpenVideoModal(true)
+  }
+
   return (
-    <MainComponent onClick={onClickPage}>
-      <Navbar></Navbar>
-      <Welcome></Welcome>
+    <MainComponent>
+      <Navbar />
+      <Welcome />
+      <Intro />
+      <Decision openVideoModal={handleOpenVideoModal} expand={expand} setExpand={setExpand}></Decision>
+      <VideoModal show={openVideoModal} setShow={setOpenVideoModal} />
     </MainComponent>
   )
 }

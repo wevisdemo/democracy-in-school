@@ -15,15 +15,10 @@ interface PropsType {
   id: string
 }
 
-const QuizEventPageComponent = styled.div`
-  position relative;
-`
-
 function QuizEventPage({ id }: PropsType) {
   const [showModal, setShowModal] = useState<boolean>(false)
   const [openClassroomModel1, setOpenClassroomModel1] = useState<boolean>(false)
   const [openClassroomModel2, setOpenClassroomModel2] = useState<boolean>(false)
-  const router = useRouter()
 
   const currentQuiz = quiz_list.find((q) => q.id.toString() === id) || quiz_list[0]
 

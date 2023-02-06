@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import WvSharer from '@wevisdemo/ui/react/sharer'
 import Lottie from 'lottie-react'
 import DesktopCover from 'assets/lotties/desktop_cover.json'
+import MobileCover from 'assets/lotties/mobile_cover.json'
 import WvCookieConsent from '@wevisdemo/ui/react/cookie-consent'
 import ContinueChip from 'components/shared/continueChip'
+import { useEffect, useState } from 'react'
 
 const CoverDiv = styled.div`
   width: 100%;
@@ -26,6 +28,11 @@ const CoverDiv = styled.div`
       margin-top: 8px;
     }
   }
+
+  .lottie {
+    position: relative;
+    top: -50px;
+  }
 `
 
 const ShareComponent = styled.div`
@@ -43,8 +50,13 @@ function onCookieAccept(option: any) {
   }
 }
 
-;<WvCookieConsent policyUrl="https://punchup.world" cookieOptions={cookieOptions} onAccept={onCookieAccept} />
 const Welcome = () => {
+  const [innerWidth, setInnerWidth] = useState<number>(0)
+  useEffect(() => {
+    setInnerWidth(window.innerWidth)
+    console.log(window.innerWidth)
+  }, [])
+
   return (
     <CoverDiv>
       <ShareComponent>
@@ -52,7 +64,7 @@ const Welcome = () => {
       </ShareComponent>
       <Lottie
         className="lottie"
-        animationData={DesktopCover}
+        animationData={innerWidth <= 420 ? MobileCover : DesktopCover}
         autoplay={true}
         loop={true}
         style={{ width: '100%', height: '100%' }}

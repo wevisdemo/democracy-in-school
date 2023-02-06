@@ -37,6 +37,10 @@ const ContentWrapper = styled.div`
   max-width: 976px;
   margin: 88px auto;
 
+  .content-wrapper:not(:first-child) {
+    margin-top: 30px;
+  }
+
   @media (max-width: 1024px) {
     margin: 40px auto;
   }
@@ -88,19 +92,17 @@ const QuizEvent = ({ event, sendAnswer, onClickClassroomGuide }: PropsType) => {
     setText(e.target.value)
   }
 
-  const onClickPage = () => {
-    console.log('click aaaa')
-  }
-
   return (
-    <QuizEventContainer className="flex-center" onClick={onClickPage}>
+    <QuizEventContainer className="flex-center">
       <Header>
         <p className="wv-h7 font-plexsans-bold color-yellow title">{event.title}</p>
         <p className="wv-b2 font-plexsans color-white">{event.sub_title}</p>
       </Header>
       <ContentWrapper>
         {event.contents.map((content, index) => (
-          <QuizEventContent content={content} index={index} key={`quiz-event-content-${index}`} />
+          <div className="content-wrapper">
+            <QuizEventContent content={content} index={index} key={`quiz-event-content-${index}`} />
+          </div>
         ))}
       </ContentWrapper>
       <QuizEventQuestion

@@ -48,6 +48,9 @@ const ContentContainer = styled.div<{ index: number }>`
           ? 'scaleX(-1) rotate(330deg) translate(-50%, -50%)'
           : ' rotate(330deg) translate(-50%, -50%)'};
     }
+    @media (max-width: 420px) {
+      top: 60px;
+    }
   }
 
   .img-wrapper {

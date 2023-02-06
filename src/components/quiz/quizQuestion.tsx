@@ -8,7 +8,7 @@ interface PropsType {
 
 const TextAreaContainer = styled.textarea`
   outline: none;
-  width: 576px;
+  width: 100%
   height: 124px;
   padding: 12px;
   font-size: 18px;
@@ -16,7 +16,6 @@ const TextAreaContainer = styled.textarea`
   resize: none;
 
   @media (max-width: 1024px) {
-    width: 278px;
     height: 124px;
     padding: 8px;
     font-size: 13px;
@@ -26,13 +25,12 @@ const TextAreaContainer = styled.textarea`
 const QuizQuestionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 576px;
+  width: 100%;
   height: 124px;
   margin: auto;
   margin-top: 10px;
 
   @media (max-width: 1024px) {
-    width: 278px;
     height: 124px;
   }
 

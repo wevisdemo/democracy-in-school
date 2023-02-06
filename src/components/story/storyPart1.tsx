@@ -4,7 +4,7 @@ import WelcomeSelector from 'components/shared/welcomeSelector'
 import PointingButton from 'components/shared/pointerButton'
 import { prefix } from 'utils'
 
-const WelcomeStoryContainer = styled.div`
+const StoryPart1Container = styled.div`
   background-image: url(${prefix}/background/bg_blue.01.png);
   background-repeat: repeat;
 `
@@ -18,10 +18,6 @@ const IntroContainer = styled.div`
   align-items: center;
   height: 100%;
   min-height: 100vh;
-
-  @media (max-width: 1024px) {
-    margin-bottom: 56px;
-  }
 
   .img-left {
     width: 284px;
@@ -95,14 +91,12 @@ const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
 `
 
 const Footer = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
   margin-top: 184px;
   background: url(${prefix}/background/bg_white.01.png);
 
@@ -125,6 +119,7 @@ const Footer = styled.div`
       transform: none;
       left: unset;
       top: unset;
+      padding-bottom: 56px;
     }
 
     .question-mark {
@@ -184,51 +179,44 @@ const Footer = styled.div`
 `
 
 interface PropsType {
-  expand: boolean
+  openVideoModal: () => void
 }
 
-const WelcomeStory = ({ expand }: PropsType) => {
-  const onClickButton = () => {}
-
+const StoryPart1 = ({ openVideoModal }: PropsType) => {
   return (
-    <WelcomeStoryContainer>
-      <WelcomeSelector type="story" />
-      {expand && (
-        <IntroContainer>
-          <Header>
-            <img src={`${prefix}/part_2/illus_01.01.png`} alt="illus_01" className="img-left" />
-            <img src={`${prefix}/part_2/illus_01.02.png`} alt="illus_02" className="img-right" />
-            <IntroTextWrap>
-              <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">
-                สิทธิมนุษยชน (Human right)
-              </h6>
+    <StoryPart1Container>
+      <IntroContainer>
+        <Header>
+          <img src={`${prefix}/part_2/illus_01.01.png`} alt="illus_01" className="img-left" />
+          <img src={`${prefix}/part_2/illus_01.02.png`} alt="illus_02" className="img-right" />
+          <IntroTextWrap>
+            <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human right)</h6>
+            <p className="wv-b2 font-plexsans">
+              ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
+            </p>
+            <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
+            <div className="pointing-btn">
+              <PointingButton onClickButton={openVideoModal} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
+            </div>
+          </IntroTextWrap>
+        </Header>
+        <Footer>
+          <div className="half-circle">
+            <div className="circle"></div>
+          </div>
+          <div className="footer-content">
+            <img src={`${prefix}/part_2/question-mark.svg`} alt="question-mark" className="question-mark" />
+            <div className="text-wrap">
+              <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
               <p className="wv-b2 font-plexsans">
-                ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
+                สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
               </p>
-              <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
-              <div className="pointing-btn">
-                <PointingButton onClick={onClickButton} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
-              </div>
-            </IntroTextWrap>
-          </Header>
-          <Footer>
-            <div className="half-circle">
-              <div className="circle"></div>
             </div>
-            <div className="footer-content">
-              <img src={`${prefix}/part_2/question-mark.svg`} alt="question-mark" className="question-mark" />
-              <div className="text-wrap">
-                <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
-                <p className="wv-b2 font-plexsans">
-                  สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
-                </p>
-              </div>
-            </div>
-          </Footer>
-        </IntroContainer>
-      )}
-    </WelcomeStoryContainer>
+          </div>
+        </Footer>
+      </IntroContainer>
+    </StoryPart1Container>
   )
 }
 
-export default WelcomeStory
+export default StoryPart1

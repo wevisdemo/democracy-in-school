@@ -15,15 +15,17 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
   :hover {
     cursor: pointer;
 
-    .topic-image-container {
-      background-color: #ffeb78;
-    }
+    @media (min-width: 421px) {
+      .topic-image-container {
+        background-color: #ffeb78;
+      }
 
-    .topic-image {
-      width: 240px;
-      height: 240px;
-      left: -26px;
-      top: -26px;
+      .topic-image {
+        width: 240px;
+        height: 240px;
+        left: -26px;
+        top: -26px;
+      }
     }
   }
 

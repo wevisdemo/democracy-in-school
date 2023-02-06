@@ -6,17 +6,12 @@ import { ReactElement } from 'react'
 import { quiz_list } from 'data/quiz'
 import QuizSelector from 'components/quiz/selector/quizSelector'
 import WelcomeSelector from 'components/shared/welcomeSelector'
+import Quiz from 'components/quiz/quiz'
 
 function QuizWelcomePage() {
-  const router = useRouter()
-
-  const onClickPage = () => {
-    router.push('/quiz/list')
-  }
-
   return (
-    <Layout onClick={onClickPage}>
-      <WelcomeSelector type="quiz" />
+    <Layout>
+      <Quiz expand />
     </Layout>
   )
 }

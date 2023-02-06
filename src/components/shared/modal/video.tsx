@@ -55,10 +55,15 @@ const VideoModalContainer = styled.div<{ show: boolean }>`
     }
 
     .content {
+      position: relative;
+      overflow: auto;
       margin-top: 20px;
       .video-wrapper {
         .thumbnail {
           max-width: 392px;
+          @media (max-width: 420px) {
+            max-width: 250px;
+          }
         }
       }
       .video-wrapper:not(:first-child) {
@@ -85,8 +90,8 @@ function VideoModal({ show, setShow }: PropsType) {
         <div className="wrapper" onClick={onCloseModal}></div>
         <div className="main font-plexsans">
           <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
-          <p className="title font-plexsans-bold wv-b2 color-yellow">วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน</p>
           <div className="content">
+            <p className="title font-plexsans-bold wv-b2 color-yellow">วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน</p>
             <div className="video-wrapper">
               <p className="color-white wv-b4">วิดีโอจาก StartDee</p>
               <a href="https://www.youtube.com/watch?v=n2EyaWdfyng" target="_blank">

@@ -10,36 +10,42 @@ export const quiz_list: IQuiz[] = [
       'หลายโรงเรียนยังมีกฎการบังคับตัดผม รวมถึงการลงโทษด้วยการกล้อนหรือตัดผมนักเรียน เมื่อรับรู้สิ่งนี้/คำตอบในใจของคุณคือ',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.01.A.png`,
         text: 'การบังคับตัดผมหรือการลงโทษช่วยรักษาระเบียบวินัย',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.01.B.png`,
         text: 'ก็แค่ตัดผมเองกำหนดมาแบบไหนก็ทำแบบนั้น',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.01.C.png`,
         text: 'ถ้าอยู่ในระเบียบไม่ได้ อนาคตทำงานยิ่งกว่านี้นะ',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.01.D.png`,
         text: 'ไม่ควรมีการลงโทษ แต่ยังควรบังคับให้ตัดผม',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.01.E.png`,
         text: 'ผมของเรา ความมั่นใจของเรา จะทำทรงอะไรก็ได้',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -98,36 +104,42 @@ export const quiz_list: IQuiz[] = [
       'ถ้าคุณได้มีโอกาสได้ยินหรืออยู่ในวงสนทนาของคนที่อายุมากกว่าคุณมากๆและพูดเรื่องที่คุณไม่เห็นด้วย คุณจะตัดสินใจแบบไหน?',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.02.A.png`,
         text: 'อดทนฟังแต่ไม่แสดงออกว่าไม่เห็นด้วย',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.02.B.png`,
         text: 'เพราะเขาเป็นผู้ใหญ่เหมือนข้อ A แต่เก็บไปเม้าท์กับเพื่อนต่อ',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.02.C.png`,
         text: 'ลุกหนี เพื่อเลี่ยงที่ต้องได้ยินในสิ่งที่ไม่เห็นด้วย',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.02.D.png`,
         text: 'ตั้งคำถามกับบางประเด็นที่เห็นต่าง แล้วเสนอมุมมองที่แตกต่าง (ชวนคิด)',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.02.E.png`,
         text: 'โต้เถียงอย่างเข้มข้น',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -183,36 +195,42 @@ export const quiz_list: IQuiz[] = [
       'คุณคิดอย่างไรกับกลุ่มเคลื่อนไหว เช่น องค์กรภาคประชาชน (NGO)ได้ออกมาประณามรัฐเรื่องสิทธิมนุษยชน เกี่ยวกับการใช้ความรุนแรงสลายการชุมนุม',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.03.A.png`,
         text: 'รัฐควรเข้ามาควบคุม',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.03.B.png`,
         text: 'การสนับสนุนการชุมนุมอาจเพิ่มความขัดแย้งให้รุนแรงขึ้น',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.03.C.png`,
         text: 'การรวมกลุ่มประณาม เรื่องสิทธิมนุษยชนได้แต่ห้ามเป็นการเมือง',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.03.D.png`,
         text: 'จะสนับสนุนการชุมนุมทางการเมืองด้วยได้ แต่ควรรับเงินจากรัฐตนเอง',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.03.E.png`,
         text: 'องค์กรเรื่องสิทธิมนุษยชน ประณามรัฐได้ เพราะตรงกับเป้าหมายองค์กร',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -271,36 +289,42 @@ export const quiz_list: IQuiz[] = [
     question: 'โรงเรียนควรกำหนดการแต่งกายของนักเรียนอย่างไรระหว่าง “ชุดไปรเวทหรือชุดนักเรียน”',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.04.A.png`,
         text: 'มองว่าแต่งชุดนักเรียน สุภาพ น่ารัก เรียบร้อยดีนะ',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.04.B.png`,
         text: 'แต่งชุดนักเรียนเหมือนกัน จะได้ไม่ถูกมองว่าแตกต่าง',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.04.C.png`,
         text: 'การแต่งชุดไปรเวททำได้ แต่ควรแต่งให้เรียบร้อย',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.04.D.png`,
         text: 'มองว่าแต่งชุดไปรเวท ฝึกการแต่งตัวและเสริมความมั่นใจได้',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.04.E.png`,
         text: 'แต่งชุดไปรเวทเพราะช่วยสร้างความสุขจากการเลือกชุดใส่เอง',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -353,36 +377,42 @@ export const quiz_list: IQuiz[] = [
     question: '“ห้องน้ำของทุกคน ที่ทุกเพศเข้าได้”ถ้าเห็นการโพสต์ข้อความนี้ คำตอบแทนใจของคุณคือ',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.05.A.png`,
         text: 'ไม่เห็นด้วย อันตรายขึ้นกว่าเดิม รู้สึกไม่ปลอดภัยมากๆ ',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.05.B.png`,
         text: 'ไม่เห็นด้วย แยกแบบเดิมชัดเจนดีแล้ว',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.05.C.png`,
         text: 'ไม่เห็นด้วย แต่ละเพศใช้เวลาเข้าห้องน้ำไม่เท่ากัน ไม่ควรปนกัน',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.05.D.png`,
         text: 'ไม่เห็นด้วย คิดว่าทำห้องน้ำเพศหลากหลายแยกออกมาชัดเจนเลยดีกว่านะ',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.05.E.png`,
         text: 'เห็นด้วย ทุกเพศเท่าเทียมกัน ควรใช้ร่วมกันได้',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -429,36 +459,42 @@ export const quiz_list: IQuiz[] = [
       'ถ้าคุณแต่งตัวออกจากบ้านมาด้วยความมั่นใจ แล้วเจอคำพูดว่าแต่งตัวไม่ปรึกษาใครเลยเหรอ? ทำไมกล้าแต่งแบบนี้? คุณจะทำอย่างไร?',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.06.A.png`,
         text: 'ด่ากลับ !!',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.06.B.png`,
         text: 'ตอบกลับด้วยการอธิบายให้เข้าใจถึงสิทธิของเรา',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.06.C.png`,
         text: 'โกรธ แต่ไม่ตอบโต้ เพราะไม่อยากเสียเวลาทะเลาะ',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.06.D.png`,
         text: 'เข้าใจว่าเค้ามีสิทธิวิจารณ์แต่จะใส่ต่อไปอย่างมั่นใจ',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.06.E.png`,
         text: 'เก็บไปคิด แล้วทบทวนวิธีแต่งตัวใหม่',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -516,36 +552,42 @@ export const quiz_list: IQuiz[] = [
     question: 'เห็นนักเรียนริบบิ้นขาว โบขาว นำมาติดแสดงออกสัญลักษณ์ทางการเมืองเมื่อเห็นสิ่งเหล่านี้ คุณคิดเห็นอย่างไร?',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.07.A.png`,
         text: 'ไม่ควรทำ เพราะอาจยังไม่มีวุฒิภาวะเพียงพอ',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.07.B.png`,
         text: 'ไม่ควรทำ เพราะ พ่อแม่ส่งให้มาเรียนเท่านั้น',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.07.C.png`,
         text: 'ทำได้ แต่ควรคำนึงถึงการไปสมัครงานในอนาคต',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.07.D.png`,
         text: 'ทำได้ แต่ต้องได้รับความยินยอมจากสถาบันการศึกษาก่อน',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.07.E.png`,
         text: 'ทำได้ โดยไม่ต้องขอความยินยอมจากสถาบันการศึกษา',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -593,36 +635,42 @@ export const quiz_list: IQuiz[] = [
     question: 'นักเรียนสามารถใช้พื้นที่จัดการชุมนุมภายในโรงเรียนคำตอบแทนใจของคุณคือ?',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.08.A.png`,
         text: 'โรงเรียนไม่ควรเลือกข้างทางการเมือง',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.08.B.png`,
         text: 'ให้พื้นที่ชุมนุมได้ แต่ไม่จำเป็นต้องเข้าไปดูแล',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.08.C.png`,
         text: 'ไม่ควรให้คนภายนอกเข้ามาชุมนุมในโรงเรียนด้วย',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.08.D.png`,
         text: 'จัดพื้นที่ชุมนุมได้เลย ไม่จำเป็นต้องขอ',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.08.E.png`,
         text: 'โรงเรียนควรจัดสรรพื้นที่รองรับไว้เลย',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -676,41 +724,47 @@ export const quiz_list: IQuiz[] = [
     id: 9,
     is_selected: false,
     thumbnail_src: `${prefix}/part_3/topic/Topic.09.png`,
-    pre_question: 'สถานการณ์บ้านเมืองวิกฤตมากเพื่อนของคุณโพสต์ด่ารัฐบาลอย่างหนักว่า',
+    pre_question: 'สถานการณ์บ้านเมืองวิกฤตมาก เพื่อนของคุณโพสต์ด่ารัฐบาลอย่างหนักว่า',
     title: 'วิพากษ์วิจารณ์รัฐบาล',
-    question: '“รัฐบาลเฮง___ คนจะตายห่_กันอยู่แล้วทำเหี้_อะไรสักอย่างสิถ้าทำไม่ได้ก็ออกไปเลย”',
+    question: '“รัฐบาลเฮง___ คนจะตายห่_กันอยู่แล้ว ทำเหี้_อะไรสักอย่างสิถ้าทำไม่ได้ก็ออกไปเลย”',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.09.A.png`,
         text: 'ไม่ควรด่ารัฐบาลนะ',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.09.B.png`,
         text: 'กดไลค์กดหัวใจให้อย่างเดียว',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.09.C.png`,
         text: 'กดไลค์กดหัวใจและแชร์ต่อเลย เรื่องนี้โดนใจต้องขยาย',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.09.D.png`,
         text: 'ด่าได้แค่ไม่ใช่คำหยาบ คำเหยียด',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.09.E.png`,
         text: 'ด่าเลย ประเทศเราขับเคลื่อนได้ด้วยการด่า',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',
@@ -761,36 +815,42 @@ export const quiz_list: IQuiz[] = [
     question: 'การทำพาน และจัดกิจกรรมไหว้ครูที่ต้องจัดขึ้นทุกๆ ปี คำตอบไหนแทนใจคุณ?',
     choices: [
       {
+        id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.10.A.png`,
         text: 'กลับไปใช้วัสดุทำพานแบบเดิมมากขึ้น เช่น หญ้าแพรก ดอกเข็ม',
         background_color: '#5abde4'
       },
       {
+        id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.10.B.png`,
         text: 'ต้องเปิดโอกาสให้ทำพานตามไอเดียของนักเรียนได้โดยไม่บังคับ',
         background_color: '#aa85b5'
       },
       {
+        id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.10.C.png`,
         text: 'รักษาไว้กับการมอบคลานนำพานไปไหว้ครู',
         background_color: '#d0da81'
       },
       {
+        id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.10.D.png`,
         text: 'ควรยกเลิกการมอบคลานนำพานไปไหว้ครู',
         background_color: '#fceb88'
       },
       {
+        id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.10.E.png`,
         text: 'เปลี่ยนเป็นมอบดอกไม้ให้ครูคนใดก็ได้ตามใจนักเรียน ',
         background_color: '#f2a25c'
       },
       {
+        id: 6,
         label: 'F',
         image_src: `${prefix}/part_3/frame_choose/illus.F.png`,
         text: 'อื่นๆ',

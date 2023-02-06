@@ -126,6 +126,10 @@ const ShareContainer = styled.div`
     position: absolute;
     top: -36px;
     right: 0px;
+    @media (max-width: 420px) {
+      top: -8px;
+      right: 8px;
+    }
   }
 `
 
@@ -190,7 +194,7 @@ const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType
             (เหลือ {quizAmount || 0}/10 ข้อ)
           </span>
         </div>
-        <Link href="/second" className="font-plex-sans wv-h7 back-to-story">
+        <Link href="/story" className="font-plex-sans wv-h7 back-to-story">
           เข้าใจเรื่องสิทธิ
         </Link>
         <p className="next-move">(เลื่อนเพื่อไปต่อ)</p>

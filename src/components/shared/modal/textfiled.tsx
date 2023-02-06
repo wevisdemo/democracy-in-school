@@ -65,8 +65,17 @@ const TextfieldModalContainer = styled.div<{ show: boolean }>`
     }
 
     .content {
+      width: 100%;
       .submit-btn {
         margin-top: 20px;
+      }
+
+      .text-area-container {
+        width: 100%;
+        max-width: 576px;
+        @media (max-width: 1024px) {
+          max-width: 270px;
+        }
       }
     }
   }
@@ -95,6 +104,7 @@ function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
 
   const onCloseModal = (e: any) => {
     e.stopPropagation()
+    submitOtherAnswer('')
     setShow(false)
   }
 
@@ -116,7 +126,9 @@ function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
         <div className="main font-plexsans">
           <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
           <div className="content">
-            <QuizQuestionTextArea text={text} onChangeText={onChangeText} />
+            <div className="text-area-container">
+              <QuizQuestionTextArea text={text} onChangeText={onChangeText} />
+            </div>
             <button disabled={!canSubmit} className="wv-b3 font-plexsans-bold submit-btn" onClick={handleSubmitAnswer}>
               ส่งคำตอบ
             </button>

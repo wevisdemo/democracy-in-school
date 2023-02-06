@@ -50,6 +50,8 @@ interface PropsType {
   reasons: IReason[]
 }
 
+// TODO: slider comp
+
 const Reason = ({ reasons }: PropsType) => {
   return (
     <Container>

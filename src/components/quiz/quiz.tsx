@@ -7,12 +7,14 @@ import QuizReminder from './quizReminder'
 
 interface PropsType {
   expand: boolean
+  action: 'expand' | 'shrink' | 'center'
 }
 
-const Quiz = ({ expand }: PropsType) => {
+const Quiz = ({ expand, action }: PropsType) => {
   return (
     <>
-      <WelcomeSelector type="quiz" />
+      <WelcomeSelector action={action} expand={expand} type="quiz" />
+      {expand && <QuizSelector quizList={quiz_list} />}
     </>
   )
 }

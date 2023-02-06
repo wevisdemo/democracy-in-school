@@ -42,6 +42,7 @@ const QuizWrapperContainer = styled.div`
   width: min-content;
 
   @media (max-width: 1024px) {
+    width: 100%;
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;

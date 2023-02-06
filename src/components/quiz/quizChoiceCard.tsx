@@ -107,19 +107,16 @@ const TextWrapper = styled.div`
   }
 `
 
-const QuizChoiceCard = ({
-  choice,
-  revealIndex,
-  index,
-  onClick
-}: {
+interface PropsType {
   choice: IChoiceQuiz
-  revealIndex: number
-  index: number
+  selectedChoice: IChoiceQuiz
+  isReveal: boolean
   onClick: () => void
-}) => {
+}
+
+const QuizChoiceCard = ({ choice, selectedChoice, isReveal, onClick }: PropsType) => {
   const handleOnClick = () => {
-    if (revealIndex === -1) {
+    if (selectedChoice.id === -1) {
       onClick()
     }
   }
@@ -127,11 +124,11 @@ const QuizChoiceCard = ({
   const [isAns, setIsAns] = useState<boolean>(false)
 
   useEffect(() => {
-    setIsAns(index === revealIndex)
-  }, [revealIndex])
+    setIsAns(selectedChoice.id === choice.id)
+  }, [selectedChoice])
 
   return (
-    <ChoiceContainer choice={choice} reveal={revealIndex != -1} isAns={isAns} percent={50} onClick={handleOnClick}>
+    <ChoiceContainer choice={choice} reveal={isReveal} isAns={isAns} percent={50} onClick={handleOnClick}>
       <div className="background"></div>
       <img className="choice-img" src={choice.image_src} alt={`choice-${choice.label}`} />
       {/* <div className="color-percent"></div> */}
@@ -139,7 +136,7 @@ const QuizChoiceCard = ({
         <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black ">{choice.label}</h6>
 
         <div>
-          <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black percent">xx%</h6>
+          {isReveal && <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black percent">xx%</h6>}
           <p className="font-plexsans-bold color-white text-stroke-black answer">{choice.text}</p>
         </div>
       </TextWrapper>

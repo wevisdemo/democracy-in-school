@@ -5,12 +5,14 @@ import { prefix } from 'utils'
 
 interface PropsType {
   type: 'quiz' | 'story'
+  expand: boolean
+  action: 'expand' | 'shrink' | 'center'
 }
 
-const WelcomeComponent = styled.div`
+const WelcomeSelectorContainer = styled.div<{ action: 'expand' | 'shrink' | 'center' }>`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -18,6 +20,12 @@ const WelcomeComponent = styled.div`
   align-items: center;
   background-image: url(${prefix}/background/bg_blue.01.png);
   background-size: cover;
+  transition: all 2s;
+
+  @media (max-width: 420px) {
+    min-height: 0px;
+    height: ${(props) => (props.action == 'expand' ? '100vh' : props.action == 'center' ? '50vh' : '0vh')};
+  }
 
   .cover-message {
     position: relative;
@@ -44,7 +52,7 @@ const WelcomeComponent = styled.div`
 
   .image-bg {
     position: absolute;
-    width: 100%;
+    min-width: 100%;
     height: 100%;
     object-fit: cover;
   }
@@ -77,18 +85,20 @@ const typographyDict: TypoGraphyMap = {
   }
 }
 
-const WelcomeSelector = ({ type }: PropsType) => {
+const WelcomeSelector = ({ type, expand, action }: PropsType) => {
   const typo = typographyDict[type]
   return (
-    <WelcomeComponent>
+    <WelcomeSelectorContainer action={action}>
       <img src={typo.image_src} alt={typo.image_alt} className="image-bg" />
       <h4 className="wv-font-kondolar wv-h4 cover-message color-yellow">{typo.title}</h4>
       <div className="breakline cover-message" />
       <h6 className="wv-font-kondolar wv-h6 cover-message color-white">{typo.description}</h6>
-      <div className="chip">
-        <ContinueChip light />
-      </div>
-    </WelcomeComponent>
+      {expand && (
+        <div className="chip">
+          <ContinueChip light />
+        </div>
+      )}
+    </WelcomeSelectorContainer>
   )
 }
 

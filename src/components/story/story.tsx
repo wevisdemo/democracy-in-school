@@ -1,23 +1,22 @@
+import QuizSelector from 'components/quiz/selector/quizSelector'
+import { quiz_list } from 'data/quiz'
+import Quiz from 'pages/quiz'
 import StoryPart2 from './storyPart2'
 import StoryPart3 from './storyPart3'
 import StoryPart4 from './storyPart4'
-import WelcomeStory from './welcomeStory'
+import StoryPart1 from './storyPart1'
 
 interface PropsType {
-  expand: boolean
+  openVideoModal: () => void
 }
 
-const Story = ({ expand }: PropsType) => {
+const Story = ({ openVideoModal }: PropsType) => {
   return (
     <>
-      <WelcomeStory expand={expand}></WelcomeStory>
-      {expand && (
-        <div>
-          <StoryPart2 />
-          <StoryPart3 />
-          <StoryPart4 />
-        </div>
-      )}
+      <StoryPart1 openVideoModal={openVideoModal} />
+      <StoryPart2 />
+      <StoryPart3 />
+      <StoryPart4 />
     </>
   )
 }

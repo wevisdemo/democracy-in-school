@@ -24,6 +24,11 @@ const QuizEventQuestionContainer = styled.div<{ canSubmit: boolean }>`
     position: absolute;
     right: 0px;
     top: -50px;
+
+    @media (max-width: 420px) {
+      top: -40px;
+      right: 8px;
+    }
   }
 
   .text-wrapper {
@@ -60,6 +65,14 @@ const QuizEventQuestionContainer = styled.div<{ canSubmit: boolean }>`
       }
     }
   }
+
+  .text-area-container {
+    margin: auto;
+    width: 576px;
+    @media (max-width: 1024px) {
+      width: 278px;
+    }
+  }
 `
 
 interface PropsType {
@@ -90,7 +103,9 @@ const QuizEventQuestion = ({ question, sendAnswer, onClickClassroomGuide }: Prop
       <div className="text-wrapper">
         <h3 className="wv-h3 color-yellow wv-font-kondolar">คำถาม?</h3>
         <p className="question wv-b1 color-white wv-font-kondolar">{question}</p>
-        <QuizQuestionTextArea text={text} onChangeText={onChangeText}></QuizQuestionTextArea>
+        <div className="text-area-container">
+          <QuizQuestionTextArea text={text} onChangeText={onChangeText}></QuizQuestionTextArea>
+        </div>
         <button disabled={!canSubmit} className="wv-b3 font-plexsans-bold" onClick={handleSubmitAnswer}>
           ส่งคำตอบ
         </button>

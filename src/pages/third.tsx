@@ -15,9 +15,13 @@ function Third() {
     }
   }
 
+  const handleOpenVideoModal = () => {
+    // setOpenVideoModal(true)
+  }
+
   return (
     <Layout onClick={onClickPage}>
-      <Decision expand={expand} setExpand={setExpand}></Decision>
+      <Decision openVideoModal={handleOpenVideoModal} expand={expand} setExpand={setExpand}></Decision>
     </Layout>
   )
 }
