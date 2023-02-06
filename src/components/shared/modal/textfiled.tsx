@@ -1,11 +1,6 @@
 import styled from 'styled-components'
-import { IDropdownOption } from 'types/shared'
-import Dropdown from '../dropdown'
-import { ending as ending_data } from 'data/ending'
-import Toggle from '../toggle'
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
-import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption, prefix } from 'utils'
+import { prefix } from 'utils'
 import QuizQuestionTextArea from 'components/quiz/quizQuestion'
 
 const TextfieldModalContainer = styled.div<{ show: boolean }>`
@@ -87,8 +82,6 @@ interface PropsType {
   submitOtherAnswer: (ans: string) => void
 }
 
-// todo: event submit answer
-
 function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
   const [text, setText] = useState<string>('')
   const [canSubmit, setCanSubmit] = useState<boolean>(false)
@@ -108,10 +101,6 @@ function TextfieldModal({ show, setShow, submitOtherAnswer }: PropsType) {
     setShow(false)
   }
 
-  const submitData = () => {
-    // TODO: send data to parent
-    setShow(false)
-  }
   const handleSubmitAnswer = () => {
     submitOtherAnswer(text)
     setText('')

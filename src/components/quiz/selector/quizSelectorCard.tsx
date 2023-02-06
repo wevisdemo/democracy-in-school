@@ -12,7 +12,9 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
     width: 76px;
   }
 
-  :hover {
+  ${(props) =>
+    !props.selected &&
+    `:hover {
     cursor: pointer;
 
     @media (min-width: 421px) {
@@ -27,7 +29,7 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
         top: -26px;
       }
     }
-  }
+  }`}
 
   .description {
     margin-top: 4px;
@@ -71,15 +73,22 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
   }
 `
 
-const QuizSelectorCard = ({ quiz }: { quiz: IQuiz }) => {
+interface PropsType {
+  quiz: IQuiz
+  selected: boolean
+}
+
+const QuizSelectorCard = ({ quiz, selected }: PropsType) => {
   const router = useRouter()
 
   const handleOnClick = () => {
-    router.push(`/quiz/${quiz.id}`)
+    if (!selected) {
+      router.push(`/quiz/${quiz.id}`)
+    }
   }
 
   return (
-    <QuizSelectorCardContainer onClick={handleOnClick} selected={quiz.is_selected}>
+    <QuizSelectorCardContainer onClick={handleOnClick} selected={selected}>
       <div className="topic-image-container">
         <img className="topic-image" src={quiz.thumbnail_src} alt={`topic-${quiz.id}`} width={184} height={184} />
       </div>

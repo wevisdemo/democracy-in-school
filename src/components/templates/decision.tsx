@@ -28,8 +28,8 @@ const Header = styled.div`
 const Body = styled.div`
   display: flex;
   min-height: 100vh;
+  flex-direction: column;
   @media (max-width: 420px) {
-    flex-direction: column;
   }
 `
 
@@ -79,30 +79,32 @@ const Decision = ({ expand, setExpand, openVideoModal }: PropsType) => {
         />
       </Header>
       <Body>
-        <LeftDecisionWrapper
-          expand={expand}
-          onClick={() => {
-            setExpand('left')
-          }}
-        >
-          <WelcomeSelector
-            type="story"
-            action={expand === 'left' ? 'expand' : expand === 'right' ? 'shrink' : 'center'}
-            expand={expand == 'left'}
-          ></WelcomeSelector>
-        </LeftDecisionWrapper>
-        <RightDecisionWrapper
-          expand={expand}
-          onClick={() => {
-            setExpand('right')
-          }}
-        >
-          <WelcomeSelector
-            type="quiz"
-            action={expand === 'right' ? 'expand' : expand === 'left' ? 'shrink' : 'center'}
-            expand={expand == 'right'}
-          ></WelcomeSelector>
-        </RightDecisionWrapper>
+        <div style={{ display: 'flex' }}>
+          <LeftDecisionWrapper
+            expand={expand}
+            onClick={() => {
+              setExpand('left')
+            }}
+          >
+            <WelcomeSelector
+              type="story"
+              action={expand === 'left' ? 'expand' : expand === 'right' ? 'shrink' : 'center'}
+              expand={expand == 'left'}
+            ></WelcomeSelector>
+          </LeftDecisionWrapper>
+          <RightDecisionWrapper
+            expand={expand}
+            onClick={() => {
+              setExpand('right')
+            }}
+          >
+            <WelcomeSelector
+              type="quiz"
+              action={expand === 'right' ? 'expand' : expand === 'left' ? 'shrink' : 'center'}
+              expand={expand == 'right'}
+            ></WelcomeSelector>
+          </RightDecisionWrapper>
+        </div>
         {expand === 'left' && (
           <>
             <Story openVideoModal={openVideoModal} />

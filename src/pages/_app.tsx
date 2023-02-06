@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ReactElement, ReactNode } from 'react'
 import { NextPage } from 'next'
+import { AppContext, AppProvider } from 'store/index'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <AnimatePresence>
-      <Component {...pageProps} />
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
     </AnimatePresence>
   )
 }

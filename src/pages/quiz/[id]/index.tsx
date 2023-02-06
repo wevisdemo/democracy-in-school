@@ -4,7 +4,7 @@ import QuizEvent from 'components/quiz/quizEvent'
 import { quiz_list } from 'data/quiz'
 import { useRouter } from 'next/router'
 import Layout from 'components/layout'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { IAnswer, IQuiz } from 'types/quiz'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import GameStepModal from 'components/shared/modal/gameStepModal'
@@ -12,6 +12,8 @@ import { guideCard } from 'data/guide'
 import TextfieldModal from 'components/shared/modal/textfiled'
 import Ending from 'components/ending/ending'
 import EventSubmitModal from 'components/shared/modal/eventSubmit'
+import { AppContext } from 'store'
+import PersonalModal from 'components/shared/modal/personal'
 
 interface PropsType {
   id: string
@@ -22,21 +24,70 @@ function Quiz({ id }: PropsType) {
     question_id: -1,
     answer_id: -1
   }
-
   const [openClassroomModel, setOpenClassroomModel] = useState<boolean>(false)
   const [openTextfieldModal, setOpenTextfieldModal] = useState<boolean>(false)
   const [openEventSubmitModal, setOpenEventSubmitModal] = useState<boolean>(false)
   const [openClassroomModel1, setOpenClassroomModel1] = useState<boolean>(false)
   const [openClassroomModel2, setOpenClassroomModel2] = useState<boolean>(false)
+  const [showUserInfoModal, setShowUserInfoModal] = useState<boolean>(false)
+  const [userInfoFT, setUserInfoFT] = useState<boolean>(true)
   const [revealContent, setRevealContent] = useState<boolean>(false)
   const [quizAns, setQuizAns] = useState<IAnswer>(defaultAns)
+  const gameRef = useRef<HTMLDivElement>(null)
+  const eventRef = useRef<HTMLDivElement>(null)
+  const reminderRef = useRef<HTMLDivElement>(null)
+  const endingRef = useRef<HTMLDivElement>(null)
+  const appContext = useContext(AppContext)
   const currentQuiz = quiz_list.find((q) => q.id.toString() === id) || quiz_list[0]
   const onClickClassroomGuide = () => {
     setOpenClassroomModel(true)
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        eventRef.current &&
+        // eventRef.current?.offsetTop < window.scrollY + 10 &&
+        eventRef.current?.offsetTop - 10 < window.scrollY &&
+        !localStorage['first-time-guide-2']
+      ) {
+        setOpenClassroomModel1(true)
+        localStorage['first-time-guide-2'] = true
+      }
+      if (
+        reminderRef.current &&
+        // reminderRef.current?.offsetTop < window.scrollY + 10 &&
+        reminderRef.current?.offsetTop - 10 < window.scrollY &&
+        !localStorage['first-time-guide-3']
+      ) {
+        setOpenClassroomModel2(true)
+        localStorage['first-time-guide-3'] = true
+      }
+      if (
+        endingRef.current &&
+        // endingRef.current?.offsetTop < window.scrollY + 10 &&
+        endingRef.current?.offsetTop - 10 < window.scrollY &&
+        !localStorage['first-time-userinfo']
+      ) {
+        console.log(userInfoFT)
+        setShowUserInfoModal(true)
+        localStorage['first-time-userinfo'] = true
+      }
+    }
+    localStorage.removeItem('first-time-userinfo')
+    if (!localStorage['first-time-guide-1']) {
+      setOpenClassroomModel(true)
+      localStorage['first-time-guide-1'] = true
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   const sendFinalAnswer = (ans: IAnswer) => {
     // send ans
+    appContext.addAnswer(ans)
     setRevealContent(true)
   }
 
@@ -72,33 +123,47 @@ function Quiz({ id }: PropsType) {
 
   return (
     <Layout>
-      <QuizGame
-        openTextFieldModal={() => setOpenTextfieldModal(true)}
-        onClickClassroomGuide={onClickClassroomGuide}
-        quiz={currentQuiz}
-        selectAnswer={selectAnswer}
-      />
+      <div ref={gameRef}>
+        <QuizGame
+          openTextFieldModal={() => setOpenTextfieldModal(true)}
+          onClickClassroomGuide={onClickClassroomGuide}
+          quiz={currentQuiz}
+          selectAnswer={selectAnswer}
+        />
+      </div>
       {revealContent && (
         <>
-          <QuizEvent
-            onClickClassroomGuide={onClickClassroomGuide1}
-            event={currentQuiz.event}
-            sendAnswer={handleSendEventAnswer}
-          />
-          <QuizReminder quizAmount={8} reminder={currentQuiz.reminder} onClickClassroomGuide={onClickClassroomGuide2} />
-          <Ending />
+          <div ref={eventRef}>
+            <QuizEvent
+              onClickClassroomGuide={onClickClassroomGuide1}
+              event={currentQuiz.event}
+              sendAnswer={handleSendEventAnswer}
+            />
+          </div>
+          <div ref={reminderRef}>
+            <QuizReminder
+              quizAmount={8}
+              reminder={currentQuiz.reminder}
+              onClickClassroomGuide={onClickClassroomGuide2}
+            />
+          </div>
+          <div ref={endingRef}>
+            <Ending />
+          </div>
         </>
       )}
       <EventSubmitModal show={openEventSubmitModal} setShow={setOpenEventSubmitModal}></EventSubmitModal>
       <GameStepModal show={openClassroomModel1} setShow={setOpenClassroomModel1} guideCard={gameStep1}></GameStepModal>
       <GameStepModal show={openClassroomModel2} setShow={setOpenClassroomModel2} guideCard={gameStep2}></GameStepModal>
-
       <GameStepModal show={openClassroomModel} setShow={setOpenClassroomModel} guideCard={gameStep} />
-      <TextfieldModal
-        submitOtherAnswer={submitOtherAnswer}
-        show={openTextfieldModal}
-        setShow={setOpenTextfieldModal}
-      ></TextfieldModal>
+      <TextfieldModal submitOtherAnswer={submitOtherAnswer} show={openTextfieldModal} setShow={setOpenTextfieldModal} />
+      <PersonalModal
+        show={showUserInfoModal}
+        onClose={() => {
+          setUserInfoFT(false)
+          setShowUserInfoModal(false)
+        }}
+      />
     </Layout>
   )
 }

@@ -8,7 +8,9 @@ import { gender, age, province_school, province_general, education } from 'data/
 import { convertToDDOption, prefix } from 'utils'
 
 const PersonalModalContainer = styled.div`
-  position: absolute;
+  top: 0px;
+  left: 0px;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -18,8 +20,10 @@ const PersonalModalContainer = styled.div`
 
   .wrapper {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: #d9d9d9;
     opacity: 0.2;
   }
@@ -229,21 +233,23 @@ const SchoolMain = () => (
 
 interface PropsType {
   show: boolean
-  setShow: Dispatch<SetStateAction<boolean>>
+  onClose: () => void
 }
 
-function PersonalModal({ show, setShow }: PropsType) {
+function PersonalModal({ show, onClose }: PropsType) {
   const [toggleActive, setToggleActive] = useState<boolean>(false)
 
   const onCloseModal = (e: any) => {
     e.stopPropagation()
-    setShow(false)
+    onClose()
   }
 
   const submitData = () => {
+    onClose()
     // TODO: send data to parent
-    setShow(false)
   }
+
+  // TODO: handle state and validate
 
   return (
     <>
@@ -260,7 +266,7 @@ function PersonalModal({ show, setShow }: PropsType) {
             <div className="breakline"></div>
             <div className="footer">
               {!toggleActive ? <PersonalMain /> : <SchoolMain />}
-              <div className="submit-btn subtitle font-plexsans-bold">
+              <div className="submit-btn subtitle font-plexsans-bold" onClick={submitData}>
                 <span>ส่งข้อมูล</span>
               </div>
             </div>

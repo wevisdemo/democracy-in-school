@@ -6,6 +6,8 @@ import ContinueChip from 'components/shared/continueChip'
 import ClassroomGuide from 'components/shared/classroomGuide'
 import { useRouter } from 'next/router'
 import { prefix } from 'utils'
+import { useContext } from 'react'
+import { AppContext } from 'store'
 
 const Container = styled.div`
   width: 100%;
@@ -141,9 +143,15 @@ interface PropsType {
 
 const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType) => {
   const router = useRouter()
+  const appContext = useContext(AppContext)
 
   const backToQuizList = () => {
     router.push('/quiz/list')
+  }
+
+  const getQuizRemain = () => {
+    const count = appContext.answerList.length
+    return 10 - count
   }
 
   return (
@@ -191,7 +199,7 @@ const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType
         <div className="wv-h5 wv-font-kondolar wv-font-bold color-white back-to-quiz" onClick={backToQuizList}>
           กลับไป Quiz{' '}
           <span className="wv-b2" style={{ fontWeight: 'normal' }}>
-            (เหลือ {quizAmount || 0}/10 ข้อ)
+            (เหลือ {getQuizRemain() || 0}/10 ข้อ)
           </span>
         </div>
         <Link href="/story" className="font-plex-sans wv-h7 back-to-story">
