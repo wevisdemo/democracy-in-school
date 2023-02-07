@@ -114,6 +114,8 @@ interface PropsType {
   onClick: () => void
 }
 
+// TODO: percent
+
 const QuizChoiceCard = ({ choice, selectedChoice, isReveal, onClick }: PropsType) => {
   const handleOnClick = () => {
     if (selectedChoice.id === -1) {
@@ -136,7 +138,7 @@ const QuizChoiceCard = ({ choice, selectedChoice, isReveal, onClick }: PropsType
         <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black ">{choice.label}</h6>
 
         <div>
-          {isReveal && <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black percent">xx%</h6>}
+          {isReveal && <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black percent">50%</h6>}
           <p className="font-plexsans-bold color-white text-stroke-black answer">{choice.text}</p>
         </div>
       </TextWrapper>

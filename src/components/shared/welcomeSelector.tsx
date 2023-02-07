@@ -21,6 +21,7 @@ const WelcomeSelectorContainer = styled.div<{ action: 'expand' | 'shrink' | 'cen
   background-image: url(${prefix}/background/bg_blue.01.png);
   background-size: cover;
   transition: all 2s;
+  overflow-x: hidden;
 
   @media (max-width: 420px) {
     min-height: 0px;

@@ -8,7 +8,6 @@ const MainComponent = styled.div`
   display: flex;
   flex-direction: column;
   background: url('${prefix}/background/bg_white.01.png');
-  overflow: hidden;
 `
 
 interface PropsType {

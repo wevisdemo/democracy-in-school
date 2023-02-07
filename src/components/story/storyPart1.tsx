@@ -18,6 +18,7 @@ const IntroContainer = styled.div`
   align-items: center;
   height: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 
   .img-left {
     width: 284px;

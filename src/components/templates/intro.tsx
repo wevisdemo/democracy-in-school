@@ -10,6 +10,7 @@ const SectionDiv = styled.div`
   height: 100%;
   position: relative;
   display: flex;
+  overflow-x: hidden;
 
   .lottie {
     opacity: 0.2;

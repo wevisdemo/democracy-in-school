@@ -29,7 +29,12 @@ const Body = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  @media (max-width: 420px) {
+
+  .choice-wrapper {
+    display: flex;
+    @media (max-width: 420px) {
+      flex-direction: column;
+    }
   }
 `
 
@@ -79,7 +84,7 @@ const Decision = ({ expand, setExpand, openVideoModal }: PropsType) => {
         />
       </Header>
       <Body>
-        <div style={{ display: 'flex' }}>
+        <div className="choice-wrapper">
           <LeftDecisionWrapper
             expand={expand}
             onClick={() => {

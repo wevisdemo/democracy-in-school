@@ -10,6 +10,7 @@ import { prefix } from 'utils'
 const Container = styled.div`
   padding: 10px;
   position: relative;
+  overflow: hidden;
 
   .classroom-guide-container {
     position: absolute;
