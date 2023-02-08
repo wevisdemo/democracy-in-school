@@ -2,7 +2,8 @@ import { IAnswer } from 'types/quiz'
 
 export enum AnswerActionType {
   PUSH = 'PUSH',
-  RESET = 'RESET'
+  RESET = 'RESET',
+  FETCH = 'FETCH'
 }
 
 type AnswerReducerAction =
@@ -12,6 +13,9 @@ type AnswerReducerAction =
     }
   | {
       type: AnswerActionType.RESET
+    }
+  | {
+      type: AnswerActionType.FETCH
     }
 
 export const answerReducer = (state: IAnswer[], action: AnswerReducerAction) => {
@@ -23,7 +27,22 @@ export const answerReducer = (state: IAnswer[], action: AnswerReducerAction) => 
       return [...newState, ans]
     }
     case AnswerActionType.RESET: {
+      for (let i = 1; i <= 10; i++) {
+        const key = `quiz-answer-${i}`
+        window.localStorage.removeItem(key)
+      }
       return []
+    }
+    case AnswerActionType.FETCH: {
+      let list: IAnswer[] = []
+      for (let i = 1; i <= 10; i++) {
+        const key = `quiz-answer-${i}`
+        const ans = window.localStorage.getItem(key)
+        if (!ans) continue
+        const ansData = JSON.parse(ans)
+        list = [...list, ansData]
+      }
+      return list
     }
     default:
       return state

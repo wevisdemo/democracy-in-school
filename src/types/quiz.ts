@@ -23,6 +23,7 @@ export interface IQuiz {
   event: IQuizEvent
   reminder: IQuizReminder
   is_selected: boolean
+  og_image_src: string
 }
 
 export interface IQuizEvent {

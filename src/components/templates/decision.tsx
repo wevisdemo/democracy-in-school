@@ -117,29 +117,6 @@ const Decision = ({ expand, setExpand, openVideoModal }: PropsType) => {
           </>
         )}
         {expand === 'right' && <QuizSelector quizList={quiz_list} />}
-        {/* <LeftDecisionWrapper
-          expand={expand}
-          onClick={() => {
-            setExpand('left')
-          }}
-        >
-          <Story
-            action={expand === 'left' ? 'expand' : expand === 'right' ? 'shrink' : 'center'}
-            expand={expand == 'left'}
-            openVideoModal={openVideoModal}
-          ></Story>
-        </LeftDecisionWrapper>
-        <RightDecisionWrapper
-          expand={expand}
-          onClick={() => {
-            setExpand('right')
-          }}
-        >
-          <Quiz
-            action={expand === 'right' ? 'expand' : expand === 'left' ? 'shrink' : 'center'}
-            expand={expand == 'right'}
-          ></Quiz>
-        </RightDecisionWrapper> */}
       </Body>
     </DecisionComponent>
   )

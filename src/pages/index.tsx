@@ -10,6 +10,7 @@ import Layout from 'components/layout'
 import { ReactElement, useState } from 'react'
 import { prefix } from 'utils'
 import VideoModal from 'components/shared/modal/video'
+import Metadata from 'components/metadata'
 
 const MainComponent = styled.div`
   width: 100vw;
@@ -19,30 +20,24 @@ const MainComponent = styled.div`
 `
 
 function Home() {
-  const router = useRouter()
   const [expand, setExpand] = useState<string>('center')
   const [openVideoModal, setOpenVideoModal] = useState<boolean>(false)
-  const onClickPage = () => {
-    if (expand === 'left') {
-      router.push('/quiz')
-    } else if (expand === 'right') {
-      router.push('/quiz/list')
-    }
-  }
-
+  // TODO: move expand and set to decision level
   const handleOpenVideoModal = () => {
-    console.log('click video')
     setOpenVideoModal(true)
   }
 
   return (
-    <MainComponent>
-      <Navbar />
-      <Welcome />
-      <Intro />
-      <Decision openVideoModal={handleOpenVideoModal} expand={expand} setExpand={setExpand}></Decision>
-      <VideoModal show={openVideoModal} setShow={setOpenVideoModal} />
-    </MainComponent>
+    <>
+      <Metadata imageSrc={`${prefix}/og/og-default.jpg`} />
+      <MainComponent>
+        <Navbar />
+        <Welcome />
+        <Intro />
+        <Decision openVideoModal={handleOpenVideoModal} expand={expand} setExpand={setExpand}></Decision>
+        <VideoModal show={openVideoModal} setShow={setOpenVideoModal} />
+      </MainComponent>
+    </>
   )
 }
 

@@ -160,6 +160,12 @@ body{
 
 }
 
+@media (min-width: 421px) {
+  .mobile-only {
+  display: none;
+  }
+}
+
 @media (max-width: 420px) {
   .full-page {
     min-height: 100vh;

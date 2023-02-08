@@ -100,8 +100,8 @@ const QuizEvent = ({ event, sendAnswer, onClickClassroomGuide }: PropsType) => {
       </Header>
       <ContentWrapper>
         {event.contents.map((content, index) => (
-          <div className="content-wrapper">
-            <QuizEventContent content={content} index={index} key={`quiz-event-content-${index}`} />
+          <div className="content-wrapper" key={`quiz-event-content-${index}`}>
+            <QuizEventContent content={content} index={index} />
           </div>
         ))}
       </ContentWrapper>

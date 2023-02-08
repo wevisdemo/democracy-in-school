@@ -1,13 +1,19 @@
 import Layout from 'components/layout'
+import Navbar from 'components/navbar'
 import Quiz from 'components/quiz/quiz'
+import About from 'components/templates/about'
+import styled from 'styled-components'
+import WvFooter from '@wevisdemo/ui/react/footer'
+
+const MainComponent = styled.div``
 
 function AboutPage() {
   return (
-    <Layout>
-      <div className="full-page">
-        <h1 className="wv-h1 wv-font-kondolar wv-bold">COMING SOON ...</h1>
-      </div>
-    </Layout>
+    <MainComponent>
+      <Navbar></Navbar>
+      <About />
+      <WvFooter dark />
+    </MainComponent>
   )
 }
 

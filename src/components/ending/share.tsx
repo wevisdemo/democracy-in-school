@@ -5,6 +5,7 @@ import { IDropdownOption } from 'types/shared'
 import { useState } from 'react'
 import { IEndingShare } from 'types/ending'
 import WvSharer from '@wevisdemo/ui/react/sharer'
+import { prefix } from 'utils'
 
 const EndingShareContainer = styled.div`
   width: 100%;
@@ -127,7 +128,17 @@ const EndingShare = () => {
         </div>
         <div className="wrap-2">
           <div className="share-social-wrapper font-plexsans">
-            <WvSharer />
+            {currShare.id === 1 && <WvSharer url={`${prefix}${ending_data.shares[0].share_url}`} />}
+            {currShare.id === 2 && <WvSharer url={`${prefix}${ending_data.shares[1].share_url}`} />}
+            {currShare.id === 3 && <WvSharer url={`${prefix}${ending_data.shares[2].share_url}`} />}
+            {currShare.id === 4 && <WvSharer url={`${prefix}${ending_data.shares[3].share_url}`} />}
+            {currShare.id === 5 && <WvSharer url={`${prefix}${ending_data.shares[4].share_url}`} />}
+            {currShare.id === 6 && <WvSharer url={`${prefix}${ending_data.shares[5].share_url}`} />}
+            {currShare.id === 7 && <WvSharer url={`${prefix}${ending_data.shares[6].share_url}`} />}
+            {currShare.id === 8 && <WvSharer url={`${prefix}${ending_data.shares[7].share_url}`} />}
+            {currShare.id === 9 && <WvSharer url={`${prefix}${ending_data.shares[8].share_url}`} />}
+            {currShare.id === 10 && <WvSharer url={`${prefix}${ending_data.shares[9].share_url}`} />}
+            {currShare.id === 11 && <WvSharer url={`${prefix}${ending_data.shares[10].share_url}`} />}
           </div>
           <h5 className="wv-h5 wv-font-kondolar hashtag">#Democracy in school</h5>
         </div>

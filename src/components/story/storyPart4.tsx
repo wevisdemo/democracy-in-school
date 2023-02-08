@@ -70,7 +70,7 @@ const StoryPart4 = () => {
           มาชวนคิดและทำความเข้าใจ ผ่านแบบทดสอบนี้กัน
         </p>
         <div className="sharer font-plexsans">
-          <WvSharer url="https://wevis.info" />
+          <WvSharer url={`${process.env.NEXT_PUBLIC_BASE_URL}/knowledge`} />
         </div>
       </div>
       <div className="ship">

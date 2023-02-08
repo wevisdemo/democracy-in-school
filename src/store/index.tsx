@@ -13,6 +13,7 @@ import {
 interface IAppContextValue {
   addAnswer: (ans: IAnswer) => void
   resetAnswer: () => void
+  fetchAnswer: () => void
   answerList: IAnswer[]
   userInfo: IUserInfoContext
 }
@@ -20,6 +21,7 @@ interface IAppContextValue {
 const dafaultContextValue: IAppContextValue = {
   addAnswer: (ans: IAnswer) => {},
   resetAnswer: () => {},
+  fetchAnswer: () => {},
   answerList: [],
   userInfo: defaultUserInfoContext
 }
@@ -38,6 +40,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     },
     resetAnswer: () => {
       answerDispatch({ type: AnswerActionType.RESET })
+    },
+    fetchAnswer: () => {
+      answerDispatch({ type: AnswerActionType.FETCH })
     },
     answerList: answerState,
     userInfo: initUserInfoContext({ userInfoState, userInfoDispatch })

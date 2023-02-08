@@ -84,9 +84,11 @@ interface PropsType {
   onClickClassroomGuide: () => void
   openTextFieldModal: () => void
   selectAnswer: (ans: IAnswer) => void
+  isReveal: boolean
+  answer: IAnswer
 }
 
-const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswer }: PropsType) => {
+const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswer, isReveal, answer }: PropsType) => {
   const defaultChoice: IChoiceQuiz = {
     id: -1,
     label: '',
@@ -95,8 +97,13 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
     background_color: ''
   }
 
-  const [isReveal, setIsReveal] = useState<boolean>(false)
   const [selectedChoice, setSelectedChoice] = useState<IChoiceQuiz>(defaultChoice)
+
+  useEffect(() => {
+    const ansChoice = quiz.choices.find((c) => c.id === answer.answer_id)
+    if (!ansChoice) return
+    setSelectedChoice(ansChoice)
+  }, [answer])
 
   const onClickContinue = () => {
     // router.push(`/quiz/${quiz.id}/event`)
@@ -104,7 +111,6 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
 
   const onClickChoice = (choice: IChoiceQuiz) => {
     setSelectedChoice(choice)
-    setIsReveal(true)
     if (choice.id === 6) {
       openTextFieldModal()
     }

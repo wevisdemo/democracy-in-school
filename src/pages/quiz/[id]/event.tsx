@@ -23,7 +23,6 @@ function QuizEventPage({ id }: PropsType) {
   const currentQuiz = quiz_list.find((q) => q.id.toString() === id) || quiz_list[0]
 
   const handleSendAnswer = (ans: string): void => {
-    console.log(ans)
     setShowModal(true)
   }
   const onClickClassroomGuide1 = () => {
@@ -43,7 +42,11 @@ function QuizEventPage({ id }: PropsType) {
         event={currentQuiz.event}
         sendAnswer={handleSendAnswer}
       />
-      <QuizReminder quizAmount={8} reminder={currentQuiz.reminder} onClickClassroomGuide={onClickClassroomGuide2} />
+      <QuizReminder
+        quizId={currentQuiz.id}
+        reminder={currentQuiz.reminder}
+        onClickClassroomGuide={onClickClassroomGuide2}
+      />
       <Ending />
       <EventSubmitModal show={showModal} setShow={setShowModal}></EventSubmitModal>
       <GameStepModal show={openClassroomModel1} setShow={setOpenClassroomModel1} guideCard={gameStep1}></GameStepModal>

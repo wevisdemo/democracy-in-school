@@ -136,12 +136,12 @@ const ShareContainer = styled.div`
 `
 
 interface PropsType {
+  quizId: number
   reminder: IQuizReminder
-  quizAmount: number
   onClickClassroomGuide: () => void
 }
 
-const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType) => {
+const QuizReminder = ({ quizId, reminder, onClickClassroomGuide }: PropsType) => {
   const router = useRouter()
   const appContext = useContext(AppContext)
 
@@ -193,7 +193,7 @@ const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType
           <p className="share-topic">
             เรื่อง <span className="color-yellow">“{reminder.shared_topic}”</span>
           </p>
-          <WvSharer url="https://wevis.info" light />
+          <WvSharer url={`${process.env.NEXT_PUBLIC_BASE_URL}/quiz/${quizId}`} light />
         </ShareContainer>
 
         <div className="wv-h5 wv-font-kondolar wv-font-bold color-white back-to-quiz" onClick={backToQuizList}>
@@ -202,7 +202,7 @@ const QuizReminder = ({ reminder, quizAmount, onClickClassroomGuide }: PropsType
             (เหลือ {getQuizRemain() || 0}/10 ข้อ)
           </span>
         </div>
-        <Link href="/story" className="font-plex-sans wv-h7 back-to-story">
+        <Link href="/knowledge" className="font-plex-sans wv-h7 back-to-story">
           เข้าใจเรื่องสิทธิ
         </Link>
         <p className="next-move">(เลื่อนเพื่อไปต่อ)</p>

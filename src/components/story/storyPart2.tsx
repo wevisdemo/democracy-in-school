@@ -97,13 +97,10 @@ const StoryPart2 = () => {
   const eventRef2 = useRef<HTMLDivElement>(null)
   const eventRef3 = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    console.log('set cceee')
-  }, [myRef.current?.offsetTop])
+  useEffect(() => {}, [myRef.current?.offsetTop])
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY, myRef.current?.offsetTop, eventRef1.current?.offsetTop, eventRef2.current?.offsetTop)
       if (
         myRef.current &&
         eventRef1.current &&
@@ -139,12 +136,7 @@ const StoryPart2 = () => {
         <h5 className="title wv-h5 wv-font-kondolar">ยกตัวอย่างเช่น</h5>
         <Lottie className="lottie" animationData={lottieList[lottieIndex]} autoplay={true} loop={true} />
       </div>
-      <div
-        className="bubble-wrapper"
-        onScroll={() => {
-          console.log('scroll')
-        }}
-      >
+      <div>
         <div className="bubble bubble-1">
           <div className="text-bubble">
             <p className=" wv-b2 font-plexsans">ถ้าเรามีความคิดเห็น ต่อการทำงานของรัฐบาล</p>

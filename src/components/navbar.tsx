@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <MyNavbar>
       <WvNavbar dark title="DEMOCRACY IN SCHOOL" logoAddonSrc="fnf-logo.svg">
-        <WvNavButton dark onClick={() => router.push('/story')}>
+        <WvNavButton dark onClick={() => router.push('/knowledge')}>
           Knowledge
         </WvNavButton>
         <WvNavButton dark onClick={() => router.push('/quiz')}>

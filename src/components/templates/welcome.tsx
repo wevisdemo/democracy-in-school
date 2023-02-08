@@ -54,13 +54,12 @@ const Welcome = () => {
   const [innerWidth, setInnerWidth] = useState<number>(0)
   useEffect(() => {
     setInnerWidth(window.innerWidth)
-    console.log(window.innerWidth)
   }, [])
 
   return (
     <CoverDiv>
       <ShareComponent>
-        <WvSharer url="https://wevis.info" />
+        <WvSharer url={process.env.NEXT_PUBLIC_BASE_URL} />
       </ShareComponent>
       <Lottie
         className="lottie"
