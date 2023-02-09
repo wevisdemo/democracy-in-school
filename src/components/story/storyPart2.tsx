@@ -136,7 +136,7 @@ const StoryPart2 = () => {
         <h5 className="title wv-h5 wv-font-kondolar">ยกตัวอย่างเช่น</h5>
         <Lottie className="lottie" animationData={lottieList[lottieIndex]} autoplay={true} loop={true} />
       </div>
-      <div>
+      <div className="bubble-wrapper">
         <div className="bubble bubble-1">
           <div className="text-bubble">
             <p className=" wv-b2 font-plexsans">ถ้าเรามีความคิดเห็น ต่อการทำงานของรัฐบาล</p>
