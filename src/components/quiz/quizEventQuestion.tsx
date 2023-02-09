@@ -68,9 +68,9 @@ const QuizEventQuestionContainer = styled.div<{ canSubmit: boolean }>`
 
   .text-area-container {
     margin: auto;
-    width: 576px;
+    max-width: 576px;
     @media (max-width: 1024px) {
-      width: 278px;
+      max-width: 278px;
     }
   }
 `

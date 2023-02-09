@@ -15,6 +15,7 @@ import EventSubmitModal from 'components/shared/modal/eventSubmit'
 import { AppContext } from 'store'
 import PersonalModal from 'components/shared/modal/personal'
 import Metadata from 'components/metadata'
+import { IUserInformation } from 'store/userInfo'
 
 interface PropsType {
   id: string
@@ -31,7 +32,6 @@ function Quiz({ id }: PropsType) {
   const [openClassroomModel1, setOpenClassroomModel1] = useState<boolean>(false)
   const [openClassroomModel2, setOpenClassroomModel2] = useState<boolean>(false)
   const [showUserInfoModal, setShowUserInfoModal] = useState<boolean>(false)
-  const [userInfoFT, setUserInfoFT] = useState<boolean>(true)
   const [revealContent, setRevealContent] = useState<boolean>(false)
   const [quizAns, setQuizAns] = useState<IAnswer>(defaultAns)
   const gameRef = useRef<HTMLDivElement>(null)
@@ -46,13 +46,14 @@ function Quiz({ id }: PropsType) {
 
   useEffect(() => {
     appContext.fetchAnswer()
+    localStorage.removeItem('first-time-userinfo')
+    appContext.userInfo.fetch()
     const localAns = window.localStorage[`quiz-answer-${currentQuiz.id}`]
-    if (!localAns) {
-      return
+    if (localAns) {
+      const ansData = JSON.parse(localAns)
+      setQuizAns(ansData)
+      setRevealContent(true)
     }
-    const ansData = JSON.parse(localAns)
-    setQuizAns(ansData)
-    setRevealContent(true)
     const handleScroll = () => {
       if (
         eventRef.current &&
@@ -72,18 +73,18 @@ function Quiz({ id }: PropsType) {
         setOpenClassroomModel2(true)
         localStorage['first-time-guide-3'] = true
       }
+      console.log('scroll => ', window.scrollY)
       if (
         endingRef.current &&
         // endingRef.current?.offsetTop < window.scrollY + 10 &&
         endingRef.current?.offsetTop - 10 < window.scrollY &&
-        !localStorage['first-time-userinfo']
+        !localStorage.getItem('first-time-userinfo') &&
+        !appContext.userInfo.state.has_set
       ) {
-        console.log(userInfoFT)
         setShowUserInfoModal(true)
         localStorage['first-time-userinfo'] = true
       }
     }
-    localStorage.removeItem('first-time-userinfo')
     if (!localStorage['first-time-guide-1']) {
       setOpenClassroomModel(true)
       localStorage['first-time-guide-1'] = true
@@ -99,6 +100,9 @@ function Quiz({ id }: PropsType) {
     appContext.addAnswer(ans)
     setAnswerLocalStorage(ans)
     setRevealContent(true)
+    if (!localStorage[`user-info`]) {
+      setShowUserInfoModal(true)
+    }
   }
 
   const setAnswerLocalStorage = (ans: IAnswer) => {
@@ -128,6 +132,11 @@ function Quiz({ id }: PropsType) {
   const handleSendEventAnswer = (ans: string): void => {
     console.log(ans)
     setOpenEventSubmitModal(true)
+  }
+
+  const handleSubmitUserInfo = (userInfo: IUserInformation) => {
+    appContext.userInfo.set(userInfo)
+    localStorage['user-info'] = JSON.stringify(userInfo)
   }
 
   // TODO: close all modal
@@ -191,9 +200,9 @@ function Quiz({ id }: PropsType) {
         <PersonalModal
           show={showUserInfoModal}
           onClose={() => {
-            setUserInfoFT(false)
             setShowUserInfoModal(false)
           }}
+          submitData={handleSubmitUserInfo}
         />
       </Layout>
     </>

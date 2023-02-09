@@ -4,10 +4,11 @@ import Dropdown from '../dropdown'
 import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
 import { Dispatch, SetStateAction, useState } from 'react'
-import { gender, age, province_school, province_general, education } from 'data/dropdown'
+import { gender, age, province, education } from 'data/dropdown'
 import { convertToDDOption, prefix } from 'utils'
+import { IUserInformation, userInfoDefault } from 'store/userInfo'
 
-const PersonalModalContainer = styled.div`
+const PersonalModalContainer = styled.div<{ canSubmit: boolean; show: boolean }>`
   top: 0px;
   left: 0px;
   position: fixed;
@@ -17,6 +18,7 @@ const PersonalModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 100;
+  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
 
   .wrapper {
     position: absolute;
@@ -31,6 +33,8 @@ const PersonalModalContainer = styled.div`
   .main {
     z-index: 120;
     position: relative;
+    top: ${(props) => (props.show ? '0px' : '100vh')};
+    opacity: ${(props) => (props.show ? '1' : '0')};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +45,7 @@ const PersonalModalContainer = styled.div`
     opacity: 0.95;
     padding: 40px 10px;
     overflow: scroll;
+    transition: all 1s;
 
     @media (max-width: 420px) {
       max-width: 300px;
@@ -80,7 +85,6 @@ const PersonalModalContainer = styled.div`
       .topic-wrapper {
         width: 100%;
         margin: auto;
-
         .dropdown-wrapper {
           width: 100%;
           margin: auto;
@@ -115,7 +119,7 @@ const PersonalModalContainer = styled.div`
         margin-top: 20px;
         display: flex;
         max-width: 148px;
-        padding: 10px 30px;
+        padding: 10px 20px;
         background: #ffffff;
         border-radius: 3px;
         text-align: center;
@@ -126,9 +130,11 @@ const PersonalModalContainer = styled.div`
           padding: 4px 16px;
         }
 
-        :hover {
+        ${(props) =>
+          props.canSubmit &&
+          `:hover {
           cursor: pointer;
-        }
+        }`}
       }
     }
 
@@ -141,15 +147,20 @@ const PersonalModalContainer = styled.div`
   }
 `
 // TODO: create modal component and spare slot to embed main component
-// TODO: import cross icon
 
-const PersonalMain = () => (
+const PersonalMain = ({ userInfo, setUserInfo }: SubPropsType) => (
   <>
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">เพศ</p>
       <div className="dropdown-wrapper">
         <Dropdown
-          onSelect={() => {}}
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              person: { ...state.person, gender: option.value }
+            }))
+          }}
+          initValue={{ label: userInfo.person.gender, value: userInfo.person.gender }}
           backgroundColor="#000"
           placeholder="เลือกเพศ"
           options={gender.map((d) => convertToDDOption(d))}
@@ -161,7 +172,13 @@ const PersonalMain = () => (
       <p className="subtitle font-plexsans-bold color-white">อายุ</p>
       <div className="dropdown-wrapper">
         <Dropdown
-          onSelect={() => {}}
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              person: { ...state.person, age: option.value }
+            }))
+          }}
+          initValue={{ label: userInfo.person.age, value: userInfo.person.age }}
           backgroundColor="#000"
           placeholder="เลือกอายุ"
           options={age.map((d) => convertToDDOption(d))}
@@ -173,10 +190,16 @@ const PersonalMain = () => (
       <p className="subtitle font-plexsans-bold color-white">จังหวัดที่คุณอาศัยอยู่</p>
       <div className="dropdown-wrapper">
         <Dropdown
-          onSelect={() => {}}
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              person: { ...state.person, province: option.value }
+            }))
+          }}
+          initValue={{ label: userInfo.person.province, value: userInfo.person.province }}
           backgroundColor="#000"
           placeholder="พิมพ์ชื่อจังหวัด..."
-          options={province_general.map((d) => convertToDDOption(d))}
+          options={province.map((d) => convertToDDOption(d))}
           light
         />
       </div>
@@ -185,7 +208,13 @@ const PersonalMain = () => (
       <p className="subtitle font-plexsans-bold color-white">ระดับการศึกษา</p>
       <div className="dropdown-wrapper">
         <Dropdown
-          onSelect={() => {}}
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              person: { ...state.person, education_level: option.value }
+            }))
+          }}
+          initValue={{ label: userInfo.person.education_level, value: userInfo.person.education_level }}
           backgroundColor="#000"
           placeholder="เลือกระดับการศึกษา"
           options={education.map((d) => convertToDDOption(d))}
@@ -196,16 +225,27 @@ const PersonalMain = () => (
   </>
 )
 
-const SchoolMain = () => (
+interface SubPropsType {
+  userInfo: IUserInformation
+  setUserInfo: Dispatch<SetStateAction<IUserInformation>>
+}
+
+const SchoolMain = ({ userInfo, setUserInfo }: SubPropsType) => (
   <>
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">จังหวัดที่โรงเรียนอยู่อาศัย</p>
       <div className="dropdown-wrapper">
         <Dropdown
-          onSelect={() => {}}
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              school: { ...state.school, province: option.value }
+            }))
+          }}
+          initValue={{ label: userInfo.school.province, value: userInfo.school.province }}
           backgroundColor="#000"
           placeholder="พิมพ์ชื่อจังหวัด..."
-          options={province_school.map((d) => convertToDDOption(d))}
+          options={province.map((d) => convertToDDOption(d))}
           light
         />
       </div>
@@ -214,7 +254,13 @@ const SchoolMain = () => (
       <p className="subtitle font-plexsans-bold color-white">ระดับการศึกษา</p>
       <div className="dropdown-wrapper">
         <Dropdown
-          onSelect={() => {}}
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              school: { ...state.school, education_level: option.value }
+            }))
+          }}
+          initValue={{ label: userInfo.school.education_level, value: userInfo.school.education_level }}
           backgroundColor="#000"
           placeholder="เลือกระดับการศึกษา"
           options={education.map((d) => convertToDDOption(d))}
@@ -225,7 +271,18 @@ const SchoolMain = () => (
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">ชื่อโรงเรียน</p>
       <div className="dropdown-wrapper">
-        <input className="input-school font-plexsans" type="text" placeholder="กรุณาใส่ชื่อโรงเรียนของคุณ" />
+        <input
+          className="input-school font-plexsans"
+          type="text"
+          value={userInfo.school.name}
+          placeholder="กรุณาใส่ชื่อโรงเรียนของคุณ"
+          onChange={(e) =>
+            setUserInfo((state) => ({
+              ...state,
+              school: { ...state.school, name: e.target.value }
+            }))
+          }
+        />
       </div>
     </div>
   </>
@@ -234,17 +291,67 @@ const SchoolMain = () => (
 interface PropsType {
   show: boolean
   onClose: () => void
+  submitData: (userInfo: IUserInformation) => void
 }
 
-function PersonalModal({ show, onClose }: PropsType) {
+function PersonalModal({ show, onClose, submitData }: PropsType) {
   const [toggleActive, setToggleActive] = useState<boolean>(false)
+  const [userInfo, setUserInfo] = useState<IUserInformation>(userInfoDefault)
 
   const onCloseModal = (e: any) => {
     e.stopPropagation()
+    setUserInfo(userInfoDefault)
     onClose()
   }
 
-  const submitData = () => {
+  const canSubmit = () => {
+    if (toggleActive) {
+      // school
+      if (userInfo.school.education_level && userInfo.school.name && userInfo.school.province) {
+        return true
+      }
+      return false
+    } else {
+      // person
+      if (
+        userInfo.person.education_level &&
+        userInfo.person.age &&
+        userInfo.person.gender &&
+        userInfo.person.province
+      ) {
+        return true
+      }
+      return false
+    }
+  }
+
+  const onSubmitData = () => {
+    if (toggleActive) {
+      // school
+      submitData({
+        has_set: true,
+        type: 'school',
+        person: {
+          gender: '',
+          age: '',
+          province: '',
+          education_level: ''
+        },
+        school: userInfo.school
+      })
+    } else {
+      submitData({
+        has_set: true,
+        type: 'person',
+        person: userInfo.person,
+        school: {
+          province: '',
+          education_level: '',
+          name: ''
+        }
+      })
+    }
+    setUserInfo(userInfoDefault)
     onClose()
     // TODO: send data to parent
   }
@@ -253,26 +360,28 @@ function PersonalModal({ show, onClose }: PropsType) {
 
   return (
     <>
-      {show && (
-        <PersonalModalContainer>
-          <div className="wrapper" onClick={onCloseModal}></div>
-          <div className="main font-plexsans">
-            <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
-            <div className="header">
-              <p className="wv-h7 font-plexsans-bold color-yellow title">ก่อนไปส่วนสุดท้าย.. ขอถามเพิ่มอีกนิด</p>
-              <p className="color-white subtitle">เพื่อเป็นข้อมูลในการศึกษาและวิเคราะห์ เกี่ยวกับสิทธิและเสรีภาพ</p>
-              <Toggle options={['บุคคล', 'ชั้นเรียน']} active={toggleActive} setActive={setToggleActive}></Toggle>
-            </div>
-            <div className="breakline"></div>
-            <div className="footer">
-              {!toggleActive ? <PersonalMain /> : <SchoolMain />}
-              <div className="submit-btn subtitle font-plexsans-bold" onClick={submitData}>
-                <span>ส่งข้อมูล</span>
-              </div>
-            </div>
+      <PersonalModalContainer canSubmit={canSubmit()} show={show}>
+        <div className="wrapper" onClick={onCloseModal}></div>
+        <div className="main font-plexsans">
+          <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
+          <div className="header">
+            <p className="wv-h7 font-plexsans-bold color-yellow title">ก่อนไปส่วนสุดท้าย.. ขอถามเพิ่มอีกนิด</p>
+            <p className="color-white subtitle">เพื่อเป็นข้อมูลในการศึกษาและวิเคราะห์ เกี่ยวกับสิทธิและเสรีภาพ</p>
+            <Toggle options={['บุคคล', 'ชั้นเรียน']} active={toggleActive} setActive={setToggleActive}></Toggle>
           </div>
-        </PersonalModalContainer>
-      )}
+          <div className="breakline"></div>
+          <div className="footer">
+            {!toggleActive ? (
+              <PersonalMain userInfo={userInfo} setUserInfo={setUserInfo} />
+            ) : (
+              <SchoolMain userInfo={userInfo} setUserInfo={setUserInfo} />
+            )}
+            <button disabled={!canSubmit()} className="submit-btn subtitle font-plexsans-bold" onClick={onSubmitData}>
+              <span>ส่งข้อมูล</span>
+            </button>
+          </div>
+        </div>
+      </PersonalModalContainer>
     </>
   )
 }

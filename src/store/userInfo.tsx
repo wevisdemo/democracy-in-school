@@ -1,10 +1,10 @@
 import { Dispatch } from 'react'
 
-interface IUserInformation {
+export interface IUserInformation {
   has_set: boolean
   type: 'person' | 'school'
-  person?: IPersonInformation
-  school?: ISchoolInformation
+  person: IPersonInformation
+  school: ISchoolInformation
 }
 
 interface IPersonInformation {
@@ -23,12 +23,24 @@ interface ISchoolInformation {
 export enum UserInfoActionType {
   SET = '',
   SET_PERSON = 'SET_PERSON',
-  SET_SCHOOL = 'SET_SCHOOL'
+  SET_SCHOOL = 'SET_SCHOOL',
+  FETCH = 'FETCH'
 }
 
 export const userInfoDefault: IUserInformation = {
   has_set: false,
-  type: 'person'
+  type: 'person',
+  person: {
+    gender: '',
+    age: '',
+    province: '',
+    education_level: ''
+  },
+  school: {
+    province: '',
+    education_level: '',
+    name: ''
+  }
 }
 
 type UserReducerAction =
@@ -44,6 +56,9 @@ type UserReducerAction =
       type: UserInfoActionType.SET
       payload: IUserInformation
     }
+  | {
+      type: UserInfoActionType.FETCH
+    }
 
 export const userInfoReducer = (state: IUserInformation, action: UserReducerAction): IUserInformation => {
   switch (action.type) {
@@ -55,6 +70,14 @@ export const userInfoReducer = (state: IUserInformation, action: UserReducerActi
     }
     case UserInfoActionType.SET_SCHOOL: {
       return { ...state, school: action.payload, has_set: true, type: 'school' }
+    }
+    case UserInfoActionType.FETCH: {
+      const userInfo = window.localStorage.getItem('user-info')
+      if (!userInfo) {
+        return state
+      }
+      const userInfoData = JSON.parse(userInfo)
+      return userInfoData
     }
     default:
       return state
@@ -78,6 +101,9 @@ export const initUserInfoContext = ({
     },
     setSchool: (info: ISchoolInformation) => {
       userInfoDispatch({ type: UserInfoActionType.SET_SCHOOL, payload: info })
+    },
+    fetch: () => {
+      userInfoDispatch({ type: UserInfoActionType.FETCH })
     }
   }
 }
@@ -87,11 +113,13 @@ export interface IUserInfoContext {
   set: (info: IUserInformation) => void
   setPerson: (info: IPersonInformation) => void
   setSchool: (info: ISchoolInformation) => void
+  fetch: () => void
 }
 
 export const defaultUserInfoContext: IUserInfoContext = {
   state: userInfoDefault,
   set: (info: IUserInformation) => {},
   setPerson: (info: IPersonInformation) => {},
-  setSchool: (info: ISchoolInformation) => {}
+  setSchool: (info: ISchoolInformation) => {},
+  fetch: () => {}
 }

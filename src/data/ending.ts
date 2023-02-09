@@ -36,21 +36,21 @@ export const ending: IEnding = {
     },
     {
       id: 2,
-      topic: 'ยืนเคารพเพลงสรรเสริญพระบารมี',
+      topic: 'พิธีไว้ครู',
       og_image_src: `${prefix}/og/og-1.jpg`,
-      share_url: '/quiz/1'
+      share_url: '/quiz/10'
     },
     {
       id: 3,
-      topic: 'โพสต์ภาพใส่ชุดบิกินี่',
+      topic: 'การแต่งตัว',
       og_image_src: `${prefix}/og/og-2.jpg`,
-      share_url: '/quiz/2'
+      share_url: '/quiz/6'
     },
     {
       id: 4,
-      topic: 'ห้องน้ำทุกเพศเข้าได้',
+      topic: 'ห้องน้ำที่ทุกเพศเข้าได้',
       og_image_src: `${prefix}/og/og-3.jpg`,
-      share_url: '/quiz/3'
+      share_url: '/quiz/5'
     },
     {
       id: 5,
@@ -60,27 +60,27 @@ export const ending: IEnding = {
     },
     {
       id: 6,
-      topic: 'ข้าราชการ การแต่งกายตามเพศสภาพ',
+      topic: 'ตั้งคำถามกับความคิดเห็นบุคคลที่อายุต่างกัน',
       og_image_src: `${prefix}/og/og-5.jpg`,
-      share_url: '/quiz/5'
+      share_url: '/quiz/2'
     },
     {
       id: 7,
-      topic: 'กฎการตัดผม',
+      topic: 'ระเบียบทรงผม',
       og_image_src: `${prefix}/og/og-6.jpg`,
-      share_url: '/quiz/6'
+      share_url: '/quiz/1'
     },
     {
       id: 8,
-      topic: 'ติดริบบิ้นขาว หรือโบขาว',
+      topic: 'การแสดงออกทางการเมือง',
       og_image_src: `${prefix}/og/og-7.jpg`,
-      share_url: '/quiz/7'
+      share_url: '/quiz/6'
     },
     {
       id: 9,
-      topic: 'ตั้งกลุ่มต่อรองผลประโยชน์',
+      topic: 'การรวมกลุ่ม',
       og_image_src: `${prefix}/og/og-8.jpg`,
-      share_url: '/quiz/8'
+      share_url: '/quiz/3'
     },
     {
       id: 10,
@@ -92,7 +92,7 @@ export const ending: IEnding = {
       id: 11,
       topic: 'ชุมนุมในโรงเรียน',
       og_image_src: `${prefix}/og/og-10.jpg`,
-      share_url: '/quiz/10'
+      share_url: '/quiz/8'
     }
   ]
 }

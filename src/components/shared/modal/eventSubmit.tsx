@@ -1,11 +1,6 @@
 import styled from 'styled-components'
-import { IDropdownOption } from 'types/shared'
-import Dropdown from '../dropdown'
-import { ending as ending_data } from 'data/ending'
-import Toggle from '../toggle'
-import { Dispatch, SetStateAction, useState } from 'react'
-import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption, prefix } from 'utils'
+import { Dispatch, SetStateAction } from 'react'
+import { prefix } from 'utils'
 
 const EventSubmitModalContainer = styled.div<{ show: boolean }>`
   top: 0px;
@@ -99,7 +94,10 @@ function EventSubmitModal({ show, setShow }: PropsType) {
             <br />
             ของคุณแล้ว
           </h6>
-          <p className="tracking-number">(xxxxxxxxxxxxxxxx)</p>
+          <p className="tracking-number">
+            (ข้อมูลที่ได้จะถูกนำไปศึกษาวิเคราะห์เพื่อทำความเข้าใจเรื่องสิทธิเสรีภาพในสังคมไทยเพิ่มขึ้น
+            และข้อมูลที่อาจระบุตัวบุคคลจะถูกปกปิดเป็นความลับไม่นำไปใช้เพื่อวัตถุประสงค์อื่น)
+          </p>
         </div>
       </EventSubmitModalContainer>
     </>

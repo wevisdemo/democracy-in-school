@@ -150,7 +150,7 @@ const StoryPart2 = () => {
       <div className="bubble-wrapper">
         <div className="bubble bubble-2">
           <div className="text-bubble">
-            <p className=" wv-b2 font-plexsans">เมื่อไหร่ก็ตามที่เราถูกห้าม ถูกห้ามไม่ให้แสดงความคิดเห็น</p>
+            <p className=" wv-b2 font-plexsans">เมื่อไหร่ก็ตามที่เราถูกห้ามไม่ให้แสดงความคิดเห็น</p>
             <p className="wv-b2 font-plexsans-bold">เราจะรับรู้ถึงเสรีภาพ ที่หายไป</p>
           </div>
         </div>

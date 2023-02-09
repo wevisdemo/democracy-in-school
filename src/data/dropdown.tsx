@@ -10,7 +10,7 @@ export const age = [
   '45 ปีขึ้นไป'
 ]
 
-export const province_school = [
+export const province = [
   'กรุงเทพฯ',
   'กระบี่',
   'กาญจนบุรี',

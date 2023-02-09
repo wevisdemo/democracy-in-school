@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 const ChoiceContainer = styled.div<{ choice: IChoiceQuiz; reveal: boolean; percent: number; isAns: boolean }>`
-  width: 184px;
+  max-width: 184px;
   height: 424px;
   position: relative;
   outline: ${(props) => {
@@ -22,7 +22,7 @@ const ChoiceContainer = styled.div<{ choice: IChoiceQuiz; reveal: boolean; perce
       animation-direction: alternate;`}
 
   @media (max-width: 1024px) {
-    width: 92px;
+    max-width: 92px;
     height: 212px;
   }
 

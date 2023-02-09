@@ -67,6 +67,10 @@ const PaperContainer = styled.div`
       padding: 12px 12px 36px 12px;
     }
 
+    @media (max-width: 420px) {
+      max-width: 100%;
+    }
+
     .todo-wrapper {
       display: flex;
 

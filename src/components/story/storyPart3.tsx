@@ -53,7 +53,8 @@ const StroyPart3Container = styled.div`
   }
 `
 
-const PaperContainer = styled.div<{ index: number }>`
+const PaperWrapper = styled.div<{ index: number }>`
+  max-width: 100%;
   padding: 10px;
   margin: 40px auto;
   transform: rotate(${(props) => (props.index % 2 == 0 ? '1deg' : '-1deg')});
@@ -92,9 +93,9 @@ const StoryPart3 = () => {
       <img className="flex-arrow" src={`${prefix}/flex-arrow.svg`} alt="flex-arrow" />
       {story_list.map((item, index) => {
         return (
-          <PaperContainer index={index} key={`paper-${index}`}>
+          <PaperWrapper index={index} key={`paper-${index}`}>
             <Paper storyPaper={item}></Paper>
-          </PaperContainer>
+          </PaperWrapper>
         )
       })}
     </StroyPart3Container>

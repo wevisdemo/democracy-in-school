@@ -131,6 +131,9 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
         <p className="wv-b5 font-plexsans">
           {!isReveal ? '(กดเพื่อเลือกคำตอบ)' : '(หมายเหตุ : 100% คิดจากผู้ที่เข้ามาตอบทั้งหมด)'}
         </p>
+        {isReveal && quiz.id === 9 && (
+          <p className="wv-b5 font-plexsans">*การกดเลือกคำตอบ จะเป็นการยืนยันการแสดงความคิดเห็นของคุณ</p>
+        )}
       </TextWrap>
       <ChoiceWrapperContainer>
         <div className="classroom-guide-container">

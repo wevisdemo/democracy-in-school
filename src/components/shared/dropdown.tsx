@@ -6,6 +6,7 @@ import { prefix } from 'utils'
 interface IComponentProps {
   light?: boolean
   backgroundColor?: string
+  selected: boolean
 }
 
 const DropdownContainer = styled.div<IComponentProps>`
@@ -38,7 +39,7 @@ const DropdownContainer = styled.div<IComponentProps>`
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      color: ${(props) => (props.light ? '#ffffff66' : '#000')};
+      color: ${(props) => (props.light ? (props.selected ? '#fff' : '#ffffff66') : '#000')};
     }
   }
 
@@ -83,13 +84,16 @@ interface PropsType {
   options: IDropdownOption[]
   onSelect: (option: IDropdownOption) => void
   light?: boolean
+  initValue?: IDropdownOption
   backgroundColor?: string
 }
 
-const Dropdown = ({ placeholder, options, light, backgroundColor, onSelect }: PropsType) => {
+const Dropdown = ({ placeholder, options, light, backgroundColor, initValue, onSelect }: PropsType) => {
   const ddRef = useRef<HTMLDivElement>(null)
   const [show, setShow] = useState<boolean>(false)
-  const [currentOption, setCurrentOption] = useState<IDropdownOption>({ label: placeholder, value: '' })
+  const [currentOption, setCurrentOption] = useState<IDropdownOption>(
+    initValue?.label ? initValue : { label: placeholder, value: '' }
+  )
 
   useEffect(() => {
     /**
@@ -115,7 +119,13 @@ const Dropdown = ({ placeholder, options, light, backgroundColor, onSelect }: Pr
   }
 
   return (
-    <DropdownContainer className="wv-b3 font-plexsans" ref={ddRef} light={light} backgroundColor={backgroundColor}>
+    <DropdownContainer
+      className="wv-b3 font-plexsans"
+      ref={ddRef}
+      selected={currentOption.label !== placeholder}
+      light={light}
+      backgroundColor={backgroundColor}
+    >
       <div className="label" onClick={() => setShow(!show)}>
         <span className="label-text">{currentOption.label}</span>
         <img
