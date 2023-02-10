@@ -1,12 +1,7 @@
 import styled from 'styled-components'
-import { IDropdownOption } from 'types/shared'
-import Dropdown from '../dropdown'
-import { ending as ending_data } from 'data/ending'
-import Toggle from '../toggle'
-import { Dispatch, MouseEventHandler, SetStateAction, useState } from 'react'
-import { gender, age, province_school, province_general, education } from 'data/dropdown'
-import { convertToDDOption, prefix } from 'utils'
+import { Dispatch, SetStateAction } from 'react'
 import { IGuideCard } from 'types/guide'
+import { prefix } from 'utils'
 
 const GameStepModalContainer = styled.div<{ show: boolean }>`
   top: 0px;
