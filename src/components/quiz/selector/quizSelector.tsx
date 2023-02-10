@@ -3,7 +3,7 @@ import Image from 'next/image'
 import QuizSelectorCard from './quizSelectorCard'
 import { IQuiz } from 'types/quiz'
 import { prefix } from 'utils'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AppContext } from 'store'
 
 const QuizSelectorContainer = styled.div`
@@ -116,6 +116,12 @@ interface PropsType {
 }
 
 const QuizSelector = ({ quizList }: PropsType) => {
+  const appContext = useContext(AppContext)
+
+  useEffect(() => {
+    appContext.fetchAnswer()
+  }, [])
+
   return (
     <QuizSelectorContainer className="full-page">
       <TextWrap>

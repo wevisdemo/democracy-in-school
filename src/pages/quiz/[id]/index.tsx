@@ -73,7 +73,6 @@ function Quiz({ id }: PropsType) {
         setOpenClassroomModel2(true)
         localStorage['first-time-guide-3'] = true
       }
-      console.log('scroll => ', window.scrollY)
       if (
         endingRef.current &&
         // endingRef.current?.offsetTop < window.scrollY + 10 &&
@@ -130,7 +129,6 @@ function Quiz({ id }: PropsType) {
   }
 
   const handleSendEventAnswer = (ans: string): void => {
-    console.log(ans)
     setOpenEventSubmitModal(true)
   }
 
