@@ -149,6 +149,10 @@ body{
   font-family: IBMPlexSansThaiBold;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .full-page {
   display: flex;
   flex-direction: column;

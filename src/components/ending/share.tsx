@@ -84,7 +84,6 @@ const EndingShareContainer = styled.div`
         margin-top: 40px;
 
         @media (max-width: 420px) {
-          width: 176px;
           margin-top: 24px;
         }
       }
@@ -109,10 +108,7 @@ const EndingShare = () => {
     <EndingShareContainer>
       <div className="text-wrapper">
         <h6 className="wv-h6 wv-font-kondolar ">แชร์ / ชวนเพื่อนมาเล่นควิซนี้!</h6>
-        <p className="wv-h6 wv-font-kondolar ">สร้างสังคมประชาธิปไตย เริ่มจากการเคารพความคิดเห็นที่ต่างกัน</p>
-        <p className="wv-b2 font-plexsans text-description">
-          เราได้ร่วมแสดงความเห็นเพื่อสร้างสังคมประชาธิปไตย ด้วยการเคารพความเห็นต่างด้วยกัน
-        </p>
+        <p className="wv-h6 wv-font-kondolar ">เพื่อสร้างสังคมประชาธิปไตย เริ่มจากการเคารพความคิดเห็นที่ต่างกัน</p>
       </div>
       <div className="order-wrapper">
         <div className="wrap-1">
@@ -140,7 +136,7 @@ const EndingShare = () => {
             {currShare.id === 10 && <WvSharer url={`${prefix}${ending_data.shares[9].share_url}`} />}
             {currShare.id === 11 && <WvSharer url={`${prefix}${ending_data.shares[10].share_url}`} />}
           </div>
-          <h5 className="wv-h5 wv-font-kondolar hashtag">#Democracy in school</h5>
+          <h5 className="wv-h5 wv-font-kondolar hashtag">#DemocracyinSchool</h5>
         </div>
       </div>
     </EndingShareContainer>

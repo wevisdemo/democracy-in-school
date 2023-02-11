@@ -36,11 +36,14 @@ const ContinueChip = styled.div<{ isReveal: boolean }>`
     color: #ffffff;
     font-size: 21px;
     margin-left: 10px;
-    align-items: center;
-    display: flex;
+    text-align: center;
     @media (max-width: 1024px) {
       font-size: 13px;
     }
+  }
+
+  .sub-text {
+    display: inline-flex;
   }
 `
 
@@ -154,7 +157,7 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
       <ContinueChip onClick={onClickContinue} isReveal={isReveal}>
         <img className="arrow" src={`${prefix}/arrow-white.svg`} alt="arrow" />
         <p className="text font-plexsans">
-          บางเหตุการณ์ที่เกี่ยวกับ <span className="color-yellow">“{quiz.title}”</span>
+          บางเหตุการณ์ที่เกี่ยวกับ <span className="sub-text color-yellow">“{quiz.title}”</span>
         </p>
       </ContinueChip>
     </Container>
