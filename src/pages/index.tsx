@@ -29,7 +29,11 @@ function Home() {
 
   return (
     <>
-      <Metadata imageSrc={`${prefix}/og/og-default.jpg`} />
+      <Metadata
+        imageSrc={`${prefix}/og/og-default.jpg`}
+        description={`แตกต่างได้ไหม? เพราะประชาธิปไตยคือการเคารพกัน ชวนมาเรียนรู้และทดสอบความเข้าใจเกี่ยวกับสิทธิเสรีภาพกันใน ${prefix} 
+#DemocracyinSchool`}
+      />
       <MainComponent>
         <Navbar />
         <Welcome />
