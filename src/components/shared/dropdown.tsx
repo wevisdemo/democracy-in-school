@@ -56,7 +56,7 @@ const DropdownContainer = styled.div<IComponentProps>`
     border-radius: 2px;
     background: ${(props) => (props.backgroundColor ? props.backgroundColor : 'transparent')};
     overflow: scroll;
-    max-height: 100px;
+    max-height: 200px;
     z-index: 200;
 
     @media (max-width: 420px) {

@@ -2,7 +2,6 @@
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 const isProd = process.env.NODE_ENV === 'production'
-console.log(isGithubActions, isProd)
 
 const nextConfig = {
   basePath: isGithubActions ? process.env.NEXT_PUBLIC_BASE_URL : '',

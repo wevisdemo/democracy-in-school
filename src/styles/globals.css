@@ -149,9 +149,9 @@ body{
   font-family: IBMPlexSansThaiBold;
 }
 
-*::-webkit-scrollbar {
+.main-component > * ::-webkit-scrollbar {
   display: none;
-}
+} 
 
 .full-page {
   display: flex;

@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { gender, age, province, education } from 'data/dropdown'
 import { convertToDDOption, prefix } from 'utils'
 import { IUserInformation, userInfoDefault } from 'store/userInfo'
+import { AutoComplete } from 'components/autoComplete'
 
 const PersonalModalContainer = styled.div<{ canSubmit: boolean; show: boolean }>`
   top: 0px;
@@ -189,7 +190,21 @@ const PersonalMain = ({ userInfo, setUserInfo }: SubPropsType) => (
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">จังหวัดที่คุณอาศัยอยู่</p>
       <div className="dropdown-wrapper">
-        <Dropdown
+        <AutoComplete
+          backgroundColor="#000"
+          placeholder="พิมพ์ชื่อจังหวัด..."
+          options={province.map((d) => convertToDDOption(d))}
+          light
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              person: { ...state.person, province: option.value }
+            }))
+          }}
+          title=""
+          initValue={{ label: userInfo.person.province, value: userInfo.person.province }}
+        />
+        {/* <Dropdown
           onSelect={(option) => {
             setUserInfo((state) => ({
               ...state,
@@ -201,7 +216,7 @@ const PersonalMain = ({ userInfo, setUserInfo }: SubPropsType) => (
           placeholder="พิมพ์ชื่อจังหวัด..."
           options={province.map((d) => convertToDDOption(d))}
           light
-        />
+        /> */}
       </div>
     </div>
     <div className="topic-wrapper">
@@ -235,7 +250,21 @@ const SchoolMain = ({ userInfo, setUserInfo }: SubPropsType) => (
     <div className="topic-wrapper">
       <p className="subtitle font-plexsans-bold color-white">จังหวัดที่โรงเรียนอยู่อาศัย</p>
       <div className="dropdown-wrapper">
-        <Dropdown
+        <AutoComplete
+          backgroundColor="#000"
+          placeholder="พิมพ์ชื่อจังหวัด..."
+          options={province.map((d) => convertToDDOption(d))}
+          light
+          onSelect={(option) => {
+            setUserInfo((state) => ({
+              ...state,
+              school: { ...state.school, province: option.value }
+            }))
+          }}
+          title=""
+          initValue={{ label: userInfo.school.province, value: userInfo.school.province }}
+        />
+        {/* <Dropdown
           onSelect={(option) => {
             setUserInfo((state) => ({
               ...state,
@@ -247,7 +276,7 @@ const SchoolMain = ({ userInfo, setUserInfo }: SubPropsType) => (
           placeholder="พิมพ์ชื่อจังหวัด..."
           options={province.map((d) => convertToDDOption(d))}
           light
-        />
+        /> */}
       </div>
     </div>
     <div className="topic-wrapper">
@@ -307,17 +336,21 @@ function PersonalModal({ show, onClose, submitData }: PropsType) {
   const canSubmit = () => {
     if (toggleActive) {
       // school
-      if (userInfo.school.education_level && userInfo.school.name && userInfo.school.province) {
+      const proviceValid = province.includes(userInfo.school.province)
+
+      if (userInfo.school.education_level && userInfo.school.name && userInfo.school.province && proviceValid) {
         return true
       }
       return false
     } else {
       // person
+      const proviceValid = province.includes(userInfo.person.province)
       if (
         userInfo.person.education_level &&
         userInfo.person.age &&
         userInfo.person.gender &&
-        userInfo.person.province
+        userInfo.person.province &&
+        proviceValid
       ) {
         return true
       }
