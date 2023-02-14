@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import Layout from 'components/layout'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { IAnswer, IQuiz } from 'types/quiz'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import GameStepModal from 'components/shared/modal/gameStepModal'
 import { guideCard } from 'data/guide'
 import TextfieldModal from 'components/shared/modal/textfiled'
@@ -16,16 +16,22 @@ import { AppContext } from 'store'
 import PersonalModal from 'components/shared/modal/personal'
 import Metadata from 'components/metadata'
 import { IUserInformation } from 'store/userInfo'
+import axios, { AxiosRequestConfig } from 'axios'
+import { IAnswerDB, IAnswerGetResponse, IAnswerPostResponse, IPostUserInfoResponse } from 'types/response'
+import { IPostAnswerBody, IPostSchoolInfoBody, IPostUserInfoBody } from 'types/request'
 
 interface PropsType {
   id: string
+  answerDBList: IAnswerDB[]
 }
 
-function Quiz({ id }: PropsType) {
+function Quiz({ id, answerDBList: defaultAnswerDBList }: PropsType) {
   const defaultAns: IAnswer = {
+    answer_text: '',
     question_id: -1,
     answer_id: -1
   }
+  const [answerDBList, setAnswerDBList] = useState<IAnswerDB[]>(defaultAnswerDBList)
   const [openClassroomModel, setOpenClassroomModel] = useState<boolean>(false)
   const [openTextfieldModal, setOpenTextfieldModal] = useState<boolean>(false)
   const [openEventSubmitModal, setOpenEventSubmitModal] = useState<boolean>(false)
@@ -94,13 +100,48 @@ function Quiz({ id }: PropsType) {
     }
   }, [])
 
-  const sendFinalAnswer = (ans: IAnswer) => {
+  const sendFinalAnswer = async (ans: IAnswer) => {
     // send ans
+
     appContext.addAnswer(ans)
     setAnswerLocalStorage(ans)
     setRevealContent(true)
     if (!localStorage[`user-info`]) {
       setShowUserInfoModal(true)
+    }
+
+    const userInfo = appContext.userInfo.state
+
+    try {
+      const payload: IPostAnswerBody = {
+        choice_id: ans.answer_id.toString(),
+        choice_text: ans.answer_text,
+        nc_2j4n___question_id: ans.question_id,
+        nc_2j4n__user_info_id: userInfo.type === 'person' && userInfo.id ? userInfo.id : null,
+        nc_2j4n___school_info_id: userInfo.type === 'school' && userInfo.id ? userInfo.id : null
+      }
+      const response = await axios.post<IAnswerPostResponse>(`/api/answer/answer/views/answer`, payload)
+      const ansDB = convertToAnswerDB(response.data)
+      setAnswerDBList((curr) => [...curr, ansDB])
+    } catch (err: any) {
+      console.error(err)
+    }
+  }
+
+  const convertToAnswerDB = (ans: IAnswerPostResponse): IAnswerDB => {
+    return {
+      Id: ans.Id,
+      choice_id: ans.choice_id,
+      choice_text: ans.choice_text,
+      user_info: {
+        Id: ans['nc_2j4n__user_info_id'] || null,
+        user_agent: ''
+      },
+      question: {
+        Id: ans.nc_2j4n___question_id,
+        topic: ''
+      },
+      question_id: ans.nc_2j4n___question_id
     }
   }
 
@@ -117,7 +158,7 @@ function Quiz({ id }: PropsType) {
   }
 
   const submitOtherAnswer = (ans: string) => {
-    const finalAns: IAnswer = { ...quizAns, optional_answer: ans }
+    const finalAns: IAnswer = { ...quizAns, answer_text: ans }
     sendFinalAnswer(finalAns)
   }
 
@@ -129,12 +170,44 @@ function Quiz({ id }: PropsType) {
   }
 
   const handleSendEventAnswer = (ans: string): void => {
+    // TODO: save to api
     setOpenEventSubmitModal(true)
   }
 
-  const handleSubmitUserInfo = (userInfo: IUserInformation) => {
-    appContext.userInfo.set(userInfo)
-    localStorage['user-info'] = JSON.stringify(userInfo)
+  const handleSubmitUserInfo = async (userInfo: IUserInformation) => {
+    let userInfoData = userInfo
+    const agent = navigator.userAgent
+
+    if (userInfo.type === 'person') {
+      const payload: IPostUserInfoBody = {
+        age: userInfo.person.age,
+        gender: userInfo.person.gender,
+        province: userInfo.person.province,
+        education_level: userInfo.person.education_level,
+        user_agent: agent
+      }
+      try {
+        const response = await axios.post<IPostUserInfoResponse>(`/api/userInfo`, payload)
+        userInfoData = { ...userInfo, id: response.data.Id }
+      } catch (err: any) {
+        console.error(err)
+      }
+    } else {
+      const payload: IPostSchoolInfoBody = {
+        name: userInfo.school.name,
+        province: userInfo.school.province,
+        education_level: userInfo.school.education_level,
+        user_agent: agent
+      }
+      try {
+        const response = await axios.post<IPostUserInfoResponse>(`/api/schoolInfo`, payload)
+        userInfoData = { ...userInfo, id: response.data.Id }
+      } catch (err: any) {
+        console.error(err)
+      }
+    }
+    appContext.userInfo.set(userInfoData)
+    localStorage['user-info'] = JSON.stringify(userInfoData)
   }
 
   // TODO: close all modal
@@ -149,6 +222,7 @@ function Quiz({ id }: PropsType) {
       <Layout>
         <div ref={gameRef}>
           <QuizGame
+            answerDBList={answerDBList}
             isReveal={revealContent}
             openTextFieldModal={() => setOpenTextfieldModal(true)}
             onClickClassroomGuide={onClickClassroomGuide}
@@ -207,22 +281,33 @@ function Quiz({ id }: PropsType) {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const idList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-
-  const paths = idList.map((id) => {
-    return {
-      params: { id }
-    }
-  })
-  return { paths, fallback: false }
-}
-
-export const getStaticProps: GetStaticProps<PropsType> = (context) => {
+export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
   const id = context.params?.id?.toString() || ''
-  return {
-    props: {
-      id
+  const headers = {
+    'xc-auth': process.env.NOCO_AUTH_TOKEN || ''
+  }
+  const url = `/answer/views/answer?where=(question_id,eq,${id})`
+
+  const reqOptions: AxiosRequestConfig = {
+    method: 'GET',
+    url: `${process.env.NOCO_API_BASE_URL || ''}${url}`,
+    headers
+  }
+  try {
+    const response = await axios<IAnswerGetResponse>(reqOptions)
+    return {
+      props: {
+        id,
+        answerDBList: response.data.list
+      }
+    }
+  } catch (err: any) {
+    console.error(err)
+    return {
+      props: {
+        id,
+        answerDBList: []
+      }
     }
   }
 }

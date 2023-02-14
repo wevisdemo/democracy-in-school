@@ -1,6 +1,7 @@
 import { Dispatch } from 'react'
 
 export interface IUserInformation {
+  id?: number
   has_set: boolean
   type: 'person' | 'school'
   person: IPersonInformation

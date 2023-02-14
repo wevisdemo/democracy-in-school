@@ -111,12 +111,13 @@ interface PropsType {
   choice: IChoiceQuiz
   selectedChoice: IChoiceQuiz
   isReveal: boolean
+  percent: number
   onClick: () => void
 }
 
 // TODO: percent
 
-const QuizChoiceCard = ({ choice, selectedChoice, isReveal, onClick }: PropsType) => {
+const QuizChoiceCard = ({ choice, selectedChoice, isReveal, percent, onClick }: PropsType) => {
   const handleOnClick = () => {
     if (selectedChoice.id === -1) {
       onClick()
@@ -130,7 +131,7 @@ const QuizChoiceCard = ({ choice, selectedChoice, isReveal, onClick }: PropsType
   }, [selectedChoice])
 
   return (
-    <ChoiceContainer choice={choice} reveal={isReveal} isAns={isAns} percent={50} onClick={handleOnClick}>
+    <ChoiceContainer choice={choice} reveal={isReveal} isAns={isAns} percent={percent} onClick={handleOnClick}>
       <div className="background"></div>
       <img className="choice-img" src={choice.image_src} alt={`choice-${choice.label}`} />
       {/* <div className="color-percent"></div> */}
@@ -138,7 +139,7 @@ const QuizChoiceCard = ({ choice, selectedChoice, isReveal, onClick }: PropsType
         <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black ">{choice.label}</h6>
 
         <div>
-          {isReveal && <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black percent">50%</h6>}
+          {isReveal && <h6 className="wv-font-kondolar wv-h6 color-white text-stroke-black percent">{percent}%</h6>}
           <p className="font-plexsans-bold color-white text-stroke-black answer">{choice.text}</p>
         </div>
       </TextWrapper>

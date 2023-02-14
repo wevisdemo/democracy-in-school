@@ -7,7 +7,7 @@ import Welcome from 'components/templates/welcome'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Layout from 'components/layout'
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { prefix } from 'utils'
 import VideoModal from 'components/shared/modal/video'
 import Metadata from 'components/metadata'
@@ -27,12 +27,15 @@ function Home() {
     setOpenVideoModal(true)
   }
 
+  useEffect(() => {
+    const agent = navigator.userAgent
+  }, [])
+
   return (
     <>
       <Metadata
         imageSrc={`${prefix}/og/og-default.jpg`}
-        description={`แตกต่างได้ไหม? เพราะประชาธิปไตยคือการเคารพกัน ชวนมาเรียนรู้และทดสอบความเข้าใจเกี่ยวกับสิทธิเสรีภาพกันใน ${prefix} 
-#DemocracyinSchool`}
+        description={`แตกต่างได้ไหม? เพราะประชาธิปไตยคือการเคารพกัน`}
       />
       <MainComponent>
         <Navbar />

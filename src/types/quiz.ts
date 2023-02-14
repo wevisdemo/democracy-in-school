@@ -10,7 +10,7 @@ export interface IChoiceQuiz {
 export interface IAnswer {
   question_id: number
   answer_id: number
-  optional_answer?: string
+  answer_text: string
 }
 
 export interface IQuiz {

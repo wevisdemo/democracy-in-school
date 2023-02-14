@@ -6,6 +6,7 @@ import QuizChoiceCard from './quizChoiceCard'
 import ClassroomGuide from 'components/shared/classroomGuide'
 import { useRouter } from 'next/router'
 import { prefix } from 'utils'
+import { IAnswerDB } from 'types/response'
 
 const Container = styled.div`
   padding: 10px;
@@ -89,9 +90,18 @@ interface PropsType {
   selectAnswer: (ans: IAnswer) => void
   isReveal: boolean
   answer: IAnswer
+  answerDBList: IAnswerDB[]
 }
 
-const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswer, isReveal, answer }: PropsType) => {
+const QuizGame = ({
+  quiz,
+  onClickClassroomGuide,
+  openTextFieldModal,
+  selectAnswer,
+  isReveal,
+  answer,
+  answerDBList
+}: PropsType) => {
   const defaultChoice: IChoiceQuiz = {
     id: -1,
     label: '',
@@ -108,10 +118,6 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
     setSelectedChoice(ansChoice)
   }, [answer])
 
-  const onClickContinue = () => {
-    // router.push(`/quiz/${quiz.id}/event`)
-  }
-
   const onClickChoice = (choice: IChoiceQuiz) => {
     setSelectedChoice(choice)
     if (choice.id === 6) {
@@ -119,9 +125,18 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
     }
     const ans: IAnswer = {
       question_id: quiz.id,
-      answer_id: choice.id
+      answer_id: choice.id,
+      answer_text: choice.text
     }
     selectAnswer(ans)
+  }
+
+  const getPecent = (id: number) => {
+    if (answerDBList.length === 0) {
+      return 0
+    }
+    const choiceAnswers = answerDBList.filter((d) => d.choice_id === id.toString())
+    return Math.ceil((choiceAnswers.length / answerDBList.length) * 100)
   }
 
   return (
@@ -151,10 +166,11 @@ const QuizGame = ({ quiz, onClickClassroomGuide, openTextFieldModal, selectAnswe
             onClick={() => {
               onClickChoice(item)
             }}
+            percent={getPecent(item.id)}
           />
         ))}
       </ChoiceWrapperContainer>
-      <ContinueChip onClick={onClickContinue} isReveal={isReveal}>
+      <ContinueChip isReveal={isReveal}>
         <img className="arrow" src={`${prefix}/arrow-white.svg`} alt="arrow" />
         <p className="text font-plexsans">
           บางเหตุการณ์ที่เกี่ยวกับ <span className="sub-text color-yellow">“{quiz.title}”</span>
