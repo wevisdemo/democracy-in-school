@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { IAnswerGetResponse, IAnswerPostResponse } from 'types/response'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const headers = {
-    'xc-auth': process.env.NOCO_AUTH_TOKEN || ''
+    'xc-token': process.env.NOCO_AUTH_TOKEN || ''
   }
   const url = req.url?.replace('/api/answer', '')
 

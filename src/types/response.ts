@@ -50,3 +50,13 @@ export interface IPostSchoolInfoResponse {
   education_level: string
   user_agent: string
 }
+
+export interface IPostOpinionResponse {
+  Id: number
+  answer: string
+  CreatedAt: string
+  UpdatedAt: string
+  nc_2j4n___question_id: number
+  nc_2j4n__user_info_id?: number | null
+  nc_2j4n___school_info_id?: number | null
+}

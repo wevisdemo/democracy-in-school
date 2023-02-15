@@ -75,9 +75,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: NEXT_PUBLIC_BASE_URL=https://wevisdemo.github.io/democracy-in-school ${{ steps.detect-package-manager.outputs.runner }} next build
-      # - name: Static HTML export with Next.js
-      #   run: ${{ steps.detect-package-manager.outputs.runner }} next export
+        run: NEXT_PUBLIC_BASE_URL=https://wevisdemo.github.io/democracy-in-school NOCO_API_BASE_URL=https://sheets.wevis.info/api/v1/db/data/v1/democracy-in--school NOCO_AUTH_TOKEN=ZvDM7RuryraYxwgTRHo7OPDRzVSEsEZ2cputdwug ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
