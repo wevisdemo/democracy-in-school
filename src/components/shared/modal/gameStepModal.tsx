@@ -112,11 +112,6 @@ function GameStepModal({ show, setShow, guideCard }: PropsType) {
     setShow(false)
   }
 
-  const submitData = () => {
-    // TODO: send data to parent
-    setShow(false)
-  }
-
   return (
     <>
       <GameStepModalContainer show={show}>

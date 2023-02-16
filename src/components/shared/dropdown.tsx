@@ -20,12 +20,6 @@ const DropdownContainer = styled.div<IComponentProps>`
     max-width: 280px;
   }
 
-  .dropdown-arrow {
-    ${(props) =>
-      props.light &&
-      `filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(194deg) brightness(117%) contrast(100%);`}
-  }
-
   .label {
     padding: 4px 20px;
     display: flex;
@@ -40,6 +34,12 @@ const DropdownContainer = styled.div<IComponentProps>`
       white-space: nowrap;
       overflow: hidden;
       color: ${(props) => (props.light ? (props.selected ? '#fff' : '#ffffff66') : '#000')};
+    }
+
+    .dropdown-arrow {
+      ${(props) =>
+        props.light &&
+        `filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(194deg) brightness(117%) contrast(100%);`}
     }
   }
 
@@ -132,7 +132,7 @@ const Dropdown = ({ placeholder, options, light, backgroundColor, initValue, onS
           className="dropdown-arrow"
           src={`${prefix}/dropdown-arrow.svg`}
           alt="dropdown-arrow"
-          style={{ transform: `${show ? 'rotate(180deg)' : ''}` }}
+          style={{ transform: `${show ? 'rotate(180deg)' : 'none'}` }}
         />
       </div>
       {show && (

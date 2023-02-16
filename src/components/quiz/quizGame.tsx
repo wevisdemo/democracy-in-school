@@ -131,7 +131,7 @@ const QuizGame = ({
     selectAnswer(ans)
   }
 
-  const getPecent = (id: number) => {
+  const getPercent = (id: number) => {
     if (answerDBList.length === 0) {
       return 0
     }
@@ -166,7 +166,7 @@ const QuizGame = ({
             onClick={() => {
               onClickChoice(item)
             }}
-            percent={getPecent(item.id)}
+            percent={getPercent(item.id)}
           />
         ))}
       </ChoiceWrapperContainer>

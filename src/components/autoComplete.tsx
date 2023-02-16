@@ -181,7 +181,7 @@ export function AutoComplete(props: PropsType) {
           className="dropdown-arrow"
           src={`${prefix}/dropdown-arrow.svg`}
           alt="dropdown-arrow"
-          style={{ transform: `${isShow ? 'rotate(180deg)' : ''}` }}
+          style={{ transform: `${isShow ? 'rotate(180deg)' : 'none'}` }}
           onClick={() => onClickArrow()}
         />
       </div>

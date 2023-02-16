@@ -386,10 +386,7 @@ function PersonalModal({ show, onClose, submitData }: PropsType) {
     }
     setUserInfo(userInfoDefault)
     onClose()
-    // TODO: send data to parent
   }
-
-  // TODO: handle state and validate
 
   return (
     <>

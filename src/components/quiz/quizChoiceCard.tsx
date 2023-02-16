@@ -115,8 +115,6 @@ interface PropsType {
   onClick: () => void
 }
 
-// TODO: percent
-
 const QuizChoiceCard = ({ choice, selectedChoice, isReveal, percent, onClick }: PropsType) => {
   const handleOnClick = () => {
     if (selectedChoice.id === -1) {

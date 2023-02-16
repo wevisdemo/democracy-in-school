@@ -4,14 +4,14 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { IPostUserInfoResponse } from 'types/response'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const headers = {
-    'xc-token': process.env.NOCO_AUTH_TOKEN || ''
+    'xc-token': process.env.NEXT_PUBLIC_NOCO_AUTH_TOKEN || ''
   }
 
   switch (req.method) {
     case 'POST': {
       const reqOptions: AxiosRequestConfig = {
         method: 'POST',
-        url: `${process.env.NOCO_API_BASE_URL || ''}/school_info/views/school_info`,
+        url: `${process.env.NEXT_PUBLIC_NOCO_API_BASE_URL || ''}/school_info/views/school_info`,
         data: req.body,
         headers
       }

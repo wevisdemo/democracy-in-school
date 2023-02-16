@@ -73,6 +73,7 @@ export const userInfoReducer = (state: IUserInformation, action: UserReducerActi
       return { ...state, school: action.payload, has_set: true, type: 'school' }
     }
     case UserInfoActionType.FETCH: {
+      // TODO: if user doesn't have id, request post to api then embed id
       const userInfo = window.localStorage.getItem('user-info')
       if (!userInfo) {
         return state

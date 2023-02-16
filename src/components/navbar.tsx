@@ -9,7 +9,6 @@ const MyNavbar = styled.div`
 
 const Navbar = () => {
   const router = useRouter()
-  // todo: chage story to knowledge every spot
   return (
     <MyNavbar>
       <WvNavbar dark title="DEMOCRACY IN SCHOOL" logoAddonSrc="fnf-logo.svg">

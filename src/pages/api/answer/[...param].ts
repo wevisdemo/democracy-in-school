@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { IAnswerGetResponse, IAnswerPostResponse } from 'types/response'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const headers = {
-    'xc-token': process.env.NOCO_AUTH_TOKEN || ''
+    'xc-token': process.env.NEXT_PUBLIC_NOCO_AUTH_TOKEN || ''
   }
   const url = req.url?.replace('/api/answer', '')
 
@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case 'GET': {
       const reqOptions: AxiosRequestConfig = {
         method: 'GET',
-        url: `${process.env.NOCO_API_BASE_URL || ''}${url}`,
+        url: `${process.env.NEXT_PUBLIC_NOCO_API_BASE_URL || ''}${url}`,
         headers
       }
       try {
@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case 'POST': {
       const reqOptions: AxiosRequestConfig = {
         method: 'POST',
-        url: `${process.env.NOCO_API_BASE_URL || ''}${url}`,
+        url: `${process.env.NEXT_PUBLIC_NOCO_API_BASE_URL || ''}${url}`,
         data: req.body,
         headers
       }

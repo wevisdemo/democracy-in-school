@@ -19,6 +19,14 @@ import { IUserInformation } from 'store/userInfo'
 import axios, { AxiosRequestConfig } from 'axios'
 import { IAnswerDB, IAnswerGetResponse, IAnswerPostResponse, IPostUserInfoResponse } from 'types/response'
 import { IPostAnswerBody, IPostOpinionBody, IPostSchoolInfoBody, IPostUserInfoBody } from 'types/request'
+import { prefix } from 'utils'
+import {
+  getQuizAnswerApi,
+  postOpinionAnswerApi,
+  postQuizAnswerApi,
+  postSchoolInfoApi,
+  postUserInfoApi
+} from 'utils/request'
 
 interface PropsType {
   id: string
@@ -102,14 +110,18 @@ function Quiz({ id }: PropsType) {
   }, [])
 
   const fetchAnswerDBLists = async (id: string) => {
-    try {
-      const response = await axios.get<IAnswerGetResponse>(
-        `/api/answer/answer/views/answer?where=(question_id,eq,${id})`
-      )
+    const response = await getQuizAnswerApi(id)
+    if (response) {
       setAnswerDBList(response.data.list)
-    } catch (err: any) {
-      console.error(err)
     }
+    // try {
+    //   const response = await axios.get<IAnswerGetResponse>(
+    //     `/api/answer/answer/views/answer?where=(question_id,eq,${id})`
+    //   )
+    //   setAnswerDBList(response.data.list)
+    // } catch (err: any) {
+    //   console.error(err)
+    // }
   }
 
   const sendFinalAnswer = async (ans: IAnswer) => {
@@ -124,23 +136,40 @@ function Quiz({ id }: PropsType) {
 
     const userInfo = appContext.userInfo.state
 
-    try {
-      const payload: IPostAnswerBody = {
-        choice_id: ans.answer_id.toString(),
-        choice_text: ans.answer_text,
-        nc_2j4n___question_id: ans.question_id
-      }
-      if (userInfo.type === 'person' && userInfo.id) {
-        payload.nc_2j4n__user_info_id = userInfo.id
-      } else if (userInfo.type === 'school' && userInfo.id) {
-        payload.nc_2j4n___school_info_id = userInfo.id
-      }
-      const response = await axios.post<IAnswerPostResponse>(`/api/answer/answer/views/answer`, payload)
+    const payload: IPostAnswerBody = {
+      choice_id: ans.answer_id.toString(),
+      choice_text: ans.answer_text,
+      nc_2j4n___question_id: ans.question_id
+    }
+    if (userInfo.type === 'person' && userInfo.id) {
+      payload.nc_2j4n__user_info_id = userInfo.id
+    } else if (userInfo.type === 'school' && userInfo.id) {
+      payload.nc_2j4n___school_info_id = userInfo.id
+    }
+    const response = await postQuizAnswerApi(payload)
+    if (response) {
       const ansDB = convertToAnswerDB(response.data)
       setAnswerDBList((curr) => [...curr, ansDB])
-    } catch (err: any) {
-      console.error(err)
     }
+    // try {
+    //   const payload: IPostAnswerBody = {
+    //     choice_id: ans.answer_id.toString(),
+    //     choice_text: ans.answer_text,
+    //     nc_2j4n___question_id: ans.question_id
+    //   }
+    //   if (userInfo.type === 'person' && userInfo.id) {
+    //     payload.nc_2j4n__user_info_id = userInfo.id
+    //   } else if (userInfo.type === 'school' && userInfo.id) {
+    //     payload.nc_2j4n___school_info_id = userInfo.id
+    //   }
+    //   const response = await postQuizAnswerApi(payload)
+    //   if (response) {
+    //     const ansDB = convertToAnswerDB(response.data)
+    //   setAnswerDBList((curr) => [...curr, ansDB])
+    //   }
+    // } catch (err: any) {
+    //   console.error(err)
+    // }
   }
 
   const convertToAnswerDB = (ans: IAnswerPostResponse): IAnswerDB => {
@@ -195,11 +224,12 @@ function Quiz({ id }: PropsType) {
     } else if (userInfo.type === 'school' && userInfo.id) {
       payload.nc_2j4n___school_info_id = userInfo.id
     }
-    try {
-      const response = await axios.post<IPostUserInfoResponse>(`/api/opinionAnswer`, payload)
-    } catch (err: any) {
-      console.error(err)
-    }
+    await postOpinionAnswerApi(payload)
+    // try {
+    //   const response = await axios.post<IPostUserInfoResponse>(`${prefix}/api/opinionAnswer`, payload)
+    // } catch (err: any) {
+    //   console.error(err)
+    // }
     setOpenEventSubmitModal(true)
   }
 
@@ -215,12 +245,16 @@ function Quiz({ id }: PropsType) {
         education_level: userInfo.person.education_level,
         user_agent: agent
       }
-      try {
-        const response = await axios.post<IPostUserInfoResponse>(`/api/userInfo`, payload)
+      const response = await postUserInfoApi(payload)
+      if (response) {
         userInfoData = { ...userInfo, id: response.data.Id }
-      } catch (err: any) {
-        console.error(err)
       }
+      // try {
+      //   const response = await axios.post<IPostUserInfoResponse>(`${prefix}/api/userInfo`, payload)
+      //   userInfoData = { ...userInfo, id: response.data.Id }
+      // } catch (err: any) {
+      //   console.error(err)
+      // }
     } else {
       const payload: IPostSchoolInfoBody = {
         name: userInfo.school.name,
@@ -228,12 +262,16 @@ function Quiz({ id }: PropsType) {
         education_level: userInfo.school.education_level,
         user_agent: agent
       }
-      try {
-        const response = await axios.post<IPostUserInfoResponse>(`/api/schoolInfo`, payload)
+      const response = await postSchoolInfoApi(payload)
+      if (response) {
         userInfoData = { ...userInfo, id: response.data.Id }
-      } catch (err: any) {
-        console.error(err)
       }
+      // try {
+      //   const response = await axios.post<IPostUserInfoResponse>(`${prefix}/api/schoolInfo`, payload)
+      //   userInfoData = { ...userInfo, id: response.data.Id }
+      // } catch (err: any) {
+      //   console.error(err)
+      // }
     }
     appContext.userInfo.set(userInfoData)
     localStorage['user-info'] = JSON.stringify(userInfoData)
