@@ -67,7 +67,7 @@ const PaperWrapper = styled.div<{ index: number }>`
 const StoryPart3 = () => {
   const router = useRouter()
   const onClickButton = () => {
-    window.open('https://deepsouthwatch.org/sites/default/files/archives/docs/iccpr_th.pdf', '_blank')
+    window.open('https://wevis.info/iccpr/', '_blank')
   }
   return (
     <StroyPart3Container>
@@ -76,8 +76,8 @@ const StoryPart3 = () => {
           สิทธิและเสรีภาพเป็นของเราโดยธรรมชาติ ทุกคนมีสิ่งนี้ติดตัวมาตั้งแต่เกิด ถือเป็นเรื่องสำคัญในสังคม
         </p>
         <p className="wv-h6 wv-font-kondolar">
-          สิทธิเสรีภาพเหล่านี้มีมาตรฐานสากลตามกติการะหว่างประเทศ ว่าด้วยสิทธิพลเมืองและสิทธิทางการเมือง (ICCPR)
-          หรือเป็นเหมือนข้อตกลงของโลก เป็นหรือหลักการที่ยอมรับ ร่วมกันทั่วโลก
+          สิทธิเสรีภาพเหล่านี้มีมาตรฐานสากลตามกติการะหว่างประเทศว่าด้วยสิทธิพลเมืองและสิทธิทางการเมือง
+          (ICCPR)เป็นเหมือนข้อตกลงของโลก หรือหลักการที่ยอมรับร่วมกันทั่วโลก
         </p>
         <Lottie animationData={Illus} autoplay={true} loop={true} className="lottie"></Lottie>
         <p className="wv-font-kondolar wv-h6 text-3">

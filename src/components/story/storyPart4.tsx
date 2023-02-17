@@ -46,7 +46,7 @@ const StroyPart4Container = styled.div`
 
   .ship {
     position: absolute;
-    bottom: 160px;
+    bottom: 60px;
 
     @media (max-width: 1024px) {
       bottom: 20px;
@@ -60,11 +60,14 @@ const StoryPart4 = () => {
       <div className="background" />
       <div className="wrapper">
         <p className="text text-1 wv-h6 wv-font-kondolar">
-          สิทธิเสรีภาพของทุกคนควรได้รับความเคารพ และมีกติการองรับอย่างชัดเจน และไม่ควรที่รัฐหรือบุคคล
-          จะละเมิดสิทธิเสรีภาพคนอื่น{' '}
-          <span className="color-blue wv-h6 wv-font-kondolar wv-font-bold">
-            แต่ในความเป็นจริง ความเห็นที่แตกต่าง ก็ทำให้มีการใช้สิทธิเสรีภาพ ที่ไปละเมิดหรือทำร้ายคนอื่นอยู่
-          </span>
+          สิทธิเสรีภาพของทุกคนควรได้รับความเคารพและมีกติการองรับอย่างชัดเจน
+        </p>
+        <p className="text text-2 wv-h6 wv-font-kondolar">ไม่ควรที่รัฐหรือบุคคลจะละเมิดสิทธิเสรีภาพคนอื่น</p>
+        <p className="text text-2 color-blue wv-h6 wv-font-kondolar wv-font-bold">
+          แต่ในความเป็นจริงความคิดเห็นที่แตกต่าง ก็ทำให้มีการใช้สิทธิเสรีภาพ ที่ไปละเมิดหรือทำร้ายคนอื่นอยู่
+        </p>
+        <p className="text text-2 color-blue wv-h6 wv-font-kondolar wv-font-bold">
+          แล้วเราจะหาจุดร่วมของสิทธิเสรีภาพบนความเห็นต่างได้อย่างไร?
         </p>
         <p className="text text-2 color-blue wv-h6 wv-font-kondolar wv-font-bold">
           มาชวนคิดและทำความเข้าใจ ผ่านแบบทดสอบนี้กัน

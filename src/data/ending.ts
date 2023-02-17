@@ -34,63 +34,63 @@ export const ending: IEnding = {
     },
     {
       id: 2,
-      topic: 'พิธีไว้ครู',
-      og_image_src: `${prefix}/og/og-1.jpg`,
-      share_url: '/quiz/10'
-    },
-    {
-      id: 3,
       topic: 'การแต่งตัว',
       og_image_src: `${prefix}/og/og-2.jpg`,
       share_url: '/quiz/6'
     },
     {
-      id: 4,
-      topic: 'ห้องน้ำที่ทุกเพศเข้าได้',
-      og_image_src: `${prefix}/og/og-3.jpg`,
-      share_url: '/quiz/5'
-    },
-    {
-      id: 5,
-      topic: 'ชุดนักเรียน VS ชุดไปรเวท',
-      og_image_src: `${prefix}/og/og-4.jpg`,
-      share_url: '/quiz/4'
-    },
-    {
-      id: 6,
-      topic: 'ตั้งคำถามกับความคิดเห็นบุคคลที่อายุต่างกัน',
-      og_image_src: `${prefix}/og/og-5.jpg`,
-      share_url: '/quiz/2'
-    },
-    {
-      id: 7,
-      topic: 'ระเบียบทรงผม',
-      og_image_src: `${prefix}/og/og-6.jpg`,
-      share_url: '/quiz/1'
-    },
-    {
-      id: 8,
-      topic: 'การแสดงออกทางการเมือง',
-      og_image_src: `${prefix}/og/og-7.jpg`,
-      share_url: '/quiz/6'
-    },
-    {
-      id: 9,
+      id: 3,
       topic: 'การรวมกลุ่ม',
       og_image_src: `${prefix}/og/og-8.jpg`,
       share_url: '/quiz/3'
     },
     {
+      id: 4,
+      topic: 'การแสดงออกทางความคิดเห็นทางการเมือง',
+      og_image_src: `${prefix}/og/og-7.jpg`,
+      share_url: '/quiz/7'
+    },
+    {
+      id: 5,
+      topic: 'ความคิดเห็นของบุคคลที่อายุต่างกัน',
+      og_image_src: `${prefix}/og/og-5.jpg`,
+      share_url: '/quiz/2'
+    },
+    {
+      id: 6,
+      topic: 'ชุดไปรเวทหรือชุดนักเรียน',
+      og_image_src: `${prefix}/og/og-4.jpg`,
+      share_url: '/quiz/4'
+    },
+    {
+      id: 7,
+      topic: 'พิธีไหว้ครู',
+      og_image_src: `${prefix}/og/og-1.jpg`,
+      share_url: '/quiz/10'
+    },
+    {
+      id: 8,
+      topic: 'พื้นที่ชุมนุมในโรงเรียน',
+      og_image_src: `${prefix}/og/og-10.jpg`,
+      share_url: '/quiz/8'
+    },
+    {
+      id: 9,
+      topic: 'ระเบียบทรงผม',
+      og_image_src: `${prefix}/og/og-6.jpg`,
+      share_url: '/quiz/1'
+    },
+    {
       id: 10,
-      topic: 'วิพากษ์วิจารณ์การทำงานของรัฐบาล',
+      topic: 'วิพากษ์วิจารณ์รัฐบาล',
       og_image_src: `${prefix}/og/og-9.jpg`,
       share_url: '/quiz/9'
     },
     {
       id: 11,
-      topic: 'ชุมนุมในโรงเรียน',
-      og_image_src: `${prefix}/og/og-10.jpg`,
-      share_url: '/quiz/8'
+      topic: 'ห้องน้ำที่ทุกเพศเข้าได้',
+      og_image_src: `${prefix}/og/og-3.jpg`,
+      share_url: '/quiz/5'
     }
   ]
 }

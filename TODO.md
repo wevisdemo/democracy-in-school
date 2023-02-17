@@ -1,3 +1,3 @@
 # TODO list
 
-- setup import path to ~/src/components
+- og title description

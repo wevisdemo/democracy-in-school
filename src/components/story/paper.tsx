@@ -156,7 +156,7 @@ const Paper = ({ storyPaper }: PropsType) => {
         </div>
       </div>
       <div className="footer">
-        <h6 className="wv-h6 wv-font-kondolar">สิทธิที่เรามีและทำได้/การกระทำแบบนี้คือการละเมิด</h6>
+        <h6 className="wv-h6 wv-font-kondolar">สิทธิที่เรามีและทำได้ / การกระทำแบบนี้คือการละเมิด</h6>
         <div className="todo-wrapper">
           <div className="todo-right-wrapper">
             {storyPaper.right_list.map((item, index) => {

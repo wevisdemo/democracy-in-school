@@ -210,7 +210,7 @@ const StoryPart1 = ({ openVideoModal }: PropsType) => {
             <div className="text-wrap">
               <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-blue">ทำไมสิทธิมนุษยชนถึงสำคัญ?</h6>
               <p className="wv-b2 font-plexsans">
-                สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติ ติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับการคุ้มครอง โดยกฎหมายตามหลักสากล
+                สิทธิมนุษยชน เป็นสิทธิทางธรรมชาติติดตัวมนุษย์ทุกคนมาแต่เกิด และได้รับความคุ้มครองโดยกฎหมายตามหลักสากล
               </p>
             </div>
           </div>

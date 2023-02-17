@@ -141,7 +141,7 @@ const StoryPart2 = () => {
           <div className="text-bubble">
             <p className=" wv-b2 font-plexsans">ถ้าเรามีความคิดเห็น ต่อการทำงานของรัฐบาล</p>
             <p className="wv-b2 font-plexsans-bold">
-              เราอาจโพสต์ หรือ แชร์ข้อความ ไปคุยกับเพื่อนซึ่งนี่คือสิทธิในการแสดงออก
+              เราอาจโพสต์ หรือ แชร์ข้อความ ไปคุยกับเพื่อนซึ่งนี่คือสิทธิเสรีภาพในการแสดงออก
             </p>
           </div>
         </div>
@@ -151,7 +151,7 @@ const StoryPart2 = () => {
         <div className="bubble bubble-2">
           <div className="text-bubble">
             <p className=" wv-b2 font-plexsans">เมื่อไหร่ก็ตามที่เราถูกห้ามไม่ให้แสดงความคิดเห็น</p>
-            <p className="wv-b2 font-plexsans-bold">เราจะรับรู้ถึงเสรีภาพ ที่หายไป</p>
+            <p className="wv-b2 font-plexsans-bold">เราจะรับรู้ถึงเสรีภาพที่หายไป</p>
           </div>
         </div>
       </div>

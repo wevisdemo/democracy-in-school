@@ -15,7 +15,7 @@ function KnowledgePage() {
     <>
       <Metadata
         title="Know Your Rights"
-        description="เกิดมาทั้งที เรามีสิทธิเสรีภาพ แค่ไหน?"
+        description="เกิดมาทั้งที เรามีสิทธิเสรีภาพแค่ไหน?"
         imageSrc={`${prefix}/og/og-default.jpg`}
       />
       <Layout>

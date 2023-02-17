@@ -6,7 +6,7 @@ export const guideCard: IGuideCard[] = [
     id: 1,
     topic: 'โหวตข้อที่เห็นด้วย',
     thumbnail_src: `${prefix}/part_3/illus_step.01.png`,
-    description: 'สามารถใช้ post-it สี ให้นักเรียนตอบหรือ สามารถต่อแถวตามช้อยส์ได้'
+    description: 'สามารถใช้ post-it สี ให้นักเรียนตอบ หรือ สามารถต่อแถวตามตัวเลือกได้'
   },
   {
     id: 2,
