@@ -64,11 +64,7 @@ const RightDecisionWrapper = styled.div<{ expand: string }>`
   }
 `
 
-interface PropsType {
-  openVideoModal: () => void
-}
-
-const Decision = ({ openVideoModal }: PropsType) => {
+const Decision = () => {
   const [expand, setExpand] = useState<string>('center')
 
   // TODO: can refactor this ?
@@ -113,7 +109,7 @@ const Decision = ({ openVideoModal }: PropsType) => {
         </div>
         {expand === 'left' && (
           <>
-            <Story openVideoModal={openVideoModal} />
+            <Story />
             <Quiz expand={true} action={'expand'} />
           </>
         )}

@@ -94,7 +94,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'ระเบียบทรงผม'
     },
-    og_image_src: `${prefix}/og/og-1.jpg`
+    og_image_src: `${prefix}/og/og-6.jpg`
   },
   {
     id: 2,
@@ -178,7 +178,7 @@ export const quiz_list: IQuiz[] = [
       question: ['การแสดงออกใดบ้าง ที่มักจะกลายเป็นต้นเหตุของความขัดแย้งของคนอายุต่างกันได้ และจะรับมืออย่างไร?'],
       shared_topic: 'ความคิดเห็นของบุคคลที่อายุต่างกัน'
     },
-    og_image_src: `${prefix}/og/og-2.jpg`
+    og_image_src: `${prefix}/og/og-5.jpg`
   },
   {
     id: 3,
@@ -279,7 +279,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'การรวมกลุ่ม'
     },
-    og_image_src: `${prefix}/og/og-3.jpg`
+    og_image_src: `${prefix}/og/og-8.jpg`
   },
   {
     id: 4,
@@ -448,7 +448,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'ห้องน้ำของทุกคน ทุกเพศเข้าได้'
     },
-    og_image_src: `${prefix}/og/og-5.jpg`
+    og_image_src: `${prefix}/og/og-3.jpg`
   },
   {
     id: 6,
@@ -543,7 +543,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'การแต่งตัว'
     },
-    og_image_src: `${prefix}/og/og-6.jpg`
+    og_image_src: `${prefix}/og/og-2.jpg`
   },
   {
     id: 7,
@@ -714,7 +714,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'ใช้พื้นที่จัดการชุมนุมภายในโรงเรียน'
     },
-    og_image_src: `${prefix}/og/og-8.jpg`
+    og_image_src: `${prefix}/og/og-10.jpg`
   },
   {
     id: 9,
@@ -886,6 +886,6 @@ export const quiz_list: IQuiz[] = [
       question: ['ยังมีวัฒนธรรมหรือประเพณีอะไรอีกบ้าง ที่ยังคงปฏิบัติต่อเนื่อง และควรได้รับการปรับปรุง?'],
       shared_topic: 'พิธีไหว้ครู'
     },
-    og_image_src: `${prefix}/og/og-10.jpg`
+    og_image_src: `${prefix}/og/og-1.jpg`
   }
 ]

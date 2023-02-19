@@ -181,11 +181,7 @@ const Footer = styled.div`
   }
 `
 
-interface PropsType {
-  openVideoModal: () => void
-}
-
-const StoryPart1 = ({ openVideoModal }: PropsType) => {
+const StoryPart1 = () => {
   return (
     <StoryPart1Container>
       <IntroContainer>
@@ -198,9 +194,6 @@ const StoryPart1 = ({ openVideoModal }: PropsType) => {
               ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
             </p>
             <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
-            {/* <div className="pointing-btn">
-              <PointingButton onClickButton={openVideoModal} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
-            </div> */}
           </IntroTextWrap>
         </Header>
         <Footer>
