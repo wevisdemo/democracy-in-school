@@ -70,6 +70,9 @@ const QuizEventQuestionContainer = styled.div<{ canSubmit: boolean }>`
     margin: auto;
     max-width: 576px;
     @media (max-width: 1024px) {
+      max-width: 400px;
+    }
+    @media (max-width: 420px) {
       max-width: 278px;
     }
   }

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import { IDropdownOption } from 'types/shared'
 import Dropdown from '../dropdown'
-import { ending as ending_data } from 'data/ending'
 import Toggle from '../toggle'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { gender, age, province, education } from 'data/dropdown'
@@ -204,19 +202,6 @@ const PersonalMain = ({ userInfo, setUserInfo }: SubPropsType) => (
           title=""
           initValue={{ label: userInfo.person.province, value: userInfo.person.province }}
         />
-        {/* <Dropdown
-          onSelect={(option) => {
-            setUserInfo((state) => ({
-              ...state,
-              person: { ...state.person, province: option.value }
-            }))
-          }}
-          initValue={{ label: userInfo.person.province, value: userInfo.person.province }}
-          backgroundColor="#000"
-          placeholder="พิมพ์ชื่อจังหวัด..."
-          options={province.map((d) => convertToDDOption(d))}
-          light
-        /> */}
       </div>
     </div>
     <div className="topic-wrapper">
@@ -264,19 +249,6 @@ const SchoolMain = ({ userInfo, setUserInfo }: SubPropsType) => (
           title=""
           initValue={{ label: userInfo.school.province, value: userInfo.school.province }}
         />
-        {/* <Dropdown
-          onSelect={(option) => {
-            setUserInfo((state) => ({
-              ...state,
-              school: { ...state.school, province: option.value }
-            }))
-          }}
-          initValue={{ label: userInfo.school.province, value: userInfo.school.province }}
-          backgroundColor="#000"
-          placeholder="พิมพ์ชื่อจังหวัด..."
-          options={province.map((d) => convertToDDOption(d))}
-          light
-        /> */}
       </div>
     </div>
     <div className="topic-wrapper">
@@ -370,7 +342,8 @@ function PersonalModal({ show, onClose, submitData }: PropsType) {
           province: '',
           education_level: ''
         },
-        school: userInfo.school
+        school: userInfo.school,
+        user_agent: ''
       })
     } else {
       submitData({
@@ -381,7 +354,8 @@ function PersonalModal({ show, onClose, submitData }: PropsType) {
           province: '',
           education_level: '',
           name: ''
-        }
+        },
+        user_agent: ''
       })
     }
     setUserInfo(userInfoDefault)
@@ -395,8 +369,8 @@ function PersonalModal({ show, onClose, submitData }: PropsType) {
         <div className="main font-plexsans">
           <img className="cross-icon" src={`${prefix}/cross.svg`} alt="cross" onClick={onCloseModal} />
           <div className="header">
-            <p className="wv-h7 font-plexsans-bold color-yellow title">ก่อนไปส่วนสุดท้าย.. ขอถามเพิ่มอีกนิด</p>
-            <p className="color-white subtitle">เพื่อเป็นข้อมูลในการศึกษาและวิเคราะห์ เกี่ยวกับสิทธิและเสรีภาพ</p>
+            <p className="wv-h7 font-plexsans-bold color-yellow title">ขอถามเพิ่มอีกนิด</p>
+            <p className="color-white subtitle">เพื่อเป็นข้อมูลในการศึกษาและวิเคราะห์ เกี่ยวกับสิทธิเสรีภาพ</p>
             <Toggle options={['บุคคล', 'ชั้นเรียน']} active={toggleActive} setActive={setToggleActive}></Toggle>
           </div>
           <div className="breakline"></div>

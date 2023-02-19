@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import Image from 'next/image'
-import WelcomeSelector from 'components/shared/welcomeSelector'
 import PointingButton from 'components/shared/pointerButton'
 import { prefix } from 'utils'
 
@@ -14,7 +12,7 @@ const IntroContainer = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   min-height: 100vh;
@@ -27,7 +25,7 @@ const IntroContainer = styled.div`
     left: -5px;
     z-index: 10;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       width: 100px;
       top: 300px;
     }
@@ -40,7 +38,7 @@ const IntroContainer = styled.div`
     right: -5px;
     z-index: 10;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       width: 100px;
       top: 300px;
     }
@@ -60,6 +58,11 @@ const IntroTextWrap = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 20;
+
+  @media (max-width: 1024px) {
+    margin-top: 200px;
+    max-width: 300px;
+  }
 
   @media (max-width: 420px) {
     margin-top: 40px;
@@ -99,7 +102,6 @@ const Footer = styled.div`
   position: relative;
   width: 100%;
   margin-top: 184px;
-  background: url(${prefix}/background/bg_white.01.png);
 
   @media (max-width: 420px) {
     margin-top: 60px;
@@ -196,9 +198,9 @@ const StoryPart1 = ({ openVideoModal }: PropsType) => {
               ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
             </p>
             <p className="wv-h7 font-plexsans-bold text-3">"ซึ่งทุกคนมีสิทธินี้โดยไม่ถูกเลือกปฏิบัติ"</p>
-            <div className="pointing-btn">
+            {/* <div className="pointing-btn">
               <PointingButton onClickButton={openVideoModal} text="วีดีโอที่เกี่ยวข้องกับสิทธิมนุษยชน" fill="#22C0E8" />
-            </div>
+            </div> */}
           </IntroTextWrap>
         </Header>
         <Footer>

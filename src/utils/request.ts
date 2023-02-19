@@ -81,7 +81,6 @@ export const getQuizAnswerApi = async (id: string) => {
     url: `${process.env.NEXT_PUBLIC_NOCO_API_BASE_URL || ''}/answer/views/answer?where=(question_id,eq,${id})`,
     headers
   }
-  console.log(reqOptions)
   try {
     const response = await axios<IAnswerGetResponse>(reqOptions)
     return response

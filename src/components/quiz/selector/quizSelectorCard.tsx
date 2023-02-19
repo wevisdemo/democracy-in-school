@@ -8,7 +8,7 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
   align-items: center;
   // width: 184px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 420px) {
     width: 76px;
   }
 
@@ -37,7 +37,7 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
     text-align: center;
     font-size: 28px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       font-size: 11px;
     }
   }
@@ -45,30 +45,30 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
   .topic-image-container {
     position: relative;
     background-color: white;
-    width: 184px;
-    height: 184px;
+    max-width: 184px;
+    max-height: 184px;
     overflow: hidden;
     background-color: white;
     transition: background 1s;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       width: 76px;
       height: 76px;
     }
-  }
 
-  .topic-image {
-    position: absolute;
-    width: 184px;
-    height: 184px;
-    opacity: ${(prop) => (prop.selected ? '0.3' : '1')};
-    transition: width 1s, height 1s, left 1s, top 1s;
-    left: 0px;
-    top: 0px;
+    .topic-image {
+      position: relative;
+      max-width: 184px;
+      max-height: 184px;
+      opacity: ${(prop) => (prop.selected ? '0.3' : '1')};
+      transition: all 1s;
+      left: 0px;
+      top: 0px;
 
-    @media (max-width: 1024px) {
-      width: 76px;
-      height: 76px;
+      @media (max-width: 420px) {
+        width: 76px;
+        height: 76px;
+      }
     }
   }
 `
@@ -90,7 +90,7 @@ const QuizSelectorCard = ({ quiz, selected }: PropsType) => {
   return (
     <QuizSelectorCardContainer onClick={handleOnClick} selected={selected}>
       <div className="topic-image-container">
-        <img className="topic-image" src={quiz.thumbnail_src} alt={`topic-${quiz.id}`} width={184} height={184} />
+        <img className="topic-image" src={quiz.thumbnail_src} alt={`topic-${quiz.id}`} />
       </div>
       <p className="font-plexsans-bold description">{quiz.title}</p>
     </QuizSelectorCardContainer>

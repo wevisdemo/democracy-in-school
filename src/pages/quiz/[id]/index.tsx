@@ -19,7 +19,7 @@ import { IUserInformation } from 'store/userInfo'
 import axios, { AxiosRequestConfig } from 'axios'
 import { IAnswerDB, IAnswerGetResponse, IAnswerPostResponse, IPostUserInfoResponse } from 'types/response'
 import { IPostAnswerBody, IPostOpinionBody, IPostSchoolInfoBody, IPostUserInfoBody } from 'types/request'
-import { prefix } from 'utils'
+import { convertUserInfoToPerson, convertUserInfoToSchool, prefix } from 'utils'
 import {
   getQuizAnswerApi,
   postOpinionAnswerApi,
@@ -63,6 +63,10 @@ function Quiz({ id }: PropsType) {
     appContext.fetchAnswer()
     localStorage.removeItem('first-time-userinfo')
     appContext.userInfo.fetch()
+    const userInfo = appContext.userInfo.state
+    if (!userInfo.id && userInfo.has_set) {
+      handleSubmitUserInfo(userInfo)
+    }
     const localAns = window.localStorage[`quiz-answer-${currentQuiz.id}`]
     if (localAns) {
       const ansData = JSON.parse(localAns)
@@ -114,14 +118,6 @@ function Quiz({ id }: PropsType) {
     if (response) {
       setAnswerDBList(response.data.list)
     }
-    // try {
-    //   const response = await axios.get<IAnswerGetResponse>(
-    //     `/api/answer/answer/views/answer?where=(question_id,eq,${id})`
-    //   )
-    //   setAnswerDBList(response.data.list)
-    // } catch (err: any) {
-    //   console.error(err)
-    // }
   }
 
   const sendFinalAnswer = async (ans: IAnswer) => {
@@ -130,7 +126,7 @@ function Quiz({ id }: PropsType) {
     appContext.addAnswer(ans)
     setAnswerLocalStorage(ans)
     setRevealContent(true)
-    if (!localStorage[`user-info`]) {
+    if (!appContext.userInfo.state.has_set) {
       setShowUserInfoModal(true)
     }
 
@@ -151,25 +147,6 @@ function Quiz({ id }: PropsType) {
       const ansDB = convertToAnswerDB(response.data)
       setAnswerDBList((curr) => [...curr, ansDB])
     }
-    // try {
-    //   const payload: IPostAnswerBody = {
-    //     choice_id: ans.answer_id.toString(),
-    //     choice_text: ans.answer_text,
-    //     nc_2j4n___question_id: ans.question_id
-    //   }
-    //   if (userInfo.type === 'person' && userInfo.id) {
-    //     payload.nc_2j4n__user_info_id = userInfo.id
-    //   } else if (userInfo.type === 'school' && userInfo.id) {
-    //     payload.nc_2j4n___school_info_id = userInfo.id
-    //   }
-    //   const response = await postQuizAnswerApi(payload)
-    //   if (response) {
-    //     const ansDB = convertToAnswerDB(response.data)
-    //   setAnswerDBList((curr) => [...curr, ansDB])
-    //   }
-    // } catch (err: any) {
-    //   console.error(err)
-    // }
   }
 
   const convertToAnswerDB = (ans: IAnswerPostResponse): IAnswerDB => {
@@ -225,54 +202,39 @@ function Quiz({ id }: PropsType) {
       payload.nc_2j4n___school_info_id = userInfo.id
     }
     await postOpinionAnswerApi(payload)
-    // try {
-    //   const response = await axios.post<IPostUserInfoResponse>(`${prefix}/api/opinionAnswer`, payload)
-    // } catch (err: any) {
-    //   console.error(err)
-    // }
     setOpenEventSubmitModal(true)
+  }
+
+  const handleOncloseEventModal = () => {
+    setOpenEventSubmitModal(false)
+    if (!appContext.userInfo.state.has_set) {
+      setShowUserInfoModal(true)
+    }
+  }
+
+  const handlerApiUserInfo = async (userInfo: IUserInformation): Promise<IUserInformation> => {
+    if (userInfo.type === 'person') {
+      const payload = convertUserInfoToPerson(userInfo)
+      const response = await postUserInfoApi(payload)
+      if (response) {
+        userInfo = { ...userInfo, id: response.data.Id }
+      }
+    } else {
+      const payload = convertUserInfoToSchool(userInfo)
+      const response = await postSchoolInfoApi(payload)
+      if (response) {
+        userInfo = { ...userInfo, id: response.data.Id }
+      }
+    }
+    return userInfo
   }
 
   const handleSubmitUserInfo = async (userInfo: IUserInformation) => {
     let userInfoData = userInfo
-    const agent = navigator.userAgent
+    userInfo.user_agent = navigator.userAgent
 
-    if (userInfo.type === 'person') {
-      const payload: IPostUserInfoBody = {
-        age: userInfo.person.age,
-        gender: userInfo.person.gender,
-        province: userInfo.person.province,
-        education_level: userInfo.person.education_level,
-        user_agent: agent
-      }
-      const response = await postUserInfoApi(payload)
-      if (response) {
-        userInfoData = { ...userInfo, id: response.data.Id }
-      }
-      // try {
-      //   const response = await axios.post<IPostUserInfoResponse>(`${prefix}/api/userInfo`, payload)
-      //   userInfoData = { ...userInfo, id: response.data.Id }
-      // } catch (err: any) {
-      //   console.error(err)
-      // }
-    } else {
-      const payload: IPostSchoolInfoBody = {
-        name: userInfo.school.name,
-        province: userInfo.school.province,
-        education_level: userInfo.school.education_level,
-        user_agent: agent
-      }
-      const response = await postSchoolInfoApi(payload)
-      if (response) {
-        userInfoData = { ...userInfo, id: response.data.Id }
-      }
-      // try {
-      //   const response = await axios.post<IPostUserInfoResponse>(`${prefix}/api/schoolInfo`, payload)
-      //   userInfoData = { ...userInfo, id: response.data.Id }
-      // } catch (err: any) {
-      //   console.error(err)
-      // }
-    }
+    userInfoData = await handlerApiUserInfo(userInfo)
+
     appContext.userInfo.set(userInfoData)
     localStorage['user-info'] = JSON.stringify(userInfoData)
   }
@@ -283,9 +245,11 @@ function Quiz({ id }: PropsType) {
   const gameStep1 = guideCard[1]
   const gameStep2 = guideCard[2]
 
+  const ogDescription = `ร่วมแสดงความคิดเห็นและทดลองหาจุดร่วมบนความต่างกับเรื่อง "${currentQuiz.title}" `
+
   return (
     <>
-      <Metadata title={currentQuiz.title} description={currentQuiz.question} imageSrc={currentQuiz.og_image_src} />
+      <Metadata title="Democracy in School" description={ogDescription} imageSrc={currentQuiz.og_image_src} />
       <Layout>
         <div ref={gameRef}>
           <QuizGame
@@ -319,7 +283,7 @@ function Quiz({ id }: PropsType) {
             </div>
           </>
         )}
-        <EventSubmitModal show={openEventSubmitModal} setShow={setOpenEventSubmitModal}></EventSubmitModal>
+        <EventSubmitModal show={openEventSubmitModal} onClose={handleOncloseEventModal}></EventSubmitModal>
         <GameStepModal
           show={openClassroomModel1}
           setShow={setOpenClassroomModel1}

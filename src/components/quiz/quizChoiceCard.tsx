@@ -21,7 +21,7 @@ const ChoiceContainer = styled.div<{ choice: IChoiceQuiz; reveal: boolean; perce
       animation-timing-function: linear;
       animation-direction: alternate;`}
 
-  @media (max-width: 1024px) {
+  @media (max-width: 420px) {
     max-width: 92px;
     height: 212px;
   }
@@ -82,7 +82,7 @@ const TextWrapper = styled.div`
   text-align: center;
   z-index: 20;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 420px) {
     padding: 2px;
   }
 
@@ -97,7 +97,7 @@ const TextWrapper = styled.div`
     padding-bottom: 8px;
     font-size: 18px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       font-size: 13px;
     }
   }

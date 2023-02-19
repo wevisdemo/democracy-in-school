@@ -25,7 +25,7 @@ const PaperContainer = styled.div`
 
     .thumbnail {
       width: 288px;
-      @media (max-width: 1024px) {
+      @media (max-width: 420px) {
         width: 146px;
       }
     }
@@ -36,7 +36,7 @@ const PaperContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      max-width: 422px;
+      // max-width: 422px;
       margin-left: 56px;
 
       p:not(:first-child) {

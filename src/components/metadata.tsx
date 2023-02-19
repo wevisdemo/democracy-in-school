@@ -8,14 +8,16 @@ interface MetadataProps {
   description?: string
 }
 
-const DEFAULT_DESCRIPTION = `ทดสอบความเป็นประชาธิปไตยเราเคารพสิทธิเสรีภาพแบบไหน`
+const DEFAULT_DESCRIPTION = `แตกต่างได้ไหม? เพราะประชาธิปไตยควรเคารพกัน
+ชวนมาเรียนรู้และทดสอบความเข้าใจเกี่ยวกับสิทธิเสรีภาพกัน
+#DemocracyinSchool`
 
 const Metadata: FunctionComponent<MetadataProps> = ({ title, imageSrc, description = DEFAULT_DESCRIPTION }) => {
-  const fullTitle = `Democracy in school`
+  const fullTitle = `Democracy in School`
 
   return (
     <Head>
-      <title>{fullTitle}</title>
+      <title>{title || fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

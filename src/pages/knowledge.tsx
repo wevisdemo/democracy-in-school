@@ -13,11 +13,7 @@ function KnowledgePage() {
 
   return (
     <>
-      <Metadata
-        title="Know Your Rights"
-        description="เกิดมาทั้งที เรามีสิทธิเสรีภาพแค่ไหน?"
-        imageSrc={`${prefix}/og/og-default.jpg`}
-      />
+      <Metadata imageSrc={`${prefix}/og/og-default.jpg`} />
       <Layout>
         <WelcomeSelector expand action="expand" type="story" />
         <Story openVideoModal={() => setOpenVideoModal(true)} />

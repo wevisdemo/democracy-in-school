@@ -77,8 +77,6 @@ const DropdownContainer = styled.div<IComponentProps>`
   }
 `
 
-// TODO: hover bg
-
 interface PropsType {
   placeholder: string
   options: IDropdownOption[]

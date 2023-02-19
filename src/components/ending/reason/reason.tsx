@@ -62,10 +62,6 @@ const Reason = ({ reasons }: PropsType) => {
           return <ReasonCard reason={item} index={index} key={`reason-card-${index}`}></ReasonCard>
         })}
       </CardWrapper>
-      <p className="p-2 wv-b2 font-plexsans">
-        สังคมประชาธิปไตยเริ่มต้นที่การเรียนรู้ <br />
-        ที่จะเคารพความแตกต่างในสังคม
-      </p>
     </Container>
   )
 }

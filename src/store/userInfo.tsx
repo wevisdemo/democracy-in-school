@@ -6,6 +6,7 @@ export interface IUserInformation {
   type: 'person' | 'school'
   person: IPersonInformation
   school: ISchoolInformation
+  user_agent: string
 }
 
 interface IPersonInformation {
@@ -41,7 +42,8 @@ export const userInfoDefault: IUserInformation = {
     province: '',
     education_level: '',
     name: ''
-  }
+  },
+  user_agent: ''
 }
 
 type UserReducerAction =

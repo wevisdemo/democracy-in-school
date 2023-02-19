@@ -73,13 +73,13 @@ const EventSubmitModalContainer = styled.div<{ show: boolean }>`
 
 interface PropsType {
   show: boolean
-  setShow: Dispatch<SetStateAction<boolean>>
+  onClose: () => void
 }
 
-function EventSubmitModal({ show, setShow }: PropsType) {
+function EventSubmitModal({ show, onClose }: PropsType) {
   const onCloseModal = (e: any) => {
     e.stopPropagation()
-    setShow(false)
+    onClose()
   }
 
   return (

@@ -89,7 +89,7 @@ const ShareComponent = styled.div`
 const About = () => {
   const handleClickDownload = () => {
     window.open(
-      'https://docs.google.com/spreadsheets/d/1T018Tmed1aoKzJh1U9sjRhz95yDMIuu7o1ya1wiGzOM/edit?usp=sharing',
+      'https://docs.google.com/spreadsheets/d/1T018Tmed1aoKzJh1U9sjRhz95yDMIuu7o1ya1wiGzOM/edit#gid=1664885280',
       '__blank'
     )
   }

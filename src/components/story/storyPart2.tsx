@@ -9,13 +9,11 @@ import { prefix } from 'utils'
 const StoryPart2Container = styled.div`
   position: relative;
   width: 100%;
-  // height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   aligm-items: center;
   text-align: center;
-  // overflow: hidden;
 
   .fixed-content {
     width: 100%;
@@ -30,13 +28,9 @@ const StoryPart2Container = styled.div`
     overflow: hidden;
 
     .lottie {
-      // position: absolute;
       min-height: 100vh;
       width: 60%;
-      // bottom: 10px;
-      // left: 50%;
-      // transform: translate(-50%, 0);
-      @media (max-width: 420px) {
+      @media (max-width: 1024px) {
         width: 150%;
       }
     }
@@ -63,11 +57,9 @@ const StoryPart2Container = styled.div`
     width: 100%;
     height: 100vh;
     position: relative;
-    // top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: #ffffff4d;
 
     .bubble {
       display: flex;
@@ -87,15 +79,12 @@ const StoryPart2Container = styled.div`
   }
 `
 
-// todo: clean css this
-
 const StoryPart2 = () => {
   const lottieList = [Hand1, Hand2, Hand3]
   const [lottieIndex, setLottieIndex] = useState(0)
   const myRef = useRef<HTMLDivElement>(null)
   const eventRef1 = useRef<HTMLDivElement>(null)
   const eventRef2 = useRef<HTMLDivElement>(null)
-  const eventRef3 = useRef<HTMLDivElement>(null)
 
   useEffect(() => {}, [myRef.current?.offsetTop])
 

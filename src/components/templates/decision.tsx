@@ -65,12 +65,13 @@ const RightDecisionWrapper = styled.div<{ expand: string }>`
 `
 
 interface PropsType {
-  expand: string
-  setExpand: Dispatch<SetStateAction<string>>
   openVideoModal: () => void
 }
 
-const Decision = ({ expand, setExpand, openVideoModal }: PropsType) => {
+const Decision = ({ openVideoModal }: PropsType) => {
+  const [expand, setExpand] = useState<string>('center')
+
+  // TODO: can refactor this ?
   return (
     <DecisionComponent>
       <Header>

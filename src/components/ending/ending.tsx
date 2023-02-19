@@ -34,7 +34,7 @@ const EndingContainer = styled.div`
       width: 100%;
       position: absolute;
 
-      @media (max-width: 420px) {
+      @media (max-width: 1024px) {
         width: unset;
       }
     }

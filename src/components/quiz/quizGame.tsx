@@ -18,6 +18,10 @@ const Container = styled.div`
     top: -120px;
     right: 0px;
     @media (max-width: 1024px) {
+      right: -40px;
+      top: -100px;
+    }
+    @media (max-width: 420px) {
       top: -30px;
     }
   }
@@ -38,7 +42,7 @@ const ContinueChip = styled.div<{ isReveal: boolean }>`
     font-size: 21px;
     margin-left: 10px;
     text-align: center;
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       font-size: 13px;
     }
   }
@@ -54,7 +58,7 @@ const TextWrap = styled.div`
     max-width: 880px;
     margin-bottom: 10px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       font-size: 17px;
       margin-bottom: 0px;
     }
@@ -63,7 +67,7 @@ const TextWrap = styled.div`
   .pre-title {
     font-size: 24px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       font-size: 15px;
     }
   }
@@ -142,14 +146,14 @@ const QuizGame = ({
   return (
     <Container className="full-page">
       <TextWrap className="flex-center">
-        {!isReveal && quiz.pre_question && <p className="wv-font-kondolar pre-title">{quiz.pre_question}</p>}
+        {quiz.pre_question && <p className="wv-font-kondolar pre-title">{quiz.pre_question}</p>}
         <h6 className="wv-font-kondolar wv-h6 title">
           {!isReveal ? quiz.question : 'ผลลัพธ์คุณและคนอื่นๆ คิดอย่างไร?'}
         </h6>
         <p className="wv-b5 font-plexsans">
           {!isReveal ? '(กดเพื่อเลือกคำตอบ)' : '(หมายเหตุ : 100% คิดจากผู้ที่เข้ามาตอบทั้งหมด)'}
         </p>
-        {isReveal && quiz.id === 9 && (
+        {quiz.id === 9 && (
           <p className="wv-b5 font-plexsans">*การกดเลือกคำตอบ จะเป็นการยืนยันการแสดงความคิดเห็นของคุณ</p>
         )}
       </TextWrap>

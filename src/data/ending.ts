@@ -13,8 +13,8 @@ export const ending: IEnding = {
     },
     {
       image_src: `${prefix}/part_4/illus.02.png`,
-      topic: '2.เราต้องเคารพซึ่งกันและกัน',
-      paragraphs: ['สิทธิมนุษยชนเป็นสิทธิที่ติดตัวทุกคนมาตั้งแต่เกิด เราต้องรู้สิทธิตัวเอง และไม่ละเมิดสิทธิของคนอื่น']
+      topic: '2.สิทธิมนุษยชนเป็นสิทธิที่ติดตัวทุกคนมาตั้งแต่เกิด',
+      paragraphs: ['เราต้องรู้สิทธิตัวเอง และไม่ละเมิดสิทธิของคนอื่น']
     },
     {
       image_src: `${prefix}/part_4/illus.03.png`,
@@ -28,7 +28,7 @@ export const ending: IEnding = {
   shares: [
     {
       id: 1,
-      topic: '(หัวข้องาน.....)',
+      topic: 'หัวข้อหลักของงาน',
       og_image_src: `${prefix}/og/og-default.jpg`,
       share_url: '/'
     },

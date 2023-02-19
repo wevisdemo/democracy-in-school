@@ -28,7 +28,7 @@ const TextWrap = styled.div`
   p {
     max-width: 416px;
     margin: auto;
-    @media (max-width: 1024px) {
+    @media (max-width: 420px) {
       font-size: 10px;
     }
   }

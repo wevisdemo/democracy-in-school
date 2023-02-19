@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styled from 'styled-components'
 import WvSharer from '@wevisdemo/ui/react/sharer'
 import Lottie from 'lottie-react'
@@ -32,6 +31,8 @@ const CoverDiv = styled.div`
   .lottie {
     position: relative;
     top: -50px;
+    width: 100%;
+    height: 100%;
   }
 `
 
@@ -63,10 +64,9 @@ const Welcome = () => {
       </ShareComponent>
       <Lottie
         className="lottie"
-        animationData={innerWidth <= 420 ? MobileCover : DesktopCover}
+        animationData={innerWidth <= 1024 ? MobileCover : DesktopCover}
         autoplay={true}
         loop={true}
-        style={{ width: '100%', height: '100%' }}
       />
       <div className="text-wrapper">
         <h5 className="text wv-h5 wv-font-kondolar text-stroke-white">แตกต่างได้ไหม?</h5>
