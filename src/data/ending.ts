@@ -66,7 +66,7 @@ export const ending: IEnding = {
       id: 7,
       topic: 'พิธีไหว้ครู',
       og_image_src: `${prefix}/og/og-1.jpg`,
-      share_url: '/quiz/11'
+      share_url: '/quiz/10'
     },
     {
       id: 8,
