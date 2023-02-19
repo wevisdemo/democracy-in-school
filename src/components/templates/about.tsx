@@ -74,6 +74,10 @@ const Body = styled.div`
       padding: 15px;
     }
   }
+
+  .band-logo {
+    width: 100px;
+  }
 `
 
 const ShareComponent = styled.div`
@@ -89,7 +93,7 @@ const ShareComponent = styled.div`
 const About = () => {
   const handleClickDownload = () => {
     window.open(
-      'https://docs.google.com/spreadsheets/d/1T018Tmed1aoKzJh1U9sjRhz95yDMIuu7o1ya1wiGzOM/edit#gid=1664885280',
+      'https://docs.google.com/spreadsheets/d/1T018Tmed1aoKzJh1U9sjRhz95yDMIuu7o1ya1wiGzOM/edit?usp=sharing',
       '__blank'
     )
   }
@@ -104,12 +108,11 @@ const About = () => {
         <h5 className="topic wv-h5 font-plexsans-bold">
           Democracy in School
           <br />
-          คิดต่างได้ไหม?
+          แตกต่างได้ไหม?
           <br />
-          เรียนรู้ประชาธิปไตยแบบเคารพกัน
+          เพราะประชาธิปไตยคือการเคารพกัน
         </h5>
-        <p className="wv-h7 font-plexsans">เข้าใจสิทธิเสรีภาพที่เรามีและทดลองหาจุดร่วมบนความเห็นต่าง</p>
-        <h4 className="title wv-h4 wv-font-kondolar wv-font-black">เกี่ยวกับโครงการ</h4>
+        <p className="wv-h7 font-plexsans">ทดสอบความเป็นประชาธิปไตยเราเคารพสิทธิเสรีภาพแบบไหน</p>
       </Header>
       <Body>
         <div className="wrapper">
@@ -122,9 +125,11 @@ const About = () => {
             และถูกกำหนดเป็นกติการะหว่างประเทศว่าด้วยสิทธิพลเมืองและสิทธิทางการเมือง (ICCPR) ซึ่งเรื่องสิทธิเสรีภาพนี้
             สามารถเริ่มเรียนรู้ได้ตั้งแต่เด็ก โดยเฉพาะเด็กนักเรียน เพื่อให้เติบโตไปสู่สังคมที่เคารพความต่าง
             <br />
-            <br /> ดังนั้นทางทีม WeVis ร่วมกับ มูลนิธิฟรีดริช เนามัน (Friedrich Naumann) , Saturday School Foundation
-            และ InsKru ได้ทำโปรเจกต์ Democracy in School ขึ้น เพื่อส่งเสริมความเป็นประชาธิปไตย ผ่านการเคารพสิทธิเสรีภาพ
-            โดยมีเป้าหมายเป็นเด็กนักเรียน และคำว่า School
+            <br /> ดังนั้นทางทีม WeVis ร่วมกับ{' '}
+            <a href="https://www.freiheit.org/">มูลนิธิฟรีดริช เนามัน (Friedrich Naumann)</a> ,{' '}
+            <a href="https://www.saturday-school.org/">Saturday School Foundation</a> และ
+            <a href="https://inskru.com/">InsKru</a> ได้ทำโปรเจกต์ Democracy in School ขึ้น
+            เพื่อส่งเสริมความเป็นประชาธิปไตย ผ่านการเคารพสิทธิเสรีภาพ โดยมีเป้าหมายเป็นเด็กนักเรียน และคำว่า School
             คือความตั้งใจจะสื่อสารว่าในวัยเรียนที่ต่อไปจะเติบโตไปสู่สังคมอื่นๆในอนาคต
             โรงเรียนควรจะปรับการสอนการเรียนรู้ประชาธิปไตยเกี่ยวกับสิทธิเสรีภาพจากรูปแบบเดิมๆ
             และหันมาทดลองหาจุดร่วมบนความเห็นต่างด้วยกัน
@@ -135,15 +140,17 @@ const About = () => {
           </p>
         </div>
         <div className="wrapper">
-          <h5 className="wv-h5 wv-font-kondolar wv-font-black">ที่มาของข้อมูล & ข้อจำกัด</h5>
+          <h5 className="wv-h5 wv-font-kondolar wv-font-black">ที่มาของข้อมูล</h5>
           <p className="wv-b4 wv-font-baijamjuri">
             ข้อมูลจากกติการะหว่างประเทศว่าด้วยสิทธิพลเมืองและสิทธิทางการเมือง ICCPR
             และแหล่งข่าวเกี่ยวกับเหตุการณ์ที่เกิดขึ้น
             <br />
             <br />
-            https://deepsouthwatch.org/sites/default
-            <br className="mobile-only" />
-            /files/archives/docs/iccpr_th.pdf
+            <a href="https://deepsouthwatch.org/sites/default/files/archives/docs/iccpr_th.pdf" target="_blank">
+              https://deepsouthwatch.org/sites/default
+              <br className="mobile-only" />
+              /files/archives/docs/iccpr_th.pdf
+            </a>
             <br />
           </p>
         </div>
@@ -164,7 +171,9 @@ const About = () => {
           <h5 className="wv-h5 wv-font-kondolar wv-font-black">อาสาสมัครร่วมพัฒนา</h5>
           <div className="sub-wrapper">
             <p className="wv-b4 wv-font-baijamjuri wv-font-black">เขียนโปรแกรม</p>
-            <p className="wv-b4 wv-font-baijamjuri">ทรงพล นิลวงษ์</p>
+            <a href="https://github.com/petchill" target="_blank" className="wv-b4 wv-font-baijamjuri">
+              ทรงพล นิลวงษ์
+            </a>
           </div>
           <div className="sub-wrapper">
             <p className="wv-b4 wv-font-baijamjuri wv-font-black">ออกแบบ</p>
@@ -172,17 +181,34 @@ const About = () => {
           </div>
           <div className="sub-wrapper">
             <p className="wv-b4 wv-font-baijamjuri wv-font-black">สืบค้นและรวบรวมข้อมู</p>
-            <p className="wv-b4 wv-font-baijamjuri">ศุภิสรา อิศรานุกูล</p>
+            <a
+              href="https://www.linkedin.com/in/suphisara-isaranugul-a943b017b/"
+              target="_blank"
+              className="wv-b4 wv-font-baijamjuri"
+            >
+              ศุภิสรา อิศรานุกูล
+            </a>
           </div>
           <div className="sub-wrapper">
             <p className="wv-b4 wv-font-baijamjuri wv-font-black">บรรณาธิการ</p>
-            <p className="wv-b4 wv-font-baijamjuri">ธนิสรา เรืองเดช</p>
+            <a href="https://www.linkedin.com/in/thanisara-r/" target="_blank" className="wv-b4 wv-font-baijamjuri">
+              ธนิสรา เรืองเดช
+            </a>
           </div>
           <div className="sub-wrapper">
             <p className="wv-b4 wv-font-baijamjuri wv-font-black">ประสานงานและจัดการอื่นๆ</p>
             <p className="wv-b4 wv-font-baijamjuri">
-              Punch Up และ WeVis Democracy in School คิดต่างได้ไหม? เรียนรู้ประชาธิปไตยแบบเคารพกัน
-              ยังได้รับการสนับสนุนทุนในการดำเนินงานจากมูลนิธิฟรีดริช เนามัน Friedrich Naumann
+              <a href="https://punchup.world/" target="_blank">
+                Punch Up
+              </a>{' '}
+              และ{' '}
+              <a href="https://wevis.info/" target="_blank">
+                WeVis
+              </a>{' '}
+              Democracy in School คิดต่างได้ไหม? เรียนรู้ประชาธิปไตยแบบเคารพกัน ยังได้รับการสนับสนุนทุนในการดำเนินงานจาก
+              <a href="https://www.freiheit.org/" target="_blank">
+                มูลนิธิฟรีดริช เนามัน Friedrich Naumann
+              </a>{' '}
               ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล ออกแบบ พัฒนาเว็บไซต์ ประสานงาน บริหารจัดการ ตลอดจนการจัด Meetup
               เพื่อดำเนินโครงการ
             </p>
@@ -190,14 +216,25 @@ const About = () => {
           <div className="sub-wrapper">
             <p className="wv-b4 wv-font-baijamjuri wv-font-black">พาร์ทเนอร์</p>
             <ul>
-              <li className="wv-b4 wv-font-baijamjuri">มูลนิธิฟรีดริช เนามัน Friedrich Naumann </li>
-              <li className="wv-b4 wv-font-baijamjuri">Saturday School Foundation </li>
-              <li className="wv-b4 wv-font-baijamjuri">InsKru </li>
+              <li className="wv-b4 wv-font-baijamjuri">
+                <a href="https://www.freiheit.org/" target="_blank">
+                  มูลนิธิฟรีดริช เนามัน Friedrich Naumann
+                </a>{' '}
+              </li>
+              <li className="wv-b4 wv-font-baijamjuri">
+                <a href="https://www.saturday-school.org/" target="_blank">
+                  Saturday School Foundation
+                </a>{' '}
+              </li>
+              <li className="wv-b4 wv-font-baijamjuri">
+                <a href="https://inskru.com/" target="_blank">
+                  InsKru
+                </a>{' '}
+              </li>
+              <img className="band-logo" src={`${prefix}/FNF-logo.jpg`} alt="friedrich-logo" />
+              <img className="band-logo" src={`${prefix}/sat-school.png`} alt="saturday-logo" />
+              <img className="band-logo" src={`${prefix}/InsKru-logo.jpg`} alt="inskeu-logo" />
             </ul>
-          </div>
-          <div className="sub-wrapper">
-            <p className="wv-b4 wv-font-baijamjuri wv-font-black">ขอขอบคุณผู้ให้ข้อมูล</p>
-            <p className="wv-b4 wv-font-baijamjuri">คุณแบม จากนักเรียนเลว</p>
           </div>
         </div>
         <div className="button-group">

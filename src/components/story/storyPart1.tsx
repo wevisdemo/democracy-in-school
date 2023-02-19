@@ -189,7 +189,7 @@ const StoryPart1 = () => {
           <img src={`${prefix}/part_2/illus_01.01.png`} alt="illus_01" className="img-left" />
           <img src={`${prefix}/part_2/illus_01.02.png`} alt="illus_02" className="img-right" />
           <IntroTextWrap>
-            <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human rights)</h6>
+            <h6 className="wv-h6 wv-font-kondolar wv-font-semibold color-yellow sect-1">สิทธิมนุษยชน (Human Rights)</h6>
             <p className="wv-b2 font-plexsans">
               ทุกคนเกิดมามีชีวิต ศักดิ์ศรี มีความอิสระ อย่างเท่าเทียมกัน แสดงความคิดได้และไม่เป็นทาสใคร
             </p>
