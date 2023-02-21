@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <>
-      <Metadata imageSrc={`${prefix}/og/og-default.jpg`} description={ogDescription} />
+      <Metadata imageSrc={`${prefix}/og/og-default.png`} description={ogDescription} />
       <MainComponent>
         <Navbar />
         <Welcome />

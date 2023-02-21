@@ -17,11 +17,12 @@ const Metadata: FunctionComponent<MetadataProps> = ({ title, imageSrc, descripti
 
   return (
     <Head>
+      <link rel="icon" href={`${prefix}/favicon.png`} />
       <title>{title || fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={imageSrc || `${prefix}/og/og-default.jpg`} />
+      <meta property="og:image" content={imageSrc || `${prefix}/og/og-default.png`} />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
   )

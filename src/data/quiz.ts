@@ -94,7 +94,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'ระเบียบทรงผม'
     },
-    og_image_src: `${prefix}/og/og-6.jpg`
+    og_image_src: `${prefix}/og/og-6.png`
   },
   {
     id: 2,
@@ -178,7 +178,7 @@ export const quiz_list: IQuiz[] = [
       question: ['การแสดงออกใดบ้าง ที่มักจะกลายเป็นต้นเหตุของความขัดแย้งของคนอายุต่างกันได้ และจะรับมืออย่างไร?'],
       shared_topic: 'ความคิดเห็นของบุคคลที่อายุต่างกัน'
     },
-    og_image_src: `${prefix}/og/og-5.jpg`
+    og_image_src: `${prefix}/og/og-5.png`
   },
   {
     id: 3,
@@ -279,7 +279,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'การรวมกลุ่ม'
     },
-    og_image_src: `${prefix}/og/og-8.jpg`
+    og_image_src: `${prefix}/og/og-8.png`
   },
   {
     id: 4,
@@ -366,7 +366,7 @@ export const quiz_list: IQuiz[] = [
       question: ['คิดเห็นอย่างไร? กับการแสดงออกทางความคิดเห็นที่แตกต่างกัน จนเกิดการตั้งถามการปฏิบัติเดิมที่มีมานาน'],
       shared_topic: 'การแต่งกายชุดไปรเวทหรือชุดนักเรียน'
     },
-    og_image_src: `${prefix}/og/og-4.jpg`
+    og_image_src: `${prefix}/og/og-4.png`
   },
   {
     id: 5,
@@ -448,7 +448,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'ห้องน้ำของทุกคน ทุกเพศเข้าได้'
     },
-    og_image_src: `${prefix}/og/og-3.jpg`
+    og_image_src: `${prefix}/og/og-3.png`
   },
   {
     id: 6,
@@ -543,7 +543,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'การแต่งตัว'
     },
-    og_image_src: `${prefix}/og/og-2.jpg`
+    og_image_src: `${prefix}/og/og-2.png`
   },
   {
     id: 7,
@@ -627,7 +627,7 @@ export const quiz_list: IQuiz[] = [
       question: ['คิดอย่างไรกับคำว่า การเมืองเป็นเรื่องของทุกคน?'],
       shared_topic: 'การแสดงออกทางการเมือง'
     },
-    og_image_src: `${prefix}/og/og-7.jpg`
+    og_image_src: `${prefix}/og/og-7.png`
   },
   {
     id: 8,
@@ -714,7 +714,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'ใช้พื้นที่จัดการชุมนุมภายในโรงเรียน'
     },
-    og_image_src: `${prefix}/og/og-10.jpg`
+    og_image_src: `${prefix}/og/og-10png`
   },
   {
     id: 9,
@@ -802,7 +802,7 @@ export const quiz_list: IQuiz[] = [
       ],
       shared_topic: 'เมื่อคุณวิพากษ์วิจารณ์การทำงานของรัฐบาล'
     },
-    og_image_src: `${prefix}/og/og-9.jpg`
+    og_image_src: `${prefix}/og/og-9.png`
   },
   {
     id: 10,
@@ -886,6 +886,6 @@ export const quiz_list: IQuiz[] = [
       question: ['ยังมีวัฒนธรรมหรือประเพณีอะไรอีกบ้าง ที่ยังคงปฏิบัติต่อเนื่อง และควรได้รับการปรับปรุง?'],
       shared_topic: 'พิธีไหว้ครู'
     },
-    og_image_src: `${prefix}/og/og-1.jpg`
+    og_image_src: `${prefix}/og/og-1.png`
   }
 ]

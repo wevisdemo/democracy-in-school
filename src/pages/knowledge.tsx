@@ -9,7 +9,7 @@ import { prefix } from 'utils'
 function KnowledgePage() {
   return (
     <>
-      <Metadata imageSrc={`${prefix}/og/og-default.jpg`} />
+      <Metadata imageSrc={`${prefix}/og/og-default.png`} />
       <Layout>
         <WelcomeSelector expand action="expand" type="story" />
         <Story />
