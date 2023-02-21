@@ -16,6 +16,8 @@ const ClassroomGuideContainer = styled.div`
 
   .icon {
     width: 40px;
+    border: 1px solid #c9c9c9;
+    border-radius: 100%;
 
     @media (max-width: 420px) {
       width: 20px;
