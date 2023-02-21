@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import { prefix } from 'utils'
 
@@ -35,14 +36,25 @@ interface PropsType {
 }
 
 const ClassroomGuide = ({ onClick, light }: PropsType) => {
+  const [onHover, setOnHover] = useState(false)
   return (
     <ClassroomGuideContainer>
-      <p className={`text font-plexsans ${light && 'color-white'}`}>
+      <p
+        className={`text font-plexsans ${light && 'color-white'}`}
+        style={{ visibility: onHover ? 'unset' : 'hidden' }}
+      >
         ขั้นตอนการเล่น
         <br />
         ในห้องเรียน
       </p>
-      <img className="icon" src={`${prefix}/part_3/icon_info.svg`} alt="icon_info" onClick={onClick} />
+      <img
+        onMouseEnter={() => setOnHover(true)}
+        onMouseLeave={() => setOnHover(false)}
+        className="icon"
+        src={`${prefix}/part_3/icon_info.svg`}
+        alt="icon_info"
+        onClick={onClick}
+      />
     </ClassroomGuideContainer>
   )
 }
