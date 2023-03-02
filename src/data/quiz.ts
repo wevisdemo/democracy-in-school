@@ -514,7 +514,7 @@ export const quiz_list: IQuiz[] = [
           text: '<span class="color-yellow">ทำให้ความมั่นใจที่สะสมมาพังทลายลง ความรู้สึกที่สดใสถูกแทนที่ด้วยความกังวล แถมอดไม่ได้ที่จะเช็คตัวเองในกระจกตลอดทั้งวัน ซึ่งหลายคนเคยเจอเหตุการณ์เหล่านี้มา</span>'
         }
       ],
-      question: 'คิดว่าเรื่องนี้ปัญหาคืออะไร? และควรจะถูกปรับไปในทิศทางใด?'
+      question: 'คิดว่าปัญหาของเรื่องนี้คืออะไร? และควรจะถูกปรับไปในทิศทางใด?'
     },
     reminder: {
       topic: 'การแต่งตัว',
@@ -735,14 +735,14 @@ export const quiz_list: IQuiz[] = [
         id: 2,
         label: 'B',
         image_src: `${prefix}/part_3/frame_choose/illus.09.B.png`,
-        text: 'กดไลค์กดหัวใจให้อย่างเดียว',
+        text: 'กดไลก์กดหัวใจให้อย่างเดียว',
         background_color: '#aa85b5'
       },
       {
         id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.09.C.png`,
-        text: 'กดไลค์กดหัวใจและแชร์ต่อเลย เรื่องนี้โดนใจต้องขยาย',
+        text: 'กดไลก์กดหัวใจและแชร์ต่อเลย เรื่องนี้โดนใจต้องขยาย',
         background_color: '#d0da81'
       },
       {
@@ -768,7 +768,7 @@ export const quiz_list: IQuiz[] = [
       }
     ],
     event: {
-      title: 'นี่คือเหตุการณ์ที่เกิดขึ้นเกี่ยวกับเมื่อคุณวิพากษ์วิจารณ์การทำงานของรัฐบาล',
+      title: 'นี่คือเหตุการณ์ที่เกิดขึ้นเมื่อคุณวิพากษ์วิจารณ์การทำงานของรัฐบาล',
       sub_title:
         'เคยมีคนจากรัฐบาลดำเนินการตรวจสอบ ดำเนินคดีกับคนที่โพสต์วิพากษ์วิจารณ์การทำงานของรัฐบาล โดยเฉพาะดารา นักแสดง ที่ออกมาแสดงออกทางการเมือง (Call out)',
       contents: [
@@ -815,7 +815,7 @@ export const quiz_list: IQuiz[] = [
         id: 1,
         label: 'A',
         image_src: `${prefix}/part_3/frame_choose/illus.10.A.png`,
-        text: 'เป็นกิจกรรมน่ารัก ได้แสดงความเคารพครูที่ได้สอนเรามา',
+        text: 'กลับไปใช้วัสดุทำพานแบบเดิมมากขึ้น เช่น หญ้าแพรก ดอกเข็ม',
         background_color: '#5abde4'
       },
       {
@@ -829,21 +829,21 @@ export const quiz_list: IQuiz[] = [
         id: 3,
         label: 'C',
         image_src: `${prefix}/part_3/frame_choose/illus.10.C.png`,
-        text: 'กิจกรรมควรยกเลิกการหมอบคลานนำพานไปไหว้ครู',
+        text: 'รักษาไว้กับการหมอบคลานนำพานไปไหว้ครู',
         background_color: '#d0da81'
       },
       {
         id: 4,
         label: 'D',
         image_src: `${prefix}/part_3/frame_choose/illus.10.D.png`,
-        text: 'เปลี่ยนเป็นหมอบดอกไม้ให้ครูคนใดก็ได้ตามใจนักเรียน',
+        text: 'ควรยกเลิกการหมอบคลานนำพานไปไหว้ครู',
         background_color: '#fceb88'
       },
       {
         id: 5,
         label: 'E',
         image_src: `${prefix}/part_3/frame_choose/illus.10.E.png`,
-        text: 'ไม่ต้องมีกิจกรรมเลยดีกว่า เพราะวัฒนธรรมล้าสมัยไปแล้ว ',
+        text: 'เปลี่ยนเป็นมอบดอกไม้ให้ครูคนใดก็ได้ตามใจนักเรียน',
         background_color: '#f2a25c'
       },
       {

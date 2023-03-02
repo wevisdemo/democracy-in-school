@@ -59,19 +59,17 @@ const StoryPart4 = () => {
     <StroyPart4Container>
       <div className="background" />
       <div className="wrapper">
-        <p className="text text-1 wv-h6 wv-font-kondolar">
+        <p className="text text-1 color-blue wv-h6 wv-font-kondolar">
           สิทธิเสรีภาพของทุกคนควรได้รับความเคารพและมีกติการองรับอย่างชัดเจน
         </p>
-        <p className="text text-2 wv-h6 wv-font-kondolar">ไม่ควรที่รัฐหรือบุคคลจะละเมิดสิทธิเสรีภาพคนอื่น</p>
-        <p className="text text-2 color-blue wv-h6 wv-font-kondolar wv-font-bold">
+        <p className="text text-2 color-blue wv-h6 wv-font-kondolar">ไม่ควรที่รัฐหรือบุคคลจะละเมิดสิทธิเสรีภาพคนอื่น</p>
+        <p className="text text-2 color-blue wv-h6 wv-font-kondolar">
           แต่ในความเป็นจริงความคิดเห็นที่แตกต่าง ก็ทำให้มีการใช้สิทธิเสรีภาพ ที่ไปละเมิดหรือทำร้ายคนอื่นอยู่
         </p>
-        <p className="text text-2 color-blue wv-h6 wv-font-kondolar wv-font-bold">
+        <p className="text text-2 wv-h6 wv-font-kondolar wv-font-bold">
           แล้วเราจะหาจุดร่วมของสิทธิเสรีภาพบนความเห็นต่างได้อย่างไร?
         </p>
-        <p className="text text-2 color-blue wv-h6 wv-font-kondolar wv-font-bold">
-          มาชวนคิดและทำความเข้าใจ ผ่านแบบทดสอบนี้กัน
-        </p>
+        <p className="text text-2 wv-h6 wv-font-kondolar wv-font-bold">มาชวนคิดและทำความเข้าใจ ผ่านแบบทดสอบนี้กัน</p>
         <div className="sharer font-plexsans">
           <WvSharer url={`${process.env.NEXT_PUBLIC_BASE_URL}/knowledge`} />
         </div>

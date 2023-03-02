@@ -33,9 +33,9 @@ const ContentContainer = styled.div<{ index: number }>`
     max-width: 212px;
     position: absolute;
     // left: ${(props) => (props.index % 2 == 0 ? '500px' : '200px')};
-    left: ${(props) => (props.index % 2 == 0 ? '55%' : 'unset')};
-    right: ${(props) => (props.index % 2 == 0 ? 'unset' : '55%')};
-    top: 30%;
+    left: ${(props) => (props.index % 2 == 0 ? '52%' : 'unset')};
+    right: ${(props) => (props.index % 2 == 0 ? 'unset' : '52%')};
+    top: 20%;
     transform: ${(props) =>
       props.index % 2 == 0 ? 'rotate(5deg) translate(-50%, -50%)' : 'scaleX(-1) rotate(5deg) translate(-50%, -50%)'};
 
