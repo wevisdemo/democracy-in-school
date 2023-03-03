@@ -24,6 +24,11 @@ const Metadata: FunctionComponent<MetadataProps> = ({ title, imageSrc, descripti
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageSrc || `${prefix}/og/og-default.png`} />
       <meta name="twitter:card" content="summary_large_image" />
+      <script
+        defer
+        data-domain="wevis.info/democracyinschool"
+        src="https://analytics.punchup.world/js/plausible.js"
+      ></script>
     </Head>
   )
 }

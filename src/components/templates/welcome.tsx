@@ -48,6 +48,18 @@ const cookieOptions = ['Functionality', 'Performance', 'Advertising']
 function onCookieAccept(option: any) {
   if (option['Performance']) {
     // Initialize or enable analytics
+    ;(function (c: any, l: any, a: any, r: any, i: any) {
+      c[a] =
+        c[a] ||
+        function () {
+          ;(c[a].q = c[a].q || []).push(arguments)
+        }
+      let t = l.createElement(r)
+      t.async = 1
+      t.src = 'https://www.clarity.ms/tag/' + i
+      let y = l.getElementsByTagName(r)[0]
+      y.parentNode.insertBefore(t, y)
+    })(window, document, 'clarity', 'script', 'g28mkr4zqc')
   }
 }
 
