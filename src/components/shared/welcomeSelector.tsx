@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Image from 'next/image'
 import ContinueChip from 'components/shared/continueChip'
 import { prefix } from 'utils'
 

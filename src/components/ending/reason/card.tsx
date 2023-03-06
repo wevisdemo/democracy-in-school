@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Image from 'next/image'
 import { IReason } from 'types/ending'
 
 const ReasonCardContainer = styled.div`

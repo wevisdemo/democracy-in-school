@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import Image from 'next/image'
-import Story from 'components/story/story'
-import { Dispatch, SetStateAction, useState } from 'react'
+const Story = React.lazy(() => import('components/story/story'))
+import { Suspense, useState } from 'react'
 import Quiz from 'components/quiz/quiz'
 import { prefix } from 'utils'
 import WelcomeSelector from 'components/shared/welcomeSelector'
 import QuizSelector from 'components/quiz/selector/quizSelector'
 import { quiz_list } from 'data/quiz'
+import React from 'react'
 
 const DecisionComponent = styled.div``
 
@@ -67,7 +67,6 @@ const RightDecisionWrapper = styled.div<{ expand: string }>`
 const Decision = () => {
   const [expand, setExpand] = useState<string>('center')
 
-  // TODO: can refactor this ?
   return (
     <DecisionComponent>
       <Header>
@@ -109,8 +108,10 @@ const Decision = () => {
         </div>
         {expand === 'left' && (
           <>
-            <Story />
-            <Quiz expand={true} action={'expand'} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Story />
+              <Quiz expand={true} action={'expand'} />
+            </Suspense>
           </>
         )}
         {expand === 'right' && <QuizSelector quizList={quiz_list} />}

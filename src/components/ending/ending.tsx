@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Reason from './reason/reason'
 import { ending as endingData } from 'data/ending'
-import Image from 'next/image'
 import EndingBoard from './board'
 import EndingShare from './share'
 import ContinueChip from 'components/shared/continueChip'

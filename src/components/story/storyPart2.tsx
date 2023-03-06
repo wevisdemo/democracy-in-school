@@ -115,12 +115,8 @@ const StoryPart2 = () => {
     }
   }, [])
 
-  const onClickPage = () => {
-    setLottieIndex((curr) => (curr + 1) % lottieList.length)
-  }
-
   return (
-    <StoryPart2Container onClick={onClickPage}>
+    <StoryPart2Container>
       <div className="fixed-content" ref={myRef}>
         <h5 className="title wv-h5 wv-font-kondolar">ยกตัวอย่างเช่น</h5>
         <Lottie className="lottie" animationData={lottieList[lottieIndex]} autoplay={true} loop={true} />

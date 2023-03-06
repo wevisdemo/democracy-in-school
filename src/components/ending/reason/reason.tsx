@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { IReason } from 'types/ending'
 import ReasonCard from './card'
-import Image from 'next/image'
 
 const Container = styled.div`
   width: 100%;
@@ -49,8 +48,6 @@ const CardWrapper = styled.div`
 interface PropsType {
   reasons: IReason[]
 }
-
-// TODO: slider comp
 
 const Reason = ({ reasons }: PropsType) => {
   return (

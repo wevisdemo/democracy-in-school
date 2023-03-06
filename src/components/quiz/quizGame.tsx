@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 import { IAnswer, IChoiceQuiz, IQuiz } from 'types/quiz'
-import Image from 'next/image'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import QuizChoiceCard from './quizChoiceCard'
 import ClassroomGuide from 'components/shared/classroomGuide'
-import { useRouter } from 'next/router'
 import { prefix } from 'utils'
 import { IAnswerDB } from 'types/response'
 
@@ -22,7 +20,8 @@ const Container = styled.div`
       top: -100px;
     }
     @media (max-width: 420px) {
-      top: -30px;
+      top: -20px;
+      right: -20px;
     }
   }
 `

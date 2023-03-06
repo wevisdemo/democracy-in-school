@@ -16,7 +16,7 @@ const SectionDiv = styled.div`
     opacity: 0.2;
     position: absolute;
     width: 300%;
-    height: 100%;
+    height: 99%;
     left: -100%;
   }
 

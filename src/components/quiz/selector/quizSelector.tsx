@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Image from 'next/image'
 import QuizSelectorCard from './quizSelectorCard'
 import { IQuiz } from 'types/quiz'
 import { prefix } from 'utils'

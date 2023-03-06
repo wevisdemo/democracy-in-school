@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { IChoiceQuiz, IQuiz } from 'types/quiz'
-import Image from 'next/image'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { IChoiceQuiz } from 'types/quiz'
+import { useEffect, useState } from 'react'
 
 const ChoiceContainer = styled.div<{ choice: IChoiceQuiz; reveal: boolean; percent: number; isAns: boolean }>`
   max-width: 184px;

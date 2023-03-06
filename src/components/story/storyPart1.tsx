@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import PointingButton from 'components/shared/pointerButton'
 import { prefix } from 'utils'
 
 const StoryPart1Container = styled.div`

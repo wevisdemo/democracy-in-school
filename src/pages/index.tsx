@@ -1,10 +1,11 @@
 import Navbar from 'components/navbar'
-import Decision from 'components/templates/decision'
-import Intro from 'components/templates/intro'
+const Intro = React.lazy(() => import('components/templates/intro'))
+const Decision = React.lazy(() => import('components/templates/decision'))
 import Welcome from 'components/templates/welcome'
 import styled from 'styled-components'
 import { prefix } from 'utils'
 import Metadata from 'components/metadata'
+import React from 'react'
 
 const MainComponent = styled.div`
   width: 100vw;

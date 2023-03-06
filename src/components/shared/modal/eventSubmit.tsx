@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Dispatch, SetStateAction } from 'react'
 import { prefix } from 'utils'
 
 const EventSubmitModalContainer = styled.div<{ show: boolean }>`

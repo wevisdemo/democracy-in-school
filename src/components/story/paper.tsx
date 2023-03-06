@@ -36,7 +36,6 @@ const PaperContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      // max-width: 422px;
       margin-left: 56px;
 
       p:not(:first-child) {

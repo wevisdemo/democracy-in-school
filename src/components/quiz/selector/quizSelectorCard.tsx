@@ -20,14 +20,17 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
     @media (min-width: 421px) {
       .topic-image-container {
         background-color: #ffeb78;
+
+        .topic-image {
+          max-width: 240px;
+          max-height: 240px;
+          width: 240px;
+          height: 240px;
+          left: -26px;
+          top: -26px;
+        }
       }
 
-      .topic-image {
-        width: 240px;
-        height: 240px;
-        left: -26px;
-        top: -26px;
-      }
     }
   }`}
 
@@ -58,8 +61,8 @@ const QuizSelectorCardContainer = styled.div<{ selected: boolean }>`
 
     .topic-image {
       position: relative;
-      max-width: 184px;
-      max-height: 184px;
+      width: 184px;
+      height: 184px;
       opacity: ${(prop) => (prop.selected ? '0.3' : '1')};
       transition: all 1s;
       left: 0px;

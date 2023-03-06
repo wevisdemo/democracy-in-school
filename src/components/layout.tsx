@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { prefix } from 'utils'
@@ -18,19 +17,8 @@ interface PropsType {
 
 export default function Layout({ children, onClick }: PropsType) {
   return (
-    // <motion.div
-    //   initial={{ y: 300, opacity: 0 }}
-    //   animate={{ y: 0, opacity: 1 }}
-    //   exit={{ y: 300, opacity: 0 }}
-    //   transition={{
-    //     type: 'spring',
-    //     stiffness: 260,
-    //     damping: 20
-    //   }}
-    // >
     <MainComponent className="main-component" onClick={onClick}>
       {children}
     </MainComponent>
-    // </motion.div>
   )
 }

@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { IDropdownOption } from 'types/shared'
 import { prefix } from 'utils'

@@ -145,7 +145,6 @@ const PersonalModalContainer = styled.div<{ canSubmit: boolean; show: boolean }>
     }
   }
 `
-// TODO: create modal component and spare slot to embed main component
 
 const PersonalMain = ({ userInfo, setUserInfo }: SubPropsType) => (
   <>

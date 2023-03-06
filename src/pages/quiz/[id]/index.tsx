@@ -2,11 +2,10 @@ import QuizGame from 'components/quiz/quizGame'
 import QuizReminder from 'components/quiz/quizReminder'
 import QuizEvent from 'components/quiz/quizEvent'
 import { quiz_list } from 'data/quiz'
-import { useRouter } from 'next/router'
 import Layout from 'components/layout'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { IAnswer, IQuiz } from 'types/quiz'
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
+import { IAnswer } from 'types/quiz'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import GameStepModal from 'components/shared/modal/gameStepModal'
 import { guideCard } from 'data/guide'
 import TextfieldModal from 'components/shared/modal/textfiled'
@@ -16,10 +15,9 @@ import { AppContext } from 'store'
 import PersonalModal from 'components/shared/modal/personal'
 import Metadata from 'components/metadata'
 import { IUserInformation } from 'store/userInfo'
-import axios, { AxiosRequestConfig } from 'axios'
-import { IAnswerDB, IAnswerGetResponse, IAnswerPostResponse, IPostUserInfoResponse } from 'types/response'
-import { IPostAnswerBody, IPostOpinionBody, IPostSchoolInfoBody, IPostUserInfoBody } from 'types/request'
-import { convertUserInfoToPerson, convertUserInfoToSchool, prefix } from 'utils'
+import { IAnswerDB, IAnswerPostResponse } from 'types/response'
+import { IPostAnswerBody, IPostOpinionBody } from 'types/request'
+import { convertUserInfoToPerson, convertUserInfoToSchool } from 'utils'
 import {
   getQuizAnswerApi,
   postOpinionAnswerApi,
@@ -76,7 +74,6 @@ function Quiz({ id }: PropsType) {
     const handleScroll = () => {
       if (
         eventRef.current &&
-        // eventRef.current?.offsetTop < window.scrollY + 10 &&
         eventRef.current?.offsetTop - 10 < window.scrollY &&
         !localStorage['first-time-guide-2']
       ) {
@@ -85,7 +82,6 @@ function Quiz({ id }: PropsType) {
       }
       if (
         reminderRef.current &&
-        // reminderRef.current?.offsetTop < window.scrollY + 10 &&
         reminderRef.current?.offsetTop - 10 < window.scrollY &&
         !localStorage['first-time-guide-3']
       ) {
@@ -94,7 +90,6 @@ function Quiz({ id }: PropsType) {
       }
       if (
         endingRef.current &&
-        // endingRef.current?.offsetTop < window.scrollY + 10 &&
         endingRef.current?.offsetTop - 10 < window.scrollY &&
         !localStorage.getItem('first-time-userinfo') &&
         !appContext.userInfo.state.has_set
@@ -238,8 +233,6 @@ function Quiz({ id }: PropsType) {
     appContext.userInfo.set(userInfoData)
     localStorage['user-info'] = JSON.stringify(userInfoData)
   }
-
-  // TODO: close all modal
 
   const gameStep = guideCard[0]
   const gameStep1 = guideCard[1]
